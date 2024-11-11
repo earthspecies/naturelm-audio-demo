@@ -161,7 +161,7 @@
         <section id="abstract" class="mb-4 p-4 bg-white rounded shadow">
             <h2>Abstract</h2>
             <p>
-                Large language models (LLMs) prompted with text and audio represent the state of the art in various auditory tasks, including speech, music, and general audio, showing emergent abilities on unseen tasks. However, these capabilities have yet to be fully demonstrated in bioacoustics tasks, such as detecting animal vocalizations in large recordings, classifying rare and endangered species, and labeling context and behavior—tasks that are crucial for conservation, biodiversity monitoring, and the study of animal behavior. In this work, we present NatureLM-audio, the first audio-language foundation model specifically designed for bioacoustics. Our carefully curated training dataset comprises text-audio pairs spanning a diverse range of bioacoustics, speech, and music data, designed to address the challenges posed by limited annotated datasets in the field. We demonstrate successful transfer of learned representations to unseen taxa and tasks, and our model shows promising in-context learning capabilities and generalization. Importantly, we test NatureLM-audio on a novel benchmark (BEANS-Zero) and it sets the new state of the art (SotA) on several bioacoustics tasks, including zero-shot classification of unseen species. To advance bioacoustics research, we also open-source the code for generating training and benchmark data, as well as for training the model.
+                Large language models (LLMs) prompted with text and audio represent the state of the art in various auditory tasks, including speech, music, and general audio, showing emergent abilities on unseen tasks. However, these capabilities have yet to be fully demonstrated in bioacoustics tasks, such as detecting animal vocalizations in large recordings, classifying rare and endangered species, and labeling context and behavior—tasks that are crucial for conservation, biodiversity monitoring, and the study of animal behavior. In this work, we present NatureLM-audio, the first audio-language foundation model specifically designed for bioacoustics. Our carefully curated training dataset comprises text-audio pairs spanning a diverse range of bioacoustics, speech, and music data, designed to address the challenges posed by limited annotated datasets in the field. We demonstrate successful transfer of learned representations from music and speech to bioacoustics, and our model shows promising generalization to unseen taxa and tasks. Importantly, we test NatureLM-audio on a novel benchmark (BEANS-Zero) and it sets the new state of the art (SotA) on several bioacoustics tasks, including zero-shot classification of unseen species. To advance bioacoustics research, we also open-source the code for generating training and benchmark data, as well as for training the model.
             </p>
             <!-- Overview figure -->
             <h2 class="h3">Overview</h2>
@@ -198,29 +198,506 @@
                 </tr>
             </thead>
             <tbody>
+
+                <script type="module">
+                    import WaveSurfer from 'https://cdn.jsdelivr.net/npm/wavesurfer.js@7/dist/wavesurfer.esm.js'
+
+                    const waveConfigs = [
+                        {container: '#esc50_0', url: 'audio/5-9032-A-0.wav'},
+                        {container: '#esc50_1', url: 'audio/5-214759-B-5.wav'},
+                        {container: '#watkins_0', url: 'audio/63019012.wav'},
+                        {container: '#watkins_1', url: 'audio/72002009.wav'},
+                        {container: '#watkins_2', url: 'audio/94006003.wav'},
+                        {container: '#cbi_0', url: 'audio/XC144957.wav'},
+                        {container: '#cbi_1', url: 'audio/XC28267.wav'},
+                        {container: '#humbugdb_0', url: 'audio/220774.wav'},
+                        {container: '#humbugdb_1', url: 'audio/220037.wav'},
+                        {container: '#humbugdb_2', url: 'audio/3418.wav'},
+                        {container: '#dcase_0', url: 'audio/2015-09-21_06-00-00_unit05.099_048.wav'},
+                        {container: '#dcase_1', url: 'audio/a1.057_031.wav'},
+                        {container: '#dcase_2', url: 'audio/dcase_MK2.037_019.wav'},
+                        {container: '#enabirds_0', url: 'audio/Recording_1_Segment_33.004_026.wav'},
+                        {container: '#enabirds_1', url: 'audio/Recording_2_Segment_11.004_023.wav'},
+                        {container: '#enabirds_2', url: 'audio/Recording_4_Segment_26.004_034.wav'},
+                        {container: '#hiceas_0', url: 'audio/1705_20171121_172602_998_002.wav'},
+                        {container: '#hiceas_1', url: 'audio/1705_20171118_034136_019_008.wav'},
+                        {container: '#hiceas_2', url: 'audio/1705_20171201_010445_428_008.wav'},
+                        {container: '#rfcx_0', url: 'audio/cb5ddad47_004.wav'},
+                        {container: '#rfcx_1', url: 'audio/51319c540_000.wav'},
+                        {container: '#rfcx_2', url: 'audio/00834f88e_000.wav'},
+                        {container: '#hainan_gibbons_0', url: 'audio/HGSM3D_0+1_20160429_051600.333_026.wav'},
+                        {container: '#hainan_gibbons_1', url: 'audio/HGSM3D_0+1_20160429_051600.123_015.wav'},
+                        {container: '#hainan_gibbons_2', url: 'audio/HGSM3SOL_0+1_20160405_053400.345_005.wav'},
+                        {container: '#unseen_cmn_0', url: 'audio/379SPGRB1011121111MARA2.flac'},
+                        {container: '#unseen_cmn_1', url: 'audio/XC291731.flac'},
+                        {container: '#unseen_cmn_2', url: 'audio/XC426371.flac'},
+                        {container: '#unseen_sci_0', url: 'audio/XC429913.flac'},
+                        {container: '#unseen_sci_1', url: 'audio/XC321661.flac'},
+                        {container: '#unseen_sci_2', url: 'audio/99469.flac'},
+                        {container: '#lifestage_0', url: 'audio/XC746757.flac'},
+                        {container: '#lifestage_1', url: 'audio/XC530260.flac'},
+                        {container: '#lifestage_2', url: 'audio/XC588131.flac'},
+                        {container: '#call_type_0', url: 'audio/UNID0697.flac'},
+                        {container: '#call_type_1', url: 'audio/Liocichla_phoenicea_Vietnam-97.1b-FRL_VN_13_601.3-658.5_1_S.flac'},
+                        {container: '#call_type_2', url: 'audio/XC646657.flac'},
+                        {container: '#captioning_0', url: 'audio/154912.flac'},
+                        {container: '#captioning_1', url: 'audio/7743.flac'},
+                        {container: '#zf_nbirds_0', url: 'audio/contact_YelOra2575_1143.wav'},
+                        {container: '#zf_nbirds_1', url: 'audio/contact_WhiGra0114LblBlu1630LblRas1800BluRas07dd_2134.wav'},
+                        {container: '#zf_nbirds_2', url: 'audio/contact_WhiBlu4917LblBla4548BlaBla0506_2203.wav'},
+                    ];
+
+                const waveSurfers = waveConfigs.map(config =>
+                    WaveSurfer.create({
+                        mediaControls: true,
+                        height: 64,
+                        container: config.container,
+                        waveColor: '#00738B',
+                        progressColor: '#000000',
+                        url: config.url,
+                    })
+                );
+                </script>
+
+                <tr>
+                    <td>Dataset: <b>esc50</b></td>
+                </tr>
+
                 <tr>
                     <td>
-                        <audio controls>
-                            <source src="audio_example_1.mp3" type="audio/mpeg">
-                            Your browser does not support the audio element.
-                        </audio>
-                        <p>Prompt: "Identify the bird species"</p>
+                        <div id="esc50_0"></div>
+                        <p>Prompt: <Audio><AudioHere></Audio> The objective is to classify the sound into one of the following categories: dog, rooster, pig, cow, frog, cat, hen, insects, sheep, crow, rain, sea_waves, crackling_fire, crickets, chirping_birds, water_drops, wind, pouring_water, toilet_flush, thunderstorm, crying_baby, sneezing, clapping, breathing, coughing, footsteps, laughing, brushing_teeth, snoring, drinking_sipping, door_wood_knock, mouse_click, keyboard_typing, door_wood_creaks, can_opening, washing_machine, vacuum_cleaner, clock_alarm, clock_tick, glass_breaking, helicopter, chainsaw, siren, car_horn, engine, train, church_bells, airplane, fireworks, hand_saw</p>
                     </td>
-                    <td>The system predicts: <em>"American Robin"</em></td>
-                    <td>Gold label: <em>"American Robin"</em></td>
+                    <td><em>dog</em></td>
+                    <td><em>dog</em></td>
                 </tr>
+        
                 <tr>
                     <td>
-                        <audio controls>
-                            <source src="audio_example_2.mp3" type="audio/mpeg">
-                            Your browser does not support the audio element.
-                        </audio>
-                        <p>Prompt: "Classify the background sounds"</p>
+                        <div id="esc50_1"></div>
+                        <p>Prompt: <Audio><AudioHere></Audio> The objective is to classify the sound into one of the following categories: dog, rooster, pig, cow, frog, cat, hen, insects, sheep, crow, rain, sea_waves, crackling_fire, crickets, chirping_birds, water_drops, wind, pouring_water, toilet_flush, thunderstorm, crying_baby, sneezing, clapping, breathing, coughing, footsteps, laughing, brushing_teeth, snoring, drinking_sipping, door_wood_knock, mouse_click, keyboard_typing, door_wood_creaks, can_opening, washing_machine, vacuum_cleaner, clock_alarm, clock_tick, glass_breaking, helicopter, chainsaw, siren, car_horn, engine, train, church_bells, airplane, fireworks, hand_saw</p>
                     </td>
-                    <td>The system predicts: <em>"Rain and wind sounds"</em></td>
-                    <td>Gold label: <em>"Rain and wind sounds"</em></td>
+                    <td><em>crying_baby</em></td>
+                    <td><em>cat</em></td>
                 </tr>
-                <!-- Additional rows as needed -->
+        
+                <tr>
+                    <td>Dataset: <b>watkins</b></td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div id="watkins_0"></div>
+                        <p>Prompt: <Audio><AudioHere></Audio> What is the common name for the focal species in the audio?</p>
+                    </td>
+                    <td><em>Humpback Whale</em></td>
+                    <td><em>Humpback Whale</em></td>
+                </tr>
+        
+                <tr>
+                    <td>
+                        <div id="watkins_1"></div>
+                        <p>Prompt: <Audio><AudioHere></Audio> What is the common name for the focal species in the audio?</p>
+                    </td>
+                    <td><em>Walrus</em></td>
+                    <td><em>Walrus</em></td>
+                </tr>
+        
+                <tr>
+                    <td>
+                        <div id="watkins_2"></div>
+                        <p>Prompt: <Audio><AudioHere></Audio> What is the common name for the focal species in the audio?</p>
+                    </td>
+                    <td><em>Spinner Dolphin</em></td>
+                    <td><em>Pantropical Spotted Dolphin</em></td>
+                </tr>
+        
+                <tr>
+                    <td>Dataset: <b>cbi</b></td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div id="cbi_0"></div>
+                        <p>Prompt: <Audio><AudioHere></Audio> What is the common name for the focal species in the audio?</p>
+                    </td>
+                    <td><em>Greater Yellowlegs</em></td>
+                    <td><em>Greater Yellowlegs</em></td>
+                </tr>
+        
+                <tr>
+                    <td>
+                        <div id="cbi_1"></div>
+                        <p>Prompt: <Audio><AudioHere></Audio> What is the common name for the focal species in the audio?</p>
+                    </td>
+                    <td><em>Wood Duck</em></td>
+                    <td><em>Blue-winged Teal</em></td>
+                </tr>
+        
+                <tr>
+                    <td>Dataset: <b>humbugdb</b></td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div id="humbugdb_0"></div>
+                        <p>Prompt: <Audio><AudioHere></Audio> What is the common name for the focal species in the audio?</p>
+                    </td>
+                    <td><em>culex pipiens complex</em></td>
+                    <td><em>culex pipiens complex</em></td>
+                </tr>
+        
+                <tr>
+                    <td>
+                        <div id="humbugdb_1"></div>
+                        <p>Prompt: <Audio><AudioHere></Audio> What is the common name for the focal species in the audio?</p>
+                    </td>
+                    <td><em>others</em></td>
+                    <td><em>non-mosquito</em></td>
+                </tr>
+        
+                <tr>
+                    <td>
+                        <div id="humbugdb_2"></div>
+                        <p>Prompt: <Audio><AudioHere></Audio> What is the common name for the focal species in the audio?</p>
+                    </td>
+                    <td><em>non-mosquito</em></td>
+                    <td><em>an dirus</em></td>
+                </tr>
+        
+                <tr>
+                    <td>Dataset: <b>dcase</b></td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div id="dcase_0"></div>
+                        <p>Prompt: <Audio><AudioHere></Audio> Which of these, if any, are present in the audio recording? American Redstart, Bay-breasted Warbler, Black-throated Blue Warbler, Jackdaw call, Meerkat close call, Chipping Sparrow, Common Yellowthroat, Gray-cheeked Thrush, Hyena giggle, Hyena groan and moo, Ovenbird, Other Animal, Rose-breasted Grosbeak, Savannah Sparrow, Meerkat short note, Hyena squitter, Swainson's Thrush, White-throated Sparrow, None.</p>
+                    </td>
+                    <td><em>Gray-cheeked Thrush</em></td>
+                    <td><em>Gray-cheeked Thrush</em></td>
+                </tr>
+        
+                <tr>
+                    <td>
+                        <div id="dcase_1"></div>
+                        <p>Prompt: <Audio><AudioHere></Audio> Which of these, if any, are present in the audio recording? American Redstart, Bay-breasted Warbler, Black-throated Blue Warbler, Jackdaw call, Meerkat close call, Chipping Sparrow, Common Yellowthroat, Gray-cheeked Thrush, Hyena giggle, Hyena groan and moo, Ovenbird, Other Animal, Rose-breasted Grosbeak, Savannah Sparrow, Meerkat short note, Hyena squitter, Swainson's Thrush, White-throated Sparrow, None.</p>
+                    </td>
+                    <td><em>None</em></td>
+                    <td><em>None</em></td>
+                </tr>
+        
+                <tr>
+                    <td>
+                        <div id="dcase_2"></div>
+                        <p>Prompt: <Audio><AudioHere></Audio> Which of these, if any, are present in the audio recording? American Redstart, Bay-breasted Warbler, Black-throated Blue Warbler, Jackdaw call, Meerkat close call, Chipping Sparrow, Common Yellowthroat, Gray-cheeked Thrush, Hyena giggle, Hyena groan and moo, Ovenbird, Other Animal, Rose-breasted Grosbeak, Savannah Sparrow, Meerkat short note, Hyena squitter, Swainson's Thrush, White-throated Sparrow, None.</p>
+                    </td>
+                    <td><em>None</em></td>
+                    <td><em>Meerkat close call</em></td>
+                </tr>
+        
+                <tr>
+                    <td>Dataset: <b>enabirds</b></td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div id="enabirds_0"></div>
+                        <p>Prompt: <Audio><AudioHere></Audio> Which of these, if any, are present in the audio recording? American Crow, American Goldfinch, American Redstart, American Robin, Black-and-white Warbler, Black-capped Chickadee, Blue-gray Gnatcatcher, Brown-headed Cowbird, Blue-headed Vireo, Blue Jay, Black-throated Green Warbler, Black-throated Blue Warbler, Carolina Wren, Common Yellowthroat, Eastern Towhee, Hermit Thrush, Hooded Warbler, Kirtland's Warbler, Louisiana Waterthrush, Northern Cardinal, Northern Flicker, Ovenbird, Rose-breasted Grosbeak, Red-bellied Woodpecker, Ruby-crowned Kinglet, Red-eyed Vireo, Scarlet Tanager, Swainson's Thrush, Tufted Titmouse, White-breasted Nuthatch, Wild Turkey, Wood Thrush, Yellow-billed Cuckoo, Other Bird, None.</p>
+                    </td>
+                    <td><em>Black-throated Green Warbler</em></td>
+                    <td><em>Black-throated Green Warbler, Eastern Towhee</em></td>
+                </tr>
+        
+                <tr>
+                    <td>
+                        <div id="enabirds_1"></div>
+                        <p>Prompt: <Audio><AudioHere></Audio> Which of these, if any, are present in the audio recording? American Crow, American Goldfinch, American Redstart, American Robin, Black-and-white Warbler, Black-capped Chickadee, Blue-gray Gnatcatcher, Brown-headed Cowbird, Blue-headed Vireo, Blue Jay, Black-throated Green Warbler, Black-throated Blue Warbler, Carolina Wren, Common Yellowthroat, Eastern Towhee, Hermit Thrush, Hooded Warbler, Kirtland's Warbler, Louisiana Waterthrush, Northern Cardinal, Northern Flicker, Ovenbird, Rose-breasted Grosbeak, Red-bellied Woodpecker, Ruby-crowned Kinglet, Red-eyed Vireo, Scarlet Tanager, Swainson's Thrush, Tufted Titmouse, White-breasted Nuthatch, Wild Turkey, Wood Thrush, Yellow-billed Cuckoo, Other Bird, None.</p>
+                    </td>
+                    <td><em>None</em></td>
+                    <td><em>Kirtland's Warbler, American Crow</em></td>
+                </tr>
+        
+                <tr>
+                    <td>
+                        <div id="enabirds_2"></div>
+                        <p>Prompt: <Audio><AudioHere></Audio> Which of these, if any, are present in the audio recording? American Crow, American Goldfinch, American Redstart, American Robin, Black-and-white Warbler, Black-capped Chickadee, Blue-gray Gnatcatcher, Brown-headed Cowbird, Blue-headed Vireo, Blue Jay, Black-throated Green Warbler, Black-throated Blue Warbler, Carolina Wren, Common Yellowthroat, Eastern Towhee, Hermit Thrush, Hooded Warbler, Kirtland's Warbler, Louisiana Waterthrush, Northern Cardinal, Northern Flicker, Ovenbird, Rose-breasted Grosbeak, Red-bellied Woodpecker, Ruby-crowned Kinglet, Red-eyed Vireo, Scarlet Tanager, Swainson's Thrush, Tufted Titmouse, White-breasted Nuthatch, Wild Turkey, Wood Thrush, Yellow-billed Cuckoo, Other Bird, None.</p>
+                    </td>
+                    <td><em>Black-and-white Warbler</em></td>
+                    <td><em>None</em></td>
+                </tr>
+        
+                <tr>
+                    <td>Dataset: <b>hiceas</b></td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div id="hiceas_0"></div>
+                        <p>Prompt: <Audio><AudioHere></Audio> Which of these, if any, are present in the audio recording? Minke whale, None.</p>
+                    </td>
+                    <td><em>Minke whale</em></td>
+                    <td><em>Minke whale</em></td>
+                </tr>
+        
+                <tr>
+                    <td>
+                        <div id="hiceas_1"></div>
+                        <p>Prompt: <Audio><AudioHere></Audio> Which of these, if any, are present in the audio recording? Minke whale, None.</p>
+                    </td>
+                    <td><em>None</em></td>
+                    <td><em>None</em></td>
+                </tr>
+        
+                <tr>
+                    <td>
+                        <div id="hiceas_2"></div>
+                        <p>Prompt: <Audio><AudioHere></Audio> Which of these, if any, are present in the audio recording? Minke whale, None.</p>
+                    </td>
+                    <td><em>Minke whale</em></td>
+                    <td><em>None</em></td>
+                </tr>
+        
+                <tr>
+                    <td>Dataset: <b>rfcx</b></td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div id="rfcx_0"></div>
+                        <p>Prompt: <Audio><AudioHere></Audio> Which of these, if any, are present in the audio recording? Cricket coqui, Grass coqui, White-lipped Frog, Common coqui, Hedrick's coqui, Elfin woods warbler, Puerto Rican woodpecker, Bananaquit, Locust coqui, Pearly-eyed thrasher, Puerto Rican bullfinch, Black-whiskered vireo, Mountain Coqui, Puerto Rican owl, Bronze coqui, Scaly-naped pigeon, Red-eyed coqui, Red-legged thrush, Dwarf coqui, Puerto Rican lizard cuckoo, Puerto Rican tody, Melodius coqui, Puerto Rican tanager, Puerto Rican spindalis, None.</p>
+                    </td>
+                    <td><em>Red-legged thrush</em></td>
+                    <td><em>Red-legged thrush</em></td>
+                </tr>
+        
+                <tr>
+                    <td>
+                        <div id="rfcx_1"></div>
+                        <p>Prompt: <Audio><AudioHere></Audio> Which of these, if any, are present in the audio recording? Cricket coqui, Grass coqui, White-lipped Frog, Common coqui, Hedrick's coqui, Elfin woods warbler, Puerto Rican woodpecker, Bananaquit, Locust coqui, Pearly-eyed thrasher, Puerto Rican bullfinch, Black-whiskered vireo, Mountain Coqui, Puerto Rican owl, Bronze coqui, Scaly-naped pigeon, Red-eyed coqui, Red-legged thrush, Dwarf coqui, Puerto Rican lizard cuckoo, Puerto Rican tody, Melodius coqui, Puerto Rican tanager, Puerto Rican spindalis, None.</p>
+                    </td>
+                    <td><em>Puerto Rican bullfinch</em></td>
+                    <td><em>Puerto Rican bullfinch</em></td>
+                </tr>
+        
+                <tr>
+                    <td>
+                        <div id="rfcx_2"></div>
+                        <p>Prompt: <Audio><AudioHere></Audio> Which of these, if any, are present in the audio recording? Cricket coqui, Grass coqui, White-lipped Frog, Common coqui, Hedrick's coqui, Elfin woods warbler, Puerto Rican woodpecker, Bananaquit, Locust coqui, Pearly-eyed thrasher, Puerto Rican bullfinch, Black-whiskered vireo, Mountain Coqui, Puerto Rican owl, Bronze coqui, Scaly-naped pigeon, Red-eyed coqui, Red-legged thrush, Dwarf coqui, Puerto Rican lizard cuckoo, Puerto Rican tody, Melodius coqui, Puerto Rican tanager, Puerto Rican spindalis, None.</p>
+                    </td>
+                    <td><em>Common coqui</em></td>
+                    <td><em>None</em></td>
+                </tr>
+        
+                <tr>
+                    <td>Dataset: <b>hainan-gibbons</b></td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div id="hainan_gibbons_0"></div>
+                        <p>Prompt: <Audio><AudioHere></Audio> Which of these, if any, are present in the audio recording? Single pulse gibbon call, Multiple pulse gibbon call, Gibbon duet, None.</p>
+                    </td>
+                    <td><em>Multiple pulse gibbon call</em></td>
+                    <td><em>Multiple pulse gibbon call</em></td>
+                </tr>
+        
+                <tr>
+                    <td>
+                        <div id="hainan_gibbons_1"></div>
+                        <p>Prompt: <Audio><AudioHere></Audio> Which of these, if any, are present in the audio recording? Single pulse gibbon call, Multiple pulse gibbon call, Gibbon duet, None.</p>
+                    </td>
+                    <td><em>Single pulse gibbon call</em></td>
+                    <td><em>Multiple pulse gibbon call</em></td>
+                </tr>
+        
+                <tr>
+                    <td>
+                        <div id="hainan_gibbons_2"></div>
+                        <p>Prompt: <Audio><AudioHere></Audio> Which of these, if any, are present in the audio recording? Single pulse gibbon call, Multiple pulse gibbon call, Gibbon duet, None.</p>
+                    </td>
+                    <td><em>Gibbon duet</em></td>
+                    <td><em>None</em></td>
+                </tr>
+        
+                <tr>
+                    <td>Dataset: <b>unseen-cmn</b></td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div id="unseen_cmn_0"></div>
+                        <p>Prompt: <Audio><AudioHere></Audio> What is the common name for the focal species in the audio?</p>
+                    </td>
+                    <td><em>Spectacled Tetraka</em></td>
+                    <td><em>Spectacled Tetraka</em></td>
+                </tr>
+        
+                <tr>
+                    <td>
+                        <div id="unseen_cmn_1"></div>
+                        <p>Prompt: <Audio><AudioHere></Audio> What is the common name for the focal species in the audio?</p>
+                    </td>
+                    <td><em>Dusky White-eye</em></td>
+                    <td><em>Dusky White-eye</em></td>
+                </tr>
+        
+                <tr>
+                    <td>
+                        <div id="unseen_cmn_2"></div>
+                        <p>Prompt: <Audio><AudioHere></Audio> What is the common name for the focal species in the audio?</p>
+                    </td>
+                    <td><em>Pacific Robin</em></td>
+                    <td><em>Fire-tailed Sunbird</em></td>
+                </tr>
+        
+                <tr>
+                    <td>Dataset: <b>unseen-sci</b></td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div id="unseen_sci_0"></div>
+                        <p>Prompt: <Audio><AudioHere></Audio> What is the scientific name for the focal species in the audio?</p>
+                    </td>
+                    <td><em>tauraco fischeri</em></td>
+                    <td><em>tauraco fischeri</em></td>
+                </tr>
+        
+                <tr>
+                    <td>
+                        <div id="unseen_sci_1"></div>
+                        <p>Prompt: <Audio><AudioHere></Audio> What is the scientific name for the focal species in the audio?</p>
+                    </td>
+                    <td><em>larvivora cyane</em></td>
+                    <td><em>larvivora cyane</em></td>
+                </tr>
+        
+                <tr>
+                    <td>
+                        <div id="unseen_sci_2"></div>
+                        <p>Prompt: <Audio><AudioHere></Audio> What is the scientific name for the focal species in the audio?</p>
+                    </td>
+                    <td><em>Nisaetus kelaarti</em></td>
+                    <td><em>Nisaetus philippensis</em></td>
+                </tr>
+        
+                <tr>
+                    <td>Dataset: <b>lifestage</b></td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div id="lifestage_0"></div>
+                        <p>Prompt: <Audio><AudioHere></Audio> What is the life stage of the focal species in the audio?</p>
+                    </td>
+                    <td><em>juvenile</em></td>
+                    <td><em>juvenile</em></td>
+                </tr>
+        
+                <tr>
+                    <td>
+                        <div id="lifestage_1"></div>
+                        <p>Prompt: <Audio><AudioHere></Audio> What is the life stage of the focal species in the audio?</p>
+                    </td>
+                    <td><em>adult</em></td>
+                    <td><em>adult</em></td>
+                </tr>
+        
+                <tr>
+                    <td>
+                        <div id="lifestage_2"></div>
+                        <p>Prompt: <Audio><AudioHere></Audio> What is the life stage of the focal species in the audio?</p>
+                    </td>
+                    <td><em>juvenile</em></td>
+                    <td><em>nestling</em></td>
+                </tr>
+        
+                <tr>
+                    <td>Dataset: <b>call-type</b></td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div id="call_type_0"></div>
+                        <p>Prompt: <Audio><AudioHere></Audio> What type of vocalization is heard from the focal species in the audio? Answer with either 'call' or 'song'.</p>
+                    </td>
+                    <td><em>call</em></td>
+                    <td><em>call</em></td>
+                </tr>
+        
+                <tr>
+                    <td>
+                        <div id="call_type_1"></div>
+                        <p>Prompt: <Audio><AudioHere></Audio> What type of vocalization is heard from the focal species in the audio? Answer with either 'call' or 'song'.</p>
+                    </td>
+                    <td><em>song</em></td>
+                    <td><em>song</em></td>
+                </tr>
+        
+                <tr>
+                    <td>
+                        <div id="call_type_2"></div>
+                        <p>Prompt: <Audio><AudioHere></Audio> What type of vocalization is heard from the focal species in the audio? Answer with either 'call' or 'song'.</p>
+                    </td>
+                    <td><em>call</em></td>
+                    <td><em>song</em></td>
+                </tr>
+        
+                <tr>
+                    <td>Dataset: <b>captioning</b></td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div id="captioning_0"></div>
+                        <p>Prompt: <Audio><AudioHere></Audio> Caption the audio, using the common name for any animal species.</p>
+                    </td>
+                    <td><em>Call of a new zealand bellbird with background sounds from new zealand falcon.</em></td>
+                    <td><em>The common evening song of a Mainland New Zealand Bellbird.</em></td>
+                </tr>
+        
+                <tr>
+                    <td>
+                        <div id="captioning_1"></div>
+                        <p>Prompt: <Audio><AudioHere></Audio> Caption the audio, using the common name for any animal species.</p>
+                    </td>
+                    <td><em>Cajun Chorus Frog</em></td>
+                    <td><em>The sound of Squirrel Treefrog after a rain.</em></td>
+                </tr>
+        
+                <tr>
+                    <td>Dataset: <b>zf-nbirds</b></td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div id="zf_nbirds_0"></div>
+                        <p>Prompt: <Audio><AudioHere></Audio> How many birds are in the audio? Choose between 1, 2, 3 or 4.</p>
+                    </td>
+                    <td><em>1</em></td>
+                    <td><em>1</em></td>
+                </tr>
+        
+                <tr>
+                    <td>
+                        <div id="zf_nbirds_1"></div>
+                        <p>Prompt: <Audio><AudioHere></Audio> How many birds are in the audio? Choose between 1, 2, 3 or 4.</p>
+                    </td>
+                    <td><em>4</em></td>
+                    <td><em>4</em></td>
+                </tr>
+        
+                <tr>
+                    <td>
+                        <div id="zf_nbirds_2"></div>
+                        <p>Prompt: <Audio><AudioHere></Audio> How many birds are in the audio? Choose between 1, 2, 3 or 4.</p>
+                    </td>
+                    <td><em>2</em></td>
+                    <td><em>3</em></td>
+                </tr>
+        
+
             </tbody>
         </table>
     </section>
