@@ -1,0 +1,436 @@
+/* JetBrains Mono */
+@font-face { font-family: 'JetBrains Mono'; src: url('fonts/JetBrainsMono-Regular.woff2') format('woff2'); font-weight: 400; font-style: normal; }
+@font-face { font-family: 'JetBrains Mono'; src: url('fonts/JetBrainsMono-Italic.woff2') format('woff2'); font-weight: 400; font-style: italic; }
+@font-face { font-family: 'JetBrains Mono'; src: url('fonts/JetBrainsMono-Bold.woff2') format('woff2'); font-weight: 700; font-style: normal; }
+@font-face { font-family: 'JetBrains Mono'; src: url('fonts/JetBrainsMono-BoldItalic.woff2') format('woff2'); font-weight: 700; font-style: italic; }
+
+/* Euclid Circular B */
+@font-face { font-family: 'Euclid Circular B'; src: url('fonts/EuclidCircularB-Regular-WebS.woff2') format('woff2'), url('fonts/EuclidCircularB-Regular-WebS.woff') format('woff'); font-weight: 400; font-style: normal; }
+@font-face { font-family: 'Euclid Circular B'; src: url('fonts/EuclidCircularB-RegularItalic-WebS.woff2') format('woff2'), url('fonts/EuclidCircularB-RegularItalic-WebS.woff') format('woff'); font-weight: 400; font-style: italic; }
+@font-face { font-family: 'Euclid Circular B'; src: url('fonts/EuclidCircularB-Medium-WebS.woff2') format('woff2'), url('fonts/EuclidCircularB-Medium-WebS.woff') format('woff'); font-weight: 500; font-style: normal; }
+@font-face { font-family: 'Euclid Circular B'; src: url('fonts/EuclidCircularB-MediumItalic-WebS.woff2') format('woff2'), url('fonts/EuclidCircularB-MediumItalic-WebS.woff') format('woff'); font-weight: 500; font-style: italic; }
+@font-face { font-family: 'Euclid Circular B'; src: url('fonts/EuclidCircularB-Semibold-WebS.woff2') format('woff2'), url('fonts/EuclidCircularB-Semibold-WebS.woff') format('woff'); font-weight: 600; font-style: normal; }
+@font-face { font-family: 'Euclid Circular B'; src: url('fonts/EuclidCircularB-SemiboldItalic-WebS.woff2') format('woff2'), url('fonts/EuclidCircularB-SemiboldItalic-WebS.woff') format('woff'); font-weight: 600; font-style: italic; }
+@font-face { font-family: 'Euclid Circular B'; src: url('fonts/EuclidCircularB-Bold-WebS.woff2') format('woff2'), url('fonts/EuclidCircularB-Bold-WebS.woff') format('woff'); font-weight: 700; font-style: normal; }
+@font-face { font-family: 'Euclid Circular B'; src: url('fonts/EuclidCircularB-BoldItalic-WebS.woff2') format('woff2'), url('fonts/EuclidCircularB-BoldItalic-WebS.woff') format('woff'); font-weight: 700; font-style: italic; }
+
+/* Tiempos Text */
+@font-face { font-family: 'Tiempos Text'; src: url('fonts/TiemposText-Regular.otf') format('opentype'); font-weight: 400; font-style: normal; }
+@font-face { font-family: 'Tiempos Text'; src: url('fonts/TiemposText-RegularItalic.otf') format('opentype'); font-weight: 400; font-style: italic; }
+@font-face { font-family: 'Tiempos Text'; src: url('fonts/TiemposText-Medium.otf') format('opentype'); font-weight: 500; font-style: normal; }
+@font-face { font-family: 'Tiempos Text'; src: url('fonts/TiemposText-MediumItalic.otf') format('opentype'); font-weight: 500; font-style: italic; }
+@font-face { font-family: 'Tiempos Text'; src: url('fonts/TiemposText-Semibold.otf') format('opentype'); font-weight: 600; font-style: normal; }
+@font-face { font-family: 'Tiempos Text'; src: url('fonts/TiemposText-SemiboldItalic.otf') format('opentype'); font-weight: 600; font-style: italic; }
+@font-face { font-family: 'Tiempos Text'; src: url('fonts/TiemposText-Bold.otf') format('opentype'); font-weight: 700; font-style: normal; }
+@font-face { font-family: 'Tiempos Text'; src: url('fonts/TiemposText-BoldItalic.otf') format('opentype'); font-weight: 700; font-style: italic; }
+
+body {
+  font-family: 'Euclid Circular B', sans-serif;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Euclid Circular B', sans-serif !important;
+  padding: 0;
+}  
+.content h1 {
+  font-size: 2.05rem;
+  line-height: 1.2;
+  font-weight: 500;
+  margin-bottom: 1.25rem;
+}
+
+.content h2 {
+  font-size: 1.55rem;   /* down from ~1.9 */
+  line-height: 1.25;
+  font-weight: 500;
+  margin-top: 2.2rem;
+  margin-bottom: 0.75rem;
+}
+
+.content h3 {
+  font-size: 1.25rem;   /* down from ~1.5 */
+  line-height: 1.3;
+  font-weight: 500;
+  margin-top: 1.6rem;
+  margin-bottom: 0.5rem;
+}
+.content h4 {
+  font-size: 1.05rem;   /* just above body text */
+  line-height: 1.35;
+  font-weight: 500;
+  margin-top: 1.2rem;
+  margin-bottom: 0.35rem;
+  color: var(--color-foreground-secondary);
+}
+.content {
+  font-size: 0.95rem;      /* default ~1rem */
+  line-height: 1.65;       /* keeps it readable */
+}
+.content p {
+  margin: 0.55rem 0;
+}
+.content strong, .content b {
+  font-weight: 600;
+}
+.content a.headerlink {
+  display: none !important;
+}
+/* Headings: more space above than below (clean hierarchy) */
+.content h1 { margin: 1 0 1.1rem; }
+.content h2 { margin: 2.0rem 0 0.7rem; }
+.content h3 { margin: 1.4rem 0 0.5rem; }
+.content h4 { margin: 1.1rem 0 0.6rem; }
+
+/* Reduce “double spacing” when a paragraph immediately follows a heading */
+.content h2 + p,
+.content h3 + p,
+.content h4 + p {
+  margin-top: 0.25rem;
+  margin-bottom: 0.15rem;
+}
+
+/* Lists: tighten a bit and align with paragraph rhythm */
+.content ul,
+.content ol {
+  margin: 0.5rem 0 0.8rem;
+  padding-left: 1.2rem;
+}
+.content li { margin: 0.25rem 0; }
+
+/* Code blocks: consistent separation and slightly tighter padding */
+.content pre,
+.content div.highlight {
+  margin: 0.25rem 0 1.1rem;
+}
+.content pre {
+  padding-top: 0.4rem;
+  padding-bottom: 0.4rem;
+  margin-bottom: 0.25rem;
+}
+.content pre {
+  padding-bottom: 0.5rem;
+}
+
+.prompt-block {
+  position: relative;
+  font-family: 'Tiempos Text', serif;
+  font-style: italic;
+  font-size: 0.975rem;
+  line-height: 1.6;
+  background-color: #A7ED9915;
+  border-left: 3px solid #129C7B;
+  border-radius: 0 0.3rem 0.3rem 0;
+  padding: 0.6rem 2.5rem 0.6rem 1rem;
+  margin: 0.25rem 0 1.1rem;
+  color: var(--color-foreground-primary);
+}
+
+.prompt-copy-btn {
+  position: absolute;
+  top: 0.45rem;
+  right: 0.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.2rem;
+  color: var(--color-foreground-secondary);
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  line-height: 1;
+}
+
+.prompt-block:hover .prompt-copy-btn {
+  opacity: 1;
+}
+
+.prompt-copy-btn:hover {
+  color: var(--color-brand-content);
+} 
+/* Code font: JetBrains Mono */
+.content pre,
+.content code,
+.content kbd,
+.content samp {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Inline code: slightly less “pill-y” look */
+.content code {
+  padding: 0.12em 0.32em;
+  border-radius: 0.3em;
+}
+
+/* Blockquotes / admonitions / notes: align with the same rhythm */
+.content blockquote,
+.content .admonition,
+.content details {
+  margin: 0.9rem 0 1.1rem;
+}
+main {
+  padding-bottom: 2rem;
+}
+.sidebar-brand {
+  padding: 0.6rem 0.75rem;
+}
+
+.sidebar-brand img {
+  max-height: 120px;
+}
+
+.sidebar-brand {
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+}
+
+/* UI chrome: sidebar, nav, search — use Euclid */
+.sidebar-tree,
+.sidebar-search,
+.sidebar-search-container,
+.toc-tree,
+.toc-title,
+.mobile-header,
+input, button {
+  font-family: 'Euclid Circular B', sans-serif;
+}
+.hero-links {
+  margin-top: 0.4rem;
+  font-size: 0.95rem;
+  display: flex;              /* force one line */
+  align-items: center;
+  gap: 0.75rem;               /* space between items */
+  flex-wrap: nowrap;          /* no wrapping */
+  white-space: nowrap;        /* extra safety */
+}
+
+/* link styling */
+.hero-links {
+  margin-top: 0.15rem;     /* tighter to H1 */
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  font-size: 0.95rem;
+  color: var(--color-foreground-secondary);
+}
+
+.hero-links a {
+  color: var(--color-brand-content);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.hero-links a:hover {
+  text-decoration: underline;
+}
+
+/* icon size — this is the key */
+.hero-icon {
+  width: 18px;
+  height: 18px;
+  opacity: 0.9;
+}
+html[data-theme="dark"] .content {
+  color: #e0e0e0;
+}
+
+html[data-theme="dark"] .github-icon,
+html[data-theme="dark"] .paper-icon {
+  filter: invert(1) !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  .github-icon,
+  .paper-icon {
+    filter: invert(1);
+  }
+}
+.highlight .nn,
+.highlight .nc,
+.highlight a:visited {
+  text-decoration: none !important;
+  border-bottom: none !important;
+}
+pre a,
+code a {
+  text-decoration: none !important;
+  color: inherit !important;
+} 
+
+.bottom-of-page .left-details {
+  display: none !important;
+}
+
+.content figure a:not(.figure-link) {
+  pointer-events: none;
+  cursor: default;
+}
+
+.resource-links {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin: 0.25rem 0 2.5rem;
+  font-family: 'Euclid Circular B', sans-serif;
+  font-size: 0.9rem;
+}
+
+.resource-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--color-brand-content);
+  text-decoration: none !important;
+  transition: color 0.15s ease;
+}
+
+.resource-link:hover {
+  text-decoration: underline !important;
+  color: var(--color-brand-primary);
+}
+
+.resource-link-icon {
+  width: 14px;
+  height: 14px;
+}
+
+.resource-link-sep {
+  color: var(--color-foreground-secondary);
+  user-select: none;
+}
+
+.update-box {
+  background-color: #A7ED9926;
+  border-left: 3px solid #129C7B;
+  border-radius: 0 0.3rem 0.3rem 0;
+  padding: 0.65rem 1rem;
+  margin: 0.75rem 0 1.5rem;
+  font-size: 0.9rem;
+}
+
+.update-box .update-date {
+  font-family: 'Euclid Circular B', sans-serif;
+  font-weight: 500;
+  font-size: 0.8rem;
+  color: #129C7B;
+  letter-spacing: 0.03em;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.version-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 500;
+  font-family: 'Euclid Circular B', sans-serif;
+  background-color: #C3E409;
+  color: #1a1a1a;
+  padding: 0.15em 0.55em;
+  border-radius: 0.3em;
+  vertical-align: middle;
+  margin-left: 0.4rem;
+  letter-spacing: 0.03em;
+}
+
+.sidebar-home-link {
+  font-family: 'Euclid Circular B', sans-serif;
+  font-size: var(--sidebar-item-font-size);
+  padding-top: 0.5rem;
+}
+
+.sidebar-home-link a {
+  color: var(--color-brand-content);
+  text-decoration: none;
+  display: block;
+  padding: var(--sidebar-item-spacing-vertical) var(--sidebar-item-spacing-horizontal);
+}
+
+.sidebar-home-link a:hover {
+  color: var(--color-brand-primary);
+}
+
+.sidebar-tree {
+  margin-top: 0;
+}
+
+.sidebar-tree p.caption {
+  margin-top: 0.25rem;
+}
+
+.ext-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: 'Euclid Circular B', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #1a1a1a !important;
+  background: #C3E409;
+  text-decoration: none !important;
+  padding: 0.5em 1.25em;
+  border-radius: 999px;
+  margin: 0.5rem 0 1.5rem;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.ext-btn:hover {
+  background: linear-gradient(90deg, #129c7b 0%, #04d78a 50%, #c3e409 100%);
+  color: #1a1a1a !important;
+}
+
+.arrow-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  color: var(--color-brand-content);
+  text-decoration: none !important;
+  font-family: 'Euclid Circular B', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: gap 0.15s ease;
+}
+
+.arrow-link:hover {
+  gap: 0.5rem;
+  text-decoration: none !important;
+}
+
+.arrow-link svg {
+  flex-shrink: 0;
+  transition: transform 0.15s ease;
+}
+
+.arrow-link:hover svg {
+  transform: translateX(2px);
+}
+
+:target {
+  background-color: transparent !important;
+}
+
+:target > h1,
+:target > h2,
+:target > h3,
+:target > h4 {
+  background-color: #A7ED9933 !important;
+  border-radius: 0.25rem;
+  padding: 0.1rem 0.4rem;
+}
+
+html[data-theme="dark"] :target > h1,
+html[data-theme="dark"] :target > h2,
+html[data-theme="dark"] :target > h3,
+html[data-theme="dark"] :target > h4 {
+  background-color: #2e2e2e !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  :target > h1,
+  :target > h2,
+  :target > h3,
+  :target > h4 {
+    background-color: #2e2e2e !important;
+  }
+}
