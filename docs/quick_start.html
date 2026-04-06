@@ -3,12 +3,12 @@
   <head><meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="genindex.html"><link rel="search" title="Search" href="search.html"><link rel="next" title="Quick Start Guide" href="quick_start.html">
+<link rel="index" title="Index" href="genindex.html"><link rel="search" title="Search" href="search.html"><link rel="next" title="Usage" href="usage.html"><link rel="prev" title="NatureLM-audio" href="index.html">
         <link rel="prefetch" href="_static/esp-logotype-only-black.png" as="image">
         <link rel="prefetch" href="_static/esp-logotype-only-white.png" as="image">
 
     <link rel="shortcut icon" href="_static/favicon.svg"><!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
-        <title>NatureLM-audio</title>
+        <title>Quick Start Guide - NatureLM-audio</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -180,7 +180,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="#"><div class="brand">NatureLM-audio</div></a>
+      <a href="index.html"><div class="brand">NatureLM-audio</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -210,11 +210,11 @@
   <input type="hidden" name="area" value="default">
 </form>
 <div id="searchbox"></div><div class="sidebar-home-link">
-  <a href="#">Home</a>
+  <a href="index.html">Home</a>
 </div><div class="sidebar-tree">
   <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="quick_start.html">Quick Start Guide</a></li>
+<ul class="current">
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Quick Start Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="prompting_guide.html">Prompting Guide</a></li>
 </ul>
@@ -265,64 +265,123 @@
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="naturelm-audio">
-<h1>NatureLM-audio<a class="headerlink" href="#naturelm-audio" title="Link to this heading">¶</a></h1>
-<script>
-  (function() {
-    var h1 = document.querySelector('.content h1');
-    if (h1) {
-      var badge = document.createElement('span');
-      badge.className = 'version-badge';
-      badge.textContent = 'v1.0';
-      badge.style.marginLeft = '0.5rem';
-      badge.style.verticalAlign = 'middle';
-      badge.style.position = 'relative';
-      badge.style.top = '2px';
-      h1.appendChild(badge);
-    }
-  })();
-</script><div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
-<div class="resource-links">
-  <a href="https://openreview.net/forum?id=hJVdwBpWjt" target="_blank" class="resource-link">
-    <img src="_static/icons/paper.svg" class="resource-link-icon paper-icon" /> Paper
-  </a>
-  <span class="resource-link-sep">·</span>
-  <a href="https://github.com/earthspecies/NatureLM-audio" target="_blank" rel="noopener" class="resource-link">
-    <img src="_static/icons/github.svg" class="resource-link-icon github-icon" /> Code
-  </a>
-  <span class="resource-link-sep">·</span>
-  <a href="https://huggingface.co/EarthSpeciesProject/NatureLM-audio" target="_blank" class="resource-link">
-    <img src="_static/icons/hf-logo.svg" class="resource-link-icon" /> Model
-  </a>
-  <span class="resource-link-sep">·</span>
-  <a href="https://huggingface.co/datasets/EarthSpeciesProject/BEANS-Zero" target="_blank" class="resource-link">
-    <img src="_static/icons/hf-logo.svg" class="resource-link-icon" /> BEANS-Zero
-  </a>
-</div>
-<section id="updates">
-<h2>Updates<a class="headerlink" href="#updates" title="Link to this heading">¶</a></h2>
-<div class="update-box">
-  <span class="update-date">2025-05-27</span>
-  We've updated NatureLM-audio with a flexible merge between the original Llama 3.1 8B and the LoRA fine-tuned weights. Merging with the original weights improves prompt flexibility but comes at the cost of some bioacoustic task performance. See the <a href="usage.html#model-merging">Usage</a> page and <a href="https://arxiv.org/abs/2511.05171" target="_blank">paper</a> for details.
-</div></section>
-<section id="overview">
-<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">¶</a></h2>
-<figure class="align-center">
-<a class="reference internal image-reference" href="_images/fig_architecture.png"><img alt="NatureLM-audio architecture diagram" src="_images/fig_architecture.png" style="width: 100%;" />
-</a>
-</figure>
-<p>NatureLM-audio is the first audio-language foundation model designed specifically for bioacoustics. It combines a fine-tuned audio encoder (<a class="reference external" href="https://github.com/microsoft/unilm/tree/master/beats" rel="noreferer noopener" target="_blank">BEATs</a>) with a large language model (<a class="reference external" href="https://huggingface.co/meta-llama/Meta-Llama-3.1-8B-Instruct" rel="noreferer noopener" target="_blank">Llama 3.1 8B Instruct</a>), enabling researchers to query bioacoustics data using natural language.</p>
-<p>Key capabilities:</p>
+          <section id="quick-start-guide">
+<h1>Quick Start Guide<a class="headerlink" href="#quick-start-guide" title="Link to this heading">¶</a></h1>
+<p>Below are sample prompts to try with the model and a few practical tips. See the <a class="reference external" href="prompting_guide.html#task-overview" rel="noreferer noopener" target="_blank">Prompting Guide</a> for the full task reference, prompt variants, and advanced configuration.</p>
+<div class="tips-card tips-card--green">
+  <p class="tips-card-heading">Tips</p>
+  <ul>
+    <li><strong>Trim clips to under 10 seconds.</strong> When using the Interactive Demo, only the first 10 seconds of audio will be processed. If your recording is longer, you can trim it with the scissor icon in the bottom right of the audio player.</li>
+    <li><strong>Use a shortlist when you can.</strong> Providing a list of candidate species improves accuracy — even a rough shortlist based on location or habitat helps.</li>
+    <li><strong>For Yes/No questions, always include "Answer Yes or No."</strong> Without this, the model may respond with species names rather than a yes or no answer.</li>
+  </ul>
+</div><section id="core-tasks">
+<h2>Core Tasks<a class="headerlink" href="#core-tasks" title="Link to this heading">¶</a></h2>
+<table class="prompt-ref">
+  <tr>
+    <td class="pref-cat">Species Detection</td>
+    <td class="pref-prompts">
+      <ul>
+        <li>What are the common names for the species in the audio, if any?</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td class="pref-cat">Species Identification</td>
+    <td class="pref-prompts">
+      <ul>
+        <li>What species is vocalizing in this audio recording? Common name?</li>
+        <li>What is the scientific name of the focal species in the audio?</li>
+        <li>Which of these is the focal species in the audio? Options: American Robin, Song Sparrow, House Finch, Black-capped Chickadee</li>
+        <li>List the scientific names of all species vocalizing in this audio clip.</li>
+        <li>Given the context: 'country: US, recorded in temperate forest, June', what is the common name for the focal species in the audio?</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td class="pref-cat">Taxonomy</td>
+    <td class="pref-prompts">
+      <ul>
+        <li>What is the genus of the focal species in the audio?</li>
+        <li>What is the family of the focal species in the audio?</li>
+        <li>What is the taxonomic name of the focal species in the audio?</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td class="pref-cat">Call Type &amp; Behavior</td>
+    <td class="pref-prompts">
+      <ul>
+        <li>What type of vocalization or call is this?</li>
+        <li>Is this a call or a song?</li>
+        <li>Is an alarm call present in this recording? Answer Yes or No.</li>
+        <li>Is a flight call present in this recording? Answer Yes or No.</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td class="pref-cat">Life Stage</td>
+    <td class="pref-prompts">
+      <ul>
+        <li>Is the focal species an adult or juvenile?</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td class="pref-cat">Presence / Absence</td>
+    <td class="pref-prompts">
+      <ul>
+        <li>Is there a bird vocalizing in this recording? Answer Yes or No.</li>
+        <li>Does this recording contain mammal vocalizations? Answer Yes or No.</li>
+        <li>Are there any animal vocalizations in this recording? Answer Yes or No.</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td class="pref-cat">Captioning</td>
+    <td class="pref-prompts">
+      <ul>
+        <li>Caption the audio, using common names for any animal species.</li>
+        <li>Caption this audio with a rich, detailed description. Avoid specific species names.</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td class="pref-cat">Environmental Sounds</td>
+    <td class="pref-prompts">
+      <ul>
+        <li>Which of these non-animal sounds are present in the recording? rain, wind, traffic, running water. Answer with a comma-separated list, or None.</li>
+      </ul>
+    </td>
+  </tr>
+</table><blockquote>
+<div><p>If you have a candidate list for species ID, use the multiple-choice form — accuracy (~91%) is substantially higher than open-ended identification (~77%).</p>
+</div></blockquote>
+</section>
+<section id="experimental-tasks">
+<h2>Experimental Tasks<a class="headerlink" href="#experimental-tasks" title="Link to this heading">¶</a></h2>
+<p>The following are experimental tasks and results should be taken as exploratory:</p>
 <ul class="simple">
-<li><p><strong>Flexible task support:</strong> species classification, detection, call type and life stage classification, audio captioning, and individual counting</p></li>
-<li><p><strong>Zero-shot generalization:</strong> trained across bioacoustics, speech, and music, the model transfers acoustic knowledge to unseen species and taxa</p></li>
-<li><p><strong>Real-world scale:</strong> designed for large, diverse, and sparsely labeled datasets typical of conservation fieldwork</p></li>
-<li><p><strong>Accessible by design:</strong> no task-specific fine-tuning required; researchers can interact with the model with plain English natural language prompts</p></li>
+<li><p><a class="reference external" href="prompting_guide.html#top-3-species-identification" rel="noreferer noopener" target="_blank">Top 3 Species Identification</a></p></li>
+<li><p><a class="reference external" href="prompting_guide.html#habitat-inference" rel="noreferer noopener" target="_blank">Habitat Inference</a></p></li>
+<li><p><a class="reference external" href="prompting_guide.html#geographic-inference" rel="noreferer noopener" target="_blank">Geographic Inference</a></p></li>
+<li><p><a class="reference external" href="prompting_guide.html#structured-json-output" rel="noreferer noopener" target="_blank">JSON Output</a></p></li>
+<li><p><a class="reference external" href="prompting_guide.html#frequency-range" rel="noreferer noopener" target="_blank">Frequency Analysis</a></p></li>
+<li><p><a class="reference external" href="prompting_guide.html#species-count" rel="noreferer noopener" target="_blank">Species Counting</a></p></li>
+<li><p><a class="reference external" href="prompting_guide.html#call-count" rel="noreferer noopener" target="_blank">Call Counting</a></p></li>
+<li><p><a class="reference external" href="prompting_guide.html#individual-count" rel="noreferer noopener" target="_blank">Individual Counting</a></p></li>
+<li><p><a class="reference external" href="prompting_guide.html#temporal-order" rel="noreferer noopener" target="_blank">Temporal Ordering</a></p></li>
+</ul>
+<p>For sample prompts and details on experimental tasks, see the <a class="reference external" href="prompting_guide.html#experimental-tasks" rel="noreferer noopener" target="_blank">Prompting Guide</a>.</p>
+</section>
+<section id="limitations">
+<h2>Limitations<a class="headerlink" href="#limitations" title="Link to this heading">¶</a></h2>
+<p>Today, NatureLM-audio performs strongest on birds, and particularly for North American and Western European species. It handles other taxa too, but with lower reliability. A few specific limitations worth noting:</p>
+<ul class="simple">
+<li><p>High-frequency calls above ~8 kHz (e.g. bats) are outside the model’s frequency range and will not return meaningful results</p></li>
+<li><p>Tropical regions (Neotropics, Southeast Asia) are harder due to data availability and species richness</p></li>
+<li><p>The model won’t refuse a wrong-taxon prompt — if you ask “what whale is this?” on a bird recording, it will identify the bird anyway</p></li>
+<li><p>It can’t interpret animal emotions or translate vocalizations beyond predicting call type</p></li>
 </ul>
 </section>
 </section>
@@ -332,16 +391,26 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="quick_start.html">
+          <a class="next-page" href="usage.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Quick Start Guide</div>
+                <div class="title">Usage</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          
+          <a class="prev-page" href="index.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Home</div>
+                
+              </div>
+            </a>
         </div>
         <div class="bottom-of-page">
           <div class="left-details">
@@ -372,9 +441,10 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">NatureLM-audio</a><ul>
-<li><a class="reference internal" href="#updates">Updates</a></li>
-<li><a class="reference internal" href="#overview">Overview</a></li>
+<li><a class="reference internal" href="#">Quick Start Guide</a><ul>
+<li><a class="reference internal" href="#core-tasks">Core Tasks</a></li>
+<li><a class="reference internal" href="#experimental-tasks">Experimental Tasks</a></li>
+<li><a class="reference internal" href="#limitations">Limitations</a></li>
 </ul>
 </li>
 </ul>

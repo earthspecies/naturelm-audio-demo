@@ -49,7 +49,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .content h3 {
-  font-size: 1.25rem;   /* down from ~1.5 */
+  font-size: 1.25rem;
   line-height: 1.3;
   font-weight: 500;
   margin-top: 1.6rem;
@@ -78,9 +78,31 @@ h1, h2, h3, h4, h5, h6 {
 }
 /* Headings: more space above than below (clean hierarchy) */
 .content h1 { margin: 1 0 1.1rem; }
-.content h2 { margin: 2.0rem 0 0.7rem; }
-.content h3 { margin: 1.4rem 0 0.5rem; }
-.content h4 { margin: 1.1rem 0 0.6rem; }
+.content h2 { margin: 2.5rem 0 0.7rem; }
+.content h3 { margin: 2rem 0 0.5rem; }
+.content h4 { margin: 1.5rem 0 0.4rem; }
+
+.prompt-example {
+  margin: 1.5rem 0;
+}
+.prompt-example .prompt-label {
+  margin-top: 0;
+}
+.prompt-example .prompt-block {
+  margin-top: 0.4rem;
+  margin-bottom: 0;
+}
+
+/* Prompt variant labels */
+.prompt-label {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #129C7B;
+  margin-top: 3.3rem;
+  margin-bottom: 0.5rem;
+}
 
 /* Reduce “double spacing” when a paragraph immediately follows a heading */
 .content h2 + p,
@@ -88,6 +110,13 @@ h1, h2, h3, h4, h5, h6 {
 .content h4 + p {
   margin-top: 0.25rem;
   margin-bottom: 0.15rem;
+}
+.task-description {
+  margin-bottom: 1rem !important;
+}
+.prompt-example + p,
+p + .tips-card {
+  margin-top: 0.75rem;
 }
 
 /* Lists: tighten a bit and align with paragraph rhythm */
@@ -122,7 +151,7 @@ h1, h2, h3, h4, h5, h6 {
   border-left: 3px solid #129C7B;
   border-radius: 0 0.3rem 0.3rem 0;
   padding: 0.6rem 2.5rem 0.6rem 1rem;
-  margin: 0.25rem 0 1.1rem;
+  margin: 1.1rem 0;
   color: var(--color-foreground-primary);
 }
 
@@ -146,7 +175,152 @@ h1, h2, h3, h4, h5, h6 {
 
 .prompt-copy-btn:hover {
   color: var(--color-brand-content);
-} 
+}
+
+
+.task-overview {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0 1.75rem;
+  font-size: 0.875rem;
+}
+.task-overview thead th {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-foreground-secondary);
+  padding: 0 1rem 0.5rem 0;
+  text-align: left;
+  border-bottom: 1px solid var(--color-background-border);
+}
+.task-overview tbody td {
+  padding: 0.45rem 1rem 0.45rem 0;
+  vertical-align: middle;
+  border-bottom: 1px solid var(--color-background-border);
+}
+.task-overview tbody tr:last-child td {
+  border-bottom: none;
+}
+.task-overview td.overview-prompt {
+  font-family: 'Tiempos Text', serif;
+  font-style: italic;
+  font-size: 0.875rem;
+  color: var(--color-foreground-secondary);
+}
+.badge {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+.badge-core {
+  background-color: #129C7B22;
+  color: #129C7B;
+}
+.badge-exp {
+  background-color: var(--color-background-secondary);
+  color: var(--color-foreground-muted);
+}
+
+.prompt-list li {
+  font-family: 'Tiempos Text', serif;
+  font-style: italic;
+  font-size: 0.975rem;
+  line-height: 1.6;
+}
+
+.tips-card {
+  background-color: var(--color-background-secondary);
+  border: 1px solid var(--color-background-border);
+  border-radius: 0.6rem;
+  padding: 1rem 1.25rem;
+  margin: 1.25rem 0 2.5rem;
+}
+.tips-card.tips-card--green {
+  background-color: #A7ED9915;
+  border-color: #129C7B33;
+}
+.tips-card.tips-card--green .tips-card-heading {
+  color: #129C7B;
+}
+.tips-card.tips-card--green li {
+  font-size: 0.9rem;
+}
+.tips-card .tips-card-heading {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-foreground-muted);
+  margin-top: 0;
+  margin-bottom: 0.6rem;
+}
+.tips-card ul {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+.tips-card li {
+  font-size: 0.82rem;
+  line-height: 1.6;
+  margin-bottom: 0.3rem;
+}
+.tips-card li:last-child {
+  margin-bottom: 0;
+}
+
+.prompt-ref {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.5rem 0 1.75rem;
+}
+.prompt-ref tr {
+  border-bottom: 1px solid var(--color-background-border);
+}
+.prompt-ref tr:last-child {
+  border-bottom: none;
+}
+.prompt-ref td {
+  padding: 0.55rem 0.9rem;
+  vertical-align: top;
+}
+.prompt-ref td.pref-cat {
+  width: 22%;
+  padding-top: 1.1rem;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-foreground-muted);
+  white-space: nowrap;
+}
+.prompt-ref td.pref-prompts {
+  font-family: 'Tiempos Text', serif;
+  font-style: italic;
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+.prompt-ref td.pref-prompts ul {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+.prompt-ref td.pref-prompts li {
+  margin-bottom: 0.1rem;
+}
+/* Override Furo default table styles */
+table.docutils {
+  box-shadow: none !important;
+  border: 1px solid var(--color-table-border) !important;
+}
+table.docutils td,
+table.docutils th {
+  padding: 0.35rem 0.875rem !important;
+}
+
 /* Code font: JetBrains Mono */
 .content pre,
 .content code,
@@ -433,4 +607,57 @@ html[data-theme="dark"] :target > h4 {
   :target > h4 {
     background-color: #2e2e2e !important;
   }
+}
+
+/* Conversation / dialogue cards */
+.dialog-card {
+  border: 1px solid var(--color-background-border);
+  border-radius: 0.4rem;
+  margin: 0.75rem 0 1.25rem;
+  overflow: hidden;
+  padding: 0.25rem 0;
+}
+
+.dialog-row {
+  display: flex;
+  gap: 1rem;
+  padding: 0.3rem 0.9rem;
+  align-items: baseline;
+  line-height: 1.5;
+}
+
+.dialog-row + .dialog-row {
+  padding-top: 0.25rem;
+}
+
+.dialog-role {
+  flex-shrink: 0;
+  width: 3.5rem;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-foreground-muted);
+  padding-top: 0.15rem;
+}
+
+.dialog-role--user { color: #129C7B; }
+
+.dialog-role::after {
+  content: ':';
+}
+
+.dialog-text {
+  font-size: 0.875rem;
+  color: var(--color-foreground-primary);
+}
+
+.dialog-text--prompt {
+  font-family: 'Tiempos Text', serif;
+  font-style: italic;
+}
+
+.dialog-text--muted {
+  color: var(--color-foreground-secondary);
+  font-style: italic;
 }

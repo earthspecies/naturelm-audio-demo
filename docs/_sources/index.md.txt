@@ -23,7 +23,9 @@
 :caption: Getting Started
 :hidden:
 
+quick_start
 usage
+prompting_guide
 ```
 
 ```{toctree}
@@ -31,9 +33,9 @@ usage
 :caption: Demos & Examples
 :hidden:
 
-demo_video
-examples
 ui_demo
+examples
+demo_video
 case_studies
 ```
 

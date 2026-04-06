@@ -3,12 +3,12 @@
   <head><meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="genindex.html"><link rel="search" title="Search" href="search.html"><link rel="next" title="Quick Start Guide" href="quick_start.html">
+<link rel="index" title="Index" href="genindex.html"><link rel="search" title="Search" href="search.html">
         <link rel="prefetch" href="_static/esp-logotype-only-black.png" as="image">
         <link rel="prefetch" href="_static/esp-logotype-only-white.png" as="image">
 
     <link rel="shortcut icon" href="_static/favicon.svg"><!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
-        <title>NatureLM-audio</title>
+        <title>Installation - NatureLM-audio</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -180,7 +180,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="#"><div class="brand">NatureLM-audio</div></a>
+      <a href="index.html"><div class="brand">NatureLM-audio</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -210,7 +210,7 @@
   <input type="hidden" name="area" value="default">
 </form>
 <div id="searchbox"></div><div class="sidebar-home-link">
-  <a href="#">Home</a>
+  <a href="index.html">Home</a>
 </div><div class="sidebar-tree">
   <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
@@ -265,65 +265,115 @@
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="naturelm-audio">
-<h1>NatureLM-audio<a class="headerlink" href="#naturelm-audio" title="Link to this heading">¶</a></h1>
-<script>
-  (function() {
-    var h1 = document.querySelector('.content h1');
-    if (h1) {
-      var badge = document.createElement('span');
-      badge.className = 'version-badge';
-      badge.textContent = 'v1.0';
-      badge.style.marginLeft = '0.5rem';
-      badge.style.verticalAlign = 'middle';
-      badge.style.position = 'relative';
-      badge.style.top = '2px';
-      h1.appendChild(badge);
-    }
-  })();
-</script><div class="toctree-wrapper compound">
+          <section id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Link to this heading">¶</a></h1>
+<section id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Python 3.10+</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">uv</span></code> (recommended, but optional)</p></li>
+<li><p>Access to <a class="reference external" href="https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct" rel="noreferer noopener" target="_blank">Meta Llama 3.1 8B Instruct</a></p></li>
+</ul>
+<p>Make sure you’re authenticated to HuggingFace and that you have been granted access to Llama-3.1 on HuggingFace before proceeding.</p>
+<p>You can request access from: <a class="reference external" href="https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct" rel="noreferer noopener" target="_blank">https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct</a></p>
+</section>
+<section id="id1">
+<h2>Installation<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h2>
+<section id="using-uv-recommended">
+<h3>Using uv (recommended)<a class="headerlink" href="#using-uv-recommended" title="Link to this heading">¶</a></h3>
+<p>Clone the repository and install the dependencies:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/earthspecies/NatureLM-audio.git
+<span class="nb">cd</span><span class="w"> </span>NatureLM-audio
+uv<span class="w"> </span>sync
+<span class="c1"># If there&#39;s no gpu available or you are on MacOS then do</span>
+uv<span class="w"> </span>sync<span class="w"> </span>--no-group<span class="w"> </span>gpu
+</pre></div>
 </div>
-<div class="toctree-wrapper compound">
+<p>Project entrypoints are then available with <code class="docutils literal notranslate"><span class="pre">uv</span> <span class="pre">run</span> <span class="pre">naturelm</span></code>.</p>
+</section>
+<section id="without-uv">
+<h3>Without uv<a class="headerlink" href="#without-uv" title="Link to this heading">¶</a></h3>
+<p>If you’re not using uv, you can install the package with pip:</p>
+<p>For CPU-only or macOS (without GPU acceleration):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.
+</pre></div>
 </div>
-<div class="toctree-wrapper compound">
+<p>For Linux with CUDA support:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.<span class="o">[</span>gpu<span class="o">]</span>
+</pre></div>
 </div>
-<div class="resource-links">
-  <a href="https://openreview.net/forum?id=hJVdwBpWjt" target="_blank" class="resource-link">
-    <img src="_static/icons/paper.svg" class="resource-link-icon paper-icon" /> Paper
-  </a>
-  <span class="resource-link-sep">·</span>
-  <a href="https://github.com/earthspecies/NatureLM-audio" target="_blank" rel="noopener" class="resource-link">
-    <img src="_static/icons/github.svg" class="resource-link-icon github-icon" /> Code
-  </a>
-  <span class="resource-link-sep">·</span>
-  <a href="https://huggingface.co/EarthSpeciesProject/NatureLM-audio" target="_blank" class="resource-link">
-    <img src="_static/icons/hf-logo.svg" class="resource-link-icon" /> Model
-  </a>
-  <span class="resource-link-sep">·</span>
-  <a href="https://huggingface.co/datasets/EarthSpeciesProject/BEANS-Zero" target="_blank" class="resource-link">
-    <img src="_static/icons/hf-logo.svg" class="resource-link-icon" /> BEANS-Zero
-  </a>
+</section>
+</section>
+<section id="run-inference-on-a-set-of-audio-files-in-a-folder">
+<h2>Run inference on a set of audio files in a folder<a class="headerlink" href="#run-inference-on-a-set-of-audio-files-in-a-folder" title="Link to this heading">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>run<span class="w"> </span>naturelm<span class="w"> </span>infer<span class="w"> </span>--cfg-path<span class="w"> </span>configs/inference.yml<span class="w"> </span>--audio-path<span class="w"> </span>assets<span class="w"> </span>--query<span class="w"> </span><span class="s2">&quot;Caption the audio&quot;</span><span class="w"> </span>--window-length-seconds<span class="w"> </span><span class="m">10</span>.0<span class="w"> </span>--hop-length-seconds<span class="w"> </span><span class="m">10</span>.0
+</pre></div>
 </div>
-<section id="updates">
-<h2>Updates<a class="headerlink" href="#updates" title="Link to this heading">¶</a></h2>
+<p>This will run inference on all audio files in the <code class="docutils literal notranslate"><span class="pre">assets</span></code> folder, using a window length of 10 seconds and a hop length of 10 seconds. The results will be saved in <code class="docutils literal notranslate"><span class="pre">inference_output.jsonl</span></code>. Run <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">infer.py</span> <span class="pre">--help</span></code> for a description of the arguments.</p>
+</section>
+<section id="run-evaluation-on-beans-zero">
+<h2>Run evaluation on BEANS-Zero<a class="headerlink" href="#run-evaluation-on-beans-zero" title="Link to this heading">¶</a></h2>
+<p>BEANS-Zero is a zero-shot audio+text benchmark for bioacoustics. The repository for the benchmark can be found <a class="reference external" href="https://github.com/earthspecies/beans-zero" rel="noreferer noopener" target="_blank">here</a>, and the dataset is hosted on HuggingFace <a class="reference external" href="https://huggingface.co/datasets/EarthSpeciesProject/BEANS-Zero" rel="noreferer noopener" target="_blank">here</a>.</p>
+<blockquote>
+<div><p><strong>Note:</strong> One of the tasks in BEANS-Zero requires a Java 8 runtime environment. If you don’t have it installed, that task will be skipped.</p>
+</div></blockquote>
+<p>To run evaluation on the BEANS-Zero dataset, you can use the following command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>run<span class="w"> </span>beans<span class="w"> </span>--cfg-path<span class="w"> </span>configs/inference.yml<span class="w"> </span>--data-path<span class="w"> </span><span class="s2">&quot;/some/local/path/to/data&quot;</span><span class="w"> </span>--output-path<span class="w"> </span><span class="s2">&quot;beans_zero_eval.jsonl&quot;</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p><strong>Caution:</strong> The BEANS-Zero dataset is large (~180GB) and will take a long time to run. The predictions will be saved in <code class="docutils literal notranslate"><span class="pre">beans_zero_eval.jsonl</span></code> and the evaluation metrics will be saved in <code class="docutils literal notranslate"><span class="pre">beans_zero_eval_metrics.jsonl</span></code>. Run <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">beans_zero_inference.py</span> <span class="pre">--help</span></code> for a description of the arguments.</p>
+</div></blockquote>
+</section>
+<section id="running-the-inference-web-app">
+<h2>Running the inference web app<a class="headerlink" href="#running-the-inference-web-app" title="Link to this heading">¶</a></h2>
+<p>You can launch the inference app with:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>run<span class="w"> </span>naturelm<span class="w"> </span>inference-app<span class="w"> </span>--cfg-path<span class="w"> </span>configs/inference.yml<span class="w"> </span>--merging-alpha<span class="w"> </span><span class="m">0</span>.5
+</pre></div>
+</div>
+<p>This launches a local web app where you can upload an audio file and prompt the NatureLM-audio model.</p>
+</section>
+<section id="instantiating-the-model-from-checkpoint">
+<h2>Instantiating the model from checkpoint<a class="headerlink" href="#instantiating-the-model-from-checkpoint" title="Link to this heading">¶</a></h2>
+<p>You can load the model directly from the HuggingFace Hub:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">NatureLM.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">NatureLM</span>
+<span class="c1"># Download the model from HuggingFace</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">NatureLM</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="s2">&quot;EarthSpeciesProject/NatureLM-audio&quot;</span><span class="p">)</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s2">&quot;cuda&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Use it within your code for inference with the Pipeline API:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">NatureLM.infer</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pipeline</span>
+
+<span class="c1"># pass your audios in as file paths or as numpy arrays</span>
+<span class="c1"># NOTE: the Pipeline class will automatically load the audio and convert them to numpy arrays</span>
+<span class="n">audio_paths</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;assets/nri-GreenTreeFrogEvergladesNP.mp3&quot;</span><span class="p">]</span>  <span class="c1"># wav, mp3, ogg, flac are supported.</span>
+
+<span class="c1"># Create a list of queries. You may also pass a single query as a string for multiple audios.</span>
+<span class="c1"># The same query will be used for all audios.</span>
+<span class="n">queries</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;What is the common name for the focal species in the audio? Answer:&quot;</span><span class="p">]</span>
+
+<span class="n">pipeline</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">)</span>
+<span class="c1"># NOTE: you can also just do pipeline = Pipeline() which will download the model automatically</span>
+
+<span class="c1"># Run the model over the audio in sliding windows of 10 seconds with a hop length of 10 seconds</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">pipeline</span><span class="p">(</span><span class="n">audio_paths</span><span class="p">,</span> <span class="n">queries</span><span class="p">,</span> <span class="n">window_length_seconds</span><span class="o">=</span><span class="mf">10.0</span><span class="p">,</span> <span class="n">hop_length_seconds</span><span class="o">=</span><span class="mf">10.0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+<span class="c1"># [&#39;#0.00s - 10.00s#: Green Treefrog\n&#39;]</span>
+</pre></div>
+</div>
+</section>
+<section id="model-merging">
+<h2>Model Merging<a class="headerlink" href="#model-merging" title="Link to this heading">¶</a></h2>
 <div class="update-box">
   <span class="update-date">2025-05-27</span>
-  We've updated NatureLM-audio with a flexible merge between the original Llama 3.1 8B and the LoRA fine-tuned weights. Merging with the original weights improves prompt flexibility but comes at the cost of some bioacoustic task performance. See the <a href="usage.html#model-merging">Usage</a> page and <a href="https://arxiv.org/abs/2511.05171" target="_blank">paper</a> for details.
-</div></section>
-<section id="overview">
-<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">¶</a></h2>
-<figure class="align-center">
-<a class="reference internal image-reference" href="_images/fig_architecture.png"><img alt="NatureLM-audio architecture diagram" src="_images/fig_architecture.png" style="width: 100%;" />
-</a>
-</figure>
-<p>NatureLM-audio is the first audio-language foundation model designed specifically for bioacoustics. It combines a fine-tuned audio encoder (<a class="reference external" href="https://github.com/microsoft/unilm/tree/master/beats" rel="noreferer noopener" target="_blank">BEATs</a>) with a large language model (<a class="reference external" href="https://huggingface.co/meta-llama/Meta-Llama-3.1-8B-Instruct" rel="noreferer noopener" target="_blank">Llama 3.1 8B Instruct</a>), enabling researchers to query bioacoustics data using natural language.</p>
-<p>Key capabilities:</p>
-<ul class="simple">
-<li><p><strong>Flexible task support:</strong> species classification, detection, call type and life stage classification, audio captioning, and individual counting</p></li>
-<li><p><strong>Zero-shot generalization:</strong> trained across bioacoustics, speech, and music, the model transfers acoustic knowledge to unseen species and taxa</p></li>
-<li><p><strong>Real-world scale:</strong> designed for large, diverse, and sparsely labeled datasets typical of conservation fieldwork</p></li>
-<li><p><strong>Accessible by design:</strong> no task-specific fine-tuning required; researchers can interact with the model with plain English natural language prompts</p></li>
-</ul>
+  We've updated the NatureLM-audio Llama model by allowing for a flexible merge operation between the original Llama 3.1 8B and the LoRA fine-tuned one from the NatureLM-audio paper. Merging with the original weights better retains the chat and instruction following abilities of the original Llama model which allows for more variation in prompts as described in <a href="https://arxiv.org/abs/2511.05171" target="_blank">Model Merging Improves Zero-Shot Generalization in Bioacoustic Foundation Models</a>. But this comes at the cost of some performance on bioacoustic tasks.
+</div><p>To use the new merging functionality, you can specify a <code class="docutils literal notranslate"><span class="pre">merging_alpha</span></code> parameter when loading the model from the config file:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">generate</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">merging_alpha</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.4</span><span class="w">  </span><span class="c1"># Interpolate 60% toward base model (40% NatureLM-audio fine-tuned llama weights)</span>
+</pre></div>
+</div>
+<p>A good range to try is between 0.4 and 0.6, but the exact value is dataset and task dependent. Read the <a class="reference external" href="https://arxiv.org/abs/2511.05171" rel="noreferer noopener" target="_blank">paper</a> for more details and guidance!</p>
 </section>
 </section>
 
@@ -332,15 +382,7 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="quick_start.html">
-              <div class="page-info">
-                <div class="context">
-                  <span>Next</span>
-                </div>
-                <div class="title">Quick Start Guide</div>
-              </div>
-              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
-            </a>
+          
           
         </div>
         <div class="bottom-of-page">
@@ -372,9 +414,18 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">NatureLM-audio</a><ul>
-<li><a class="reference internal" href="#updates">Updates</a></li>
-<li><a class="reference internal" href="#overview">Overview</a></li>
+<li><a class="reference internal" href="#">Installation</a><ul>
+<li><a class="reference internal" href="#requirements">Requirements</a></li>
+<li><a class="reference internal" href="#id1">Installation</a><ul>
+<li><a class="reference internal" href="#using-uv-recommended">Using uv (recommended)</a></li>
+<li><a class="reference internal" href="#without-uv">Without uv</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#run-inference-on-a-set-of-audio-files-in-a-folder">Run inference on a set of audio files in a folder</a></li>
+<li><a class="reference internal" href="#run-evaluation-on-beans-zero">Run evaluation on BEANS-Zero</a></li>
+<li><a class="reference internal" href="#running-the-inference-web-app">Running the inference web app</a></li>
+<li><a class="reference internal" href="#instantiating-the-model-from-checkpoint">Instantiating the model from checkpoint</a></li>
+<li><a class="reference internal" href="#model-merging">Model Merging</a></li>
 </ul>
 </li>
 </ul>

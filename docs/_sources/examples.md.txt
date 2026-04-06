@@ -28,7 +28,58 @@ Audio examples across a range of bioacoustics tasks and datasets. Each example s
 </style>
 ```
 
-## Species Classification
+## Species Detection
+
+```{raw} html
+<div class="prompt-block" data-prompt="What are the common names for the species in the audio, if any?">What are the common names for the species in the audio, if any?</div>
+<table class="example-table">
+  <thead><tr><th>Audio</th><th>Prediction</th><th>Gold Label</th><th>Dataset</th></tr></thead>
+  <tbody>
+    <tr>
+      <td class="col-audio"><div class="mini-player" data-src="_static/audio/dcase_MK2.037_019.wav"><button class="mp-btn"><svg width="9" height="11" viewBox="0 0 9 11"><polygon points="0,0 9,5.5 0,11"/></svg></button><div class="mp-bar"><div class="mp-fill"></div></div><span class="mp-time">0:00</span></div></td>
+      <td>Northern Elephant Seal</td><td>Meerkat close call</td>
+      <td class="col-dataset"><a href="https://dcase.community/" target="_blank">DCASE</a></td>
+    </tr>
+    <tr>
+      <td class="col-audio"><div class="mini-player" data-src="_static/audio/Recording_1_Segment_33.004_026.wav"><button class="mp-btn"><svg width="9" height="11" viewBox="0 0 9 11"><polygon points="0,0 9,5.5 0,11"/></svg></button><div class="mp-bar"><div class="mp-fill"></div></div><span class="mp-time">0:00</span></div></td>
+      <td>Black-throated Green Warbler</td><td>Black-throated Green Warbler, Eastern Towhee</td>
+      <td class="col-dataset">ENABirds</td>
+    </tr>
+    <tr>
+      <td class="col-audio"><div class="mini-player" data-src="_static/audio/Recording_2_Segment_11.004_023.wav"><button class="mp-btn"><svg width="9" height="11" viewBox="0 0 9 11"><polygon points="0,0 9,5.5 0,11"/></svg></button><div class="mp-bar"><div class="mp-fill"></div></div><span class="mp-time">0:00</span></div></td>
+      <td>Kentucky Warbler</td><td>Kirtland's Warbler, American Crow</td>
+      <td class="col-dataset">ENABirds</td>
+    </tr>
+    <tr>
+      <td class="col-audio"><div class="mini-player" data-src="_static/audio/Recording_4_Segment_26.004_034.wav"><button class="mp-btn"><svg width="9" height="11" viewBox="0 0 9 11"><polygon points="0,0 9,5.5 0,11"/></svg></button><div class="mp-bar"><div class="mp-fill"></div></div><span class="mp-time">0:00</span></div></td>
+      <td>Chestnut-capped Brushfinch</td><td>None</td>
+      <td class="col-dataset">ENABirds</td>
+    </tr>
+    <tr>
+      <td class="col-audio"><div class="mini-player" data-src="_static/audio/cb5ddad47_004.wav"><button class="mp-btn"><svg width="9" height="11" viewBox="0 0 9 11"><polygon points="0,0 9,5.5 0,11"/></svg></button><div class="mp-bar"><div class="mp-fill"></div></div><span class="mp-time">0:00</span></div></td>
+      <td>Red-legged Thrush</td><td>Red-legged thrush</td>
+      <td class="col-dataset"><a href="https://rfcx.org/" target="_blank">RFCX</a></td>
+    </tr>
+    <tr>
+      <td class="col-audio"><div class="mini-player" data-src="_static/audio/51319c540_000.wav"><button class="mp-btn"><svg width="9" height="11" viewBox="0 0 9 11"><polygon points="0,0 9,5.5 0,11"/></svg></button><div class="mp-bar"><div class="mp-fill"></div></div><span class="mp-time">0:00</span></div></td>
+      <td>Puerto Rican Bullfinch</td><td>Puerto Rican bullfinch</td>
+      <td class="col-dataset"><a href="https://rfcx.org/" target="_blank">RFCX</a></td>
+    </tr>
+    <tr>
+      <td class="col-audio"><div class="mini-player" data-src="_static/audio/00834f88e_000.wav"><button class="mp-btn"><svg width="9" height="11" viewBox="0 0 9 11"><polygon points="0,0 9,5.5 0,11"/></svg></button><div class="mp-bar"><div class="mp-fill"></div></div><span class="mp-time">0:00</span></div></td>
+      <td>Puerto Rican Coqui</td><td>None</td>
+      <td class="col-dataset"><a href="https://rfcx.org/" target="_blank">RFCX</a></td>
+    </tr>
+    <tr>
+      <td class="col-audio"><div class="mini-player" data-src="_static/audio/1705_20171121_172602_998_002.wav"><button class="mp-btn"><svg width="9" height="11" viewBox="0 0 9 11"><polygon points="0,0 9,5.5 0,11"/></svg></button><div class="mp-bar"><div class="mp-fill"></div></div><span class="mp-time">0:00</span></div></td>
+      <td>Boreal Chorus Frog</td><td>Minke whale</td>
+      <td class="col-dataset"><a href="https://www.fisheries.noaa.gov/inport/item/39189" target="_blank">HICEAS</a></td>
+    </tr>
+  </tbody>
+</table>
+```
+
+## Species Identification
 
 ```{raw} html
 <div class="prompt-block" data-prompt="What is the common name for the focal species in the audio?">What is the common name for the focal species in the audio?</div>
@@ -46,39 +97,19 @@ Audio examples across a range of bioacoustics tasks and datasets. Each example s
       <td class="col-dataset"><a href="https://cis.whoi.edu/science/B/whalesounds/" target="_blank">Watkins</a></td>
     </tr>
     <tr>
-      <td class="col-audio"><div class="mini-player" data-src="_static/audio/94006003.wav"><button class="mp-btn"><svg width="9" height="11" viewBox="0 0 9 11"><polygon points="0,0 9,5.5 0,11"/></svg></button><div class="mp-bar"><div class="mp-fill"></div></div><span class="mp-time">0:00</span></div></td>
-      <td>Spinner Dolphin</td><td>Pantropical Spotted Dolphin</td>
-      <td class="col-dataset"><a href="https://cis.whoi.edu/science/B/whalesounds/" target="_blank">Watkins</a></td>
-    </tr>
-    <tr>
       <td class="col-audio"><div class="mini-player" data-src="_static/audio/XC144957.wav"><button class="mp-btn"><svg width="9" height="11" viewBox="0 0 9 11"><polygon points="0,0 9,5.5 0,11"/></svg></button><div class="mp-bar"><div class="mp-fill"></div></div><span class="mp-time">0:00</span></div></td>
       <td>Greater Yellowlegs</td><td>Greater Yellowlegs</td>
       <td class="col-dataset"><a href="https://www.birds.cornell.edu/ccb/cornell-bird-identification/" target="_blank">CBI</a></td>
     </tr>
     <tr>
       <td class="col-audio"><div class="mini-player" data-src="_static/audio/XC28267.wav"><button class="mp-btn"><svg width="9" height="11" viewBox="0 0 9 11"><polygon points="0,0 9,5.5 0,11"/></svg></button><div class="mp-bar"><div class="mp-fill"></div></div><span class="mp-time">0:00</span></div></td>
-      <td>Wood Duck</td><td>Blue-winged Teal</td>
+      <td>Blue-winged Teal</td><td>Blue-winged Teal</td>
       <td class="col-dataset"><a href="https://www.birds.cornell.edu/ccb/cornell-bird-identification/" target="_blank">CBI</a></td>
     </tr>
     <tr>
       <td class="col-audio"><div class="mini-player" data-src="_static/audio/220774.wav"><button class="mp-btn"><svg width="9" height="11" viewBox="0 0 9 11"><polygon points="0,0 9,5.5 0,11"/></svg></button><div class="mp-bar"><div class="mp-fill"></div></div><span class="mp-time">0:00</span></div></td>
-      <td>culex pipiens complex</td><td>culex pipiens complex</td>
+      <td>Mexican Free-tailed Bat</td><td>Common Mosquito</td>
       <td class="col-dataset"><a href="https://github.com/HumBug-Mosquito/HumbugDB" target="_blank">HumbugDB</a></td>
-    </tr>
-    <tr>
-      <td class="col-audio"><div class="mini-player" data-src="_static/audio/220037.wav"><button class="mp-btn"><svg width="9" height="11" viewBox="0 0 9 11"><polygon points="0,0 9,5.5 0,11"/></svg></button><div class="mp-bar"><div class="mp-fill"></div></div><span class="mp-time">0:00</span></div></td>
-      <td>others</td><td>non-mosquito</td>
-      <td class="col-dataset"><a href="https://github.com/HumBug-Mosquito/HumbugDB" target="_blank">HumbugDB</a></td>
-    </tr>
-    <tr>
-      <td class="col-audio"><div class="mini-player" data-src="_static/audio/3418.wav"><button class="mp-btn"><svg width="9" height="11" viewBox="0 0 9 11"><polygon points="0,0 9,5.5 0,11"/></svg></button><div class="mp-bar"><div class="mp-fill"></div></div><span class="mp-time">0:00</span></div></td>
-      <td>non-mosquito</td><td>an dirus</td>
-      <td class="col-dataset"><a href="https://github.com/HumBug-Mosquito/HumbugDB" target="_blank">HumbugDB</a></td>
-    </tr>
-    <tr>
-      <td class="col-audio"><div class="mini-player" data-src="_static/audio/379SPGRB1011121111MARA2.flac"><button class="mp-btn"><svg width="9" height="11" viewBox="0 0 9 11"><polygon points="0,0 9,5.5 0,11"/></svg></button><div class="mp-bar"><div class="mp-fill"></div></div><span class="mp-time">0:00</span></div></td>
-      <td>Spectacled Tetraka</td><td>Spectacled Tetraka</td>
-      <td class="col-dataset">Unseen (zero-shot)</td>
     </tr>
     <tr>
       <td class="col-audio"><div class="mini-player" data-src="_static/audio/XC291731.flac"><button class="mp-btn"><svg width="9" height="11" viewBox="0 0 9 11"><polygon points="0,0 9,5.5 0,11"/></svg></button><div class="mp-bar"><div class="mp-fill"></div></div><span class="mp-time">0:00</span></div></td>
@@ -87,7 +118,7 @@ Audio examples across a range of bioacoustics tasks and datasets. Each example s
     </tr>
     <tr>
       <td class="col-audio"><div class="mini-player" data-src="_static/audio/XC426371.flac"><button class="mp-btn"><svg width="9" height="11" viewBox="0 0 9 11"><polygon points="0,0 9,5.5 0,11"/></svg></button><div class="mp-bar"><div class="mp-fill"></div></div><span class="mp-time">0:00</span></div></td>
-      <td>Pacific Robin</td><td>Fire-tailed Sunbird</td>
+      <td>Brown-throated Sunbird</td><td>Fire-tailed Sunbird</td>
       <td class="col-dataset">Unseen (zero-shot)</td>
     </tr>
   </tbody>
@@ -99,89 +130,18 @@ Audio examples across a range of bioacoustics tasks and datasets. Each example s
   <tbody>
     <tr>
       <td class="col-audio"><div class="mini-player" data-src="_static/audio/XC429913.flac"><button class="mp-btn"><svg width="9" height="11" viewBox="0 0 9 11"><polygon points="0,0 9,5.5 0,11"/></svg></button><div class="mp-bar"><div class="mp-fill"></div></div><span class="mp-time">0:00</span></div></td>
-      <td>tauraco fischeri</td><td>tauraco fischeri</td>
+      <td>Tauraco fischeri</td><td>tauraco fischeri</td>
       <td class="col-dataset">Unseen (zero-shot)</td>
     </tr>
     <tr>
       <td class="col-audio"><div class="mini-player" data-src="_static/audio/XC321661.flac"><button class="mp-btn"><svg width="9" height="11" viewBox="0 0 9 11"><polygon points="0,0 9,5.5 0,11"/></svg></button><div class="mp-bar"><div class="mp-fill"></div></div><span class="mp-time">0:00</span></div></td>
-      <td>larvivora cyane</td><td>larvivora cyane</td>
+      <td>Luscinia cyane</td><td>larvivora cyane</td>
       <td class="col-dataset">Unseen (zero-shot)</td>
     </tr>
     <tr>
       <td class="col-audio"><div class="mini-player" data-src="_static/audio/99469.flac"><button class="mp-btn"><svg width="9" height="11" viewBox="0 0 9 11"><polygon points="0,0 9,5.5 0,11"/></svg></button><div class="mp-bar"><div class="mp-fill"></div></div><span class="mp-time">0:00</span></div></td>
-      <td>Nisaetus kelaarti</td><td>Nisaetus philippensis</td>
+      <td>Nisaetus cirrhatus</td><td>Nisaetus philippensis</td>
       <td class="col-dataset">Unseen (zero-shot)</td>
-    </tr>
-  </tbody>
-</table>
-```
-
-## Detection
-
-```{raw} html
-<div class="prompt-block" data-prompt="What are the common names for the species in the audio, if any?">What are the common names for the species in the audio, if any?</div>
-<table class="example-table">
-  <thead><tr><th>Audio</th><th>Prediction</th><th>Gold Label</th><th>Dataset</th></tr></thead>
-  <tbody>
-    <tr>
-      <td class="col-audio"><div class="mini-player" data-src="_static/audio/2015-09-21_06-00-00_unit05.099_048.wav"><button class="mp-btn"><svg width="9" height="11" viewBox="0 0 9 11"><polygon points="0,0 9,5.5 0,11"/></svg></button><div class="mp-bar"><div class="mp-fill"></div></div><span class="mp-time">0:00</span></div></td>
-      <td>Gray-cheeked Thrush</td><td>Gray-cheeked Thrush</td>
-      <td class="col-dataset"><a href="https://dcase.community/" target="_blank">DCASE</a></td>
-    </tr>
-    <tr>
-      <td class="col-audio"><div class="mini-player" data-src="_static/audio/a1.057_031.wav"><button class="mp-btn"><svg width="9" height="11" viewBox="0 0 9 11"><polygon points="0,0 9,5.5 0,11"/></svg></button><div class="mp-bar"><div class="mp-fill"></div></div><span class="mp-time">0:00</span></div></td>
-      <td>None</td><td>None</td>
-      <td class="col-dataset"><a href="https://dcase.community/" target="_blank">DCASE</a></td>
-    </tr>
-    <tr>
-      <td class="col-audio"><div class="mini-player" data-src="_static/audio/dcase_MK2.037_019.wav"><button class="mp-btn"><svg width="9" height="11" viewBox="0 0 9 11"><polygon points="0,0 9,5.5 0,11"/></svg></button><div class="mp-bar"><div class="mp-fill"></div></div><span class="mp-time">0:00</span></div></td>
-      <td>None</td><td>Meerkat close call</td>
-      <td class="col-dataset"><a href="https://dcase.community/" target="_blank">DCASE</a></td>
-    </tr>
-    <tr>
-      <td class="col-audio"><div class="mini-player" data-src="_static/audio/Recording_1_Segment_33.004_026.wav"><button class="mp-btn"><svg width="9" height="11" viewBox="0 0 9 11"><polygon points="0,0 9,5.5 0,11"/></svg></button><div class="mp-bar"><div class="mp-fill"></div></div><span class="mp-time">0:00</span></div></td>
-      <td>Black-throated Green Warbler</td><td>Black-throated Green Warbler, Eastern Towhee</td>
-      <td class="col-dataset">ENABirds</td>
-    </tr>
-    <tr>
-      <td class="col-audio"><div class="mini-player" data-src="_static/audio/Recording_2_Segment_11.004_023.wav"><button class="mp-btn"><svg width="9" height="11" viewBox="0 0 9 11"><polygon points="0,0 9,5.5 0,11"/></svg></button><div class="mp-bar"><div class="mp-fill"></div></div><span class="mp-time">0:00</span></div></td>
-      <td>None</td><td>Kirtland's Warbler, American Crow</td>
-      <td class="col-dataset">ENABirds</td>
-    </tr>
-    <tr>
-      <td class="col-audio"><div class="mini-player" data-src="_static/audio/Recording_4_Segment_26.004_034.wav"><button class="mp-btn"><svg width="9" height="11" viewBox="0 0 9 11"><polygon points="0,0 9,5.5 0,11"/></svg></button><div class="mp-bar"><div class="mp-fill"></div></div><span class="mp-time">0:00</span></div></td>
-      <td>Black-and-white Warbler</td><td>None</td>
-      <td class="col-dataset">ENABirds</td>
-    </tr>
-    <tr>
-      <td class="col-audio"><div class="mini-player" data-src="_static/audio/cb5ddad47_004.wav"><button class="mp-btn"><svg width="9" height="11" viewBox="0 0 9 11"><polygon points="0,0 9,5.5 0,11"/></svg></button><div class="mp-bar"><div class="mp-fill"></div></div><span class="mp-time">0:00</span></div></td>
-      <td>Red-legged thrush</td><td>Red-legged thrush</td>
-      <td class="col-dataset"><a href="https://rfcx.org/" target="_blank">RFCX</a></td>
-    </tr>
-    <tr>
-      <td class="col-audio"><div class="mini-player" data-src="_static/audio/51319c540_000.wav"><button class="mp-btn"><svg width="9" height="11" viewBox="0 0 9 11"><polygon points="0,0 9,5.5 0,11"/></svg></button><div class="mp-bar"><div class="mp-fill"></div></div><span class="mp-time">0:00</span></div></td>
-      <td>Puerto Rican bullfinch</td><td>Puerto Rican bullfinch</td>
-      <td class="col-dataset"><a href="https://rfcx.org/" target="_blank">RFCX</a></td>
-    </tr>
-    <tr>
-      <td class="col-audio"><div class="mini-player" data-src="_static/audio/00834f88e_000.wav"><button class="mp-btn"><svg width="9" height="11" viewBox="0 0 9 11"><polygon points="0,0 9,5.5 0,11"/></svg></button><div class="mp-bar"><div class="mp-fill"></div></div><span class="mp-time">0:00</span></div></td>
-      <td>Common coqui</td><td>None</td>
-      <td class="col-dataset"><a href="https://rfcx.org/" target="_blank">RFCX</a></td>
-    </tr>
-    <tr>
-      <td class="col-audio"><div class="mini-player" data-src="_static/audio/1705_20171121_172602_998_002.wav"><button class="mp-btn"><svg width="9" height="11" viewBox="0 0 9 11"><polygon points="0,0 9,5.5 0,11"/></svg></button><div class="mp-bar"><div class="mp-fill"></div></div><span class="mp-time">0:00</span></div></td>
-      <td>Minke whale</td><td>Minke whale</td>
-      <td class="col-dataset"><a href="https://www.fisheries.noaa.gov/inport/item/39189" target="_blank">HICEAS</a></td>
-    </tr>
-    <tr>
-      <td class="col-audio"><div class="mini-player" data-src="_static/audio/1705_20171118_034136_019_008.wav"><button class="mp-btn"><svg width="9" height="11" viewBox="0 0 9 11"><polygon points="0,0 9,5.5 0,11"/></svg></button><div class="mp-bar"><div class="mp-fill"></div></div><span class="mp-time">0:00</span></div></td>
-      <td>None</td><td>None</td>
-      <td class="col-dataset"><a href="https://www.fisheries.noaa.gov/inport/item/39189" target="_blank">HICEAS</a></td>
-    </tr>
-    <tr>
-      <td class="col-audio"><div class="mini-player" data-src="_static/audio/1705_20171201_010445_428_008.wav"><button class="mp-btn"><svg width="9" height="11" viewBox="0 0 9 11"><polygon points="0,0 9,5.5 0,11"/></svg></button><div class="mp-bar"><div class="mp-fill"></div></div><span class="mp-time">0:00</span></div></td>
-      <td>Minke whale</td><td>None</td>
-      <td class="col-dataset"><a href="https://www.fisheries.noaa.gov/inport/item/39189" target="_blank">HICEAS</a></td>
     </tr>
   </tbody>
 </table>
@@ -201,12 +161,7 @@ Audio examples across a range of bioacoustics tasks and datasets. Each example s
     </tr>
     <tr>
       <td class="col-audio"><div class="mini-player" data-src="_static/audio/HGSM3D_0+1_20160429_051600.123_015.wav"><button class="mp-btn"><svg width="9" height="11" viewBox="0 0 9 11"><polygon points="0,0 9,5.5 0,11"/></svg></button><div class="mp-bar"><div class="mp-fill"></div></div><span class="mp-time">0:00</span></div></td>
-      <td>Single pulse gibbon call</td><td>Multiple pulse gibbon call</td>
-      <td class="col-dataset">Hainan Gibbons</td>
-    </tr>
-    <tr>
-      <td class="col-audio"><div class="mini-player" data-src="_static/audio/HGSM3SOL_0+1_20160405_053400.345_005.wav"><button class="mp-btn"><svg width="9" height="11" viewBox="0 0 9 11"><polygon points="0,0 9,5.5 0,11"/></svg></button><div class="mp-bar"><div class="mp-fill"></div></div><span class="mp-time">0:00</span></div></td>
-      <td>Gibbon duet</td><td>None</td>
+      <td>Multiple pulse gibbon call</td><td>Multiple pulse gibbon call</td>
       <td class="col-dataset">Hainan Gibbons</td>
     </tr>
   </tbody>
@@ -228,7 +183,7 @@ Audio examples across a range of bioacoustics tasks and datasets. Each example s
     </tr>
     <tr>
       <td class="col-audio"><div class="mini-player" data-src="_static/audio/XC646657.flac"><button class="mp-btn"><svg width="9" height="11" viewBox="0 0 9 11"><polygon points="0,0 9,5.5 0,11"/></svg></button><div class="mp-bar"><div class="mp-fill"></div></div><span class="mp-time">0:00</span></div></td>
-      <td>call</td><td>song</td>
+      <td>song</td><td>song</td>
       <td class="col-dataset">--</td>
     </tr>
   </tbody>
@@ -244,17 +199,12 @@ Audio examples across a range of bioacoustics tasks and datasets. Each example s
   <tbody>
     <tr>
       <td class="col-audio"><div class="mini-player" data-src="_static/audio/XC746757.flac"><button class="mp-btn"><svg width="9" height="11" viewBox="0 0 9 11"><polygon points="0,0 9,5.5 0,11"/></svg></button><div class="mp-bar"><div class="mp-fill"></div></div><span class="mp-time">0:00</span></div></td>
-      <td>juvenile</td><td>juvenile</td>
+      <td>Adult</td><td>juvenile</td>
       <td class="col-dataset">--</td>
     </tr>
     <tr>
       <td class="col-audio"><div class="mini-player" data-src="_static/audio/XC530260.flac"><button class="mp-btn"><svg width="9" height="11" viewBox="0 0 9 11"><polygon points="0,0 9,5.5 0,11"/></svg></button><div class="mp-bar"><div class="mp-fill"></div></div><span class="mp-time">0:00</span></div></td>
-      <td>adult</td><td>adult</td>
-      <td class="col-dataset">--</td>
-    </tr>
-    <tr>
-      <td class="col-audio"><div class="mini-player" data-src="_static/audio/XC588131.flac"><button class="mp-btn"><svg width="9" height="11" viewBox="0 0 9 11"><polygon points="0,0 9,5.5 0,11"/></svg></button><div class="mp-bar"><div class="mp-fill"></div></div><span class="mp-time">0:00</span></div></td>
-      <td>juvenile</td><td>nestling</td>
+      <td>Adult</td><td>adult</td>
       <td class="col-dataset">--</td>
     </tr>
   </tbody>
@@ -270,15 +220,36 @@ Audio examples across a range of bioacoustics tasks and datasets. Each example s
   <tbody>
     <tr>
       <td class="col-audio"><div class="mini-player" data-src="_static/audio/154912.flac"><button class="mp-btn"><svg width="9" height="11" viewBox="0 0 9 11"><polygon points="0,0 9,5.5 0,11"/></svg></button><div class="mp-bar"><div class="mp-fill"></div></div><span class="mp-time">0:00</span></div></td>
-      <td class="col-text">Call of a new zealand bellbird with background sounds from new zealand falcon.</td>
+      <td class="col-text">New Zealand Bellbird singing.</td>
       <td class="col-text">The common evening song of a Mainland New Zealand Bellbird.</td>
       <td class="col-dataset">--</td>
     </tr>
     <tr>
       <td class="col-audio"><div class="mini-player" data-src="_static/audio/7743.flac"><button class="mp-btn"><svg width="9" height="11" viewBox="0 0 9 11"><polygon points="0,0 9,5.5 0,11"/></svg></button><div class="mp-bar"><div class="mp-fill"></div></div><span class="mp-time">0:00</span></div></td>
-      <td class="col-text">Cajun Chorus Frog</td>
+      <td class="col-text">The sound of a Squirrel Treefrog.</td>
       <td class="col-text">The sound of Squirrel Treefrog after a rain.</td>
       <td class="col-dataset">--</td>
+    </tr>
+  </tbody>
+</table>
+```
+
+## General Sound Classification
+
+```{raw} html
+<div class="prompt-block" data-prompt="Classify the sound into one of the following categories: dog, rooster, pig, cow, frog, cat, hen, insects, sheep, crow, rain, sea_waves, crackling_fire, crickets, chirping_birds, water_drops, wind, pouring_water, toilet_flush, thunderstorm, crying_baby, sneezing, clapping, breathing, coughing, footsteps, laughing, brushing_teeth, snoring, drinking_sipping, door_wood_knock, mouse_click, keyboard_typing, door_wood_creaks, can_opening, washing_machine, vacuum_cleaner, clock_alarm, clock_tick, glass_breaking, helicopter, chainsaw, siren, car_horn, engine, train, church_bells, airplane, fireworks, hand_saw">Classify the sound into one of the following categories: dog, rooster, pig, cow, frog, cat, hen, insects, sheep, crow, rain, sea_waves, crackling_fire, crickets, chirping_birds, water_drops, wind, pouring_water, toilet_flush, thunderstorm, crying_baby, sneezing, clapping, breathing, coughing, footsteps, laughing, brushing_teeth, snoring, drinking_sipping, door_wood_knock, mouse_click, keyboard_typing, door_wood_creaks, can_opening, washing_machine, vacuum_cleaner, clock_alarm, clock_tick, glass_breaking, helicopter, chainsaw, siren, car_horn, engine, train, church_bells, airplane, fireworks, hand_saw</div>
+<table class="example-table">
+  <thead><tr><th>Audio</th><th>Prediction</th><th>Gold Label</th><th>Dataset</th></tr></thead>
+  <tbody>
+    <tr>
+      <td class="col-audio"><div class="mini-player" data-src="_static/audio/5-9032-A-0.wav"><button class="mp-btn"><svg width="9" height="11" viewBox="0 0 9 11"><polygon points="0,0 9,5.5 0,11"/></svg></button><div class="mp-bar"><div class="mp-fill"></div></div><span class="mp-time">0:00</span></div></td>
+      <td>chirping_birds</td><td>dog</td>
+      <td class="col-dataset"><a href="https://github.com/karolpiczak/ESC-50" target="_blank">ESC-50</a></td>
+    </tr>
+    <tr>
+      <td class="col-audio"><div class="mini-player" data-src="_static/audio/5-214759-B-5.wav"><button class="mp-btn"><svg width="9" height="11" viewBox="0 0 9 11"><polygon points="0,0 9,5.5 0,11"/></svg></button><div class="mp-bar"><div class="mp-fill"></div></div><span class="mp-time">0:00</span></div></td>
+      <td>cat</td><td>cat</td>
+      <td class="col-dataset"><a href="https://github.com/karolpiczak/ESC-50" target="_blank">ESC-50</a></td>
     </tr>
   </tbody>
 </table>
@@ -297,35 +268,9 @@ Audio examples across a range of bioacoustics tasks and datasets. Each example s
       <td class="col-dataset">ZF-NBirds</td>
     </tr>
     <tr>
-      <td class="col-audio"><div class="mini-player" data-src="_static/audio/contact_WhiGra0114LblBlu1630LblRas1800BluRas07dd_2134.wav"><button class="mp-btn"><svg width="9" height="11" viewBox="0 0 9 11"><polygon points="0,0 9,5.5 0,11"/></svg></button><div class="mp-bar"><div class="mp-fill"></div></div><span class="mp-time">0:00</span></div></td>
-      <td>4</td><td>4</td>
-      <td class="col-dataset">ZF-NBirds</td>
-    </tr>
-    <tr>
       <td class="col-audio"><div class="mini-player" data-src="_static/audio/contact_WhiBlu4917LblBla4548BlaBla0506_2203.wav"><button class="mp-btn"><svg width="9" height="11" viewBox="0 0 9 11"><polygon points="0,0 9,5.5 0,11"/></svg></button><div class="mp-bar"><div class="mp-fill"></div></div><span class="mp-time">0:00</span></div></td>
-      <td>2</td><td>3</td>
+      <td>1</td><td>3</td>
       <td class="col-dataset">ZF-NBirds</td>
-    </tr>
-  </tbody>
-</table>
-```
-
-## General Sound Classification
-
-```{raw} html
-<div class="prompt-block" data-prompt="Classify the sound into one of the following categories: dog, rooster, pig, cow, frog, cat, hen, insects, sheep, crow, rain, sea_waves, crackling_fire, crickets, chirping_birds, water_drops, wind, pouring_water, toilet_flush, thunderstorm, crying_baby, sneezing, clapping, breathing, coughing, footsteps, laughing, brushing_teeth, snoring, drinking_sipping, door_wood_knock, mouse_click, keyboard_typing, door_wood_creaks, can_opening, washing_machine, vacuum_cleaner, clock_alarm, clock_tick, glass_breaking, helicopter, chainsaw, siren, car_horn, engine, train, church_bells, airplane, fireworks, hand_saw">Classify the sound into one of the following categories: dog, rooster, pig, cow, frog, cat, hen, insects, sheep, crow, rain, sea_waves, crackling_fire, crickets, chirping_birds, water_drops, wind, pouring_water, toilet_flush, thunderstorm, crying_baby, sneezing, clapping, breathing, coughing, footsteps, laughing, brushing_teeth, snoring, drinking_sipping, door_wood_knock, mouse_click, keyboard_typing, door_wood_creaks, can_opening, washing_machine, vacuum_cleaner, clock_alarm, clock_tick, glass_breaking, helicopter, chainsaw, siren, car_horn, engine, train, church_bells, airplane, fireworks, hand_saw</div>
-<table class="example-table">
-  <thead><tr><th>Audio</th><th>Prediction</th><th>Gold Label</th><th>Dataset</th></tr></thead>
-  <tbody>
-    <tr>
-      <td class="col-audio"><div class="mini-player" data-src="_static/audio/5-9032-A-0.wav"><button class="mp-btn"><svg width="9" height="11" viewBox="0 0 9 11"><polygon points="0,0 9,5.5 0,11"/></svg></button><div class="mp-bar"><div class="mp-fill"></div></div><span class="mp-time">0:00</span></div></td>
-      <td>dog</td><td>dog</td>
-      <td class="col-dataset"><a href="https://github.com/karolpiczak/ESC-50" target="_blank">ESC-50</a></td>
-    </tr>
-    <tr>
-      <td class="col-audio"><div class="mini-player" data-src="_static/audio/5-214759-B-5.wav"><button class="mp-btn"><svg width="9" height="11" viewBox="0 0 9 11"><polygon points="0,0 9,5.5 0,11"/></svg></button><div class="mp-bar"><div class="mp-fill"></div></div><span class="mp-time">0:00</span></div></td>
-      <td>crying_baby</td><td>cat</td>
-      <td class="col-dataset"><a href="https://github.com/karolpiczak/ESC-50" target="_blank">ESC-50</a></td>
     </tr>
   </tbody>
 </table>

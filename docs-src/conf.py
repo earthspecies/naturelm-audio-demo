@@ -28,6 +28,7 @@ html_theme = 'furo'
 
 html_theme_options = {
     "sidebar_hide_name": True,
+    "globaltoc_collapse": False,
     "source_view_link": "https://github.com/earthspecies/NatureLM-audio",
     "light_css_variables": {
         "color-brand-primary": "#129C7B",

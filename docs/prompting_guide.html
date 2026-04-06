@@ -1,0 +1,833 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="./">
+  <head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="genindex.html"><link rel="search" title="Search" href="search.html"><link rel="next" title="Interactive Demo" href="ui_demo.html"><link rel="prev" title="Usage" href="usage.html">
+        <link rel="prefetch" href="_static/esp-logotype-only-black.png" as="image">
+        <link rel="prefetch" href="_static/esp-logotype-only-white.png" as="image">
+
+    <link rel="shortcut icon" href="_static/favicon.svg"><!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
+        <title>Prompting Guide - NatureLM-audio</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d111a655" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=7bdb33bb" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=8dab3a3b" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=a625ebdf" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f2f2f2;
+  --color-code-foreground: #1e1e1e;
+  --color-brand-primary: #129C7B;
+  --color-brand-content: #129C7B;
+  --color-brand-visited: #054C3B;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --color-brand-primary: #04D78A;
+  --color-brand-content: #04D78A;
+  --color-brand-visited: #A7ED99;
+  --color-foreground-primary: #ffffff;
+  --color-foreground-secondary: #dedede;
+  --color-foreground-muted: #888888;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --color-brand-primary: #04D78A;
+  --color-brand-content: #04D78A;
+  --color-brand-visited: #A7ED99;
+  --color-foreground-primary: #ffffff;
+  --color-foreground-secondary: #dedede;
+  --color-foreground-muted: #888888;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle site navigation sidebar">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc" aria-label="Toggle table of contents sidebar">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <span class="icon"><svg><use href="#svg-menu"></use></svg></span>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">NatureLM-audio</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><div class="sidebar-scroll"><a class="sidebar-brand" href="https://earthspecies.org" target="_blank" rel="noopener noreferrer">
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo only-light" src="_static/esp-logotype-only-black.png" alt="Light Logo"/>
+    <img class="sidebar-logo only-dark" src="_static/esp-logotype-only-white.png" alt="Dark Logo"/>
+  </div>
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-home-link">
+  <a href="index.html">Home</a>
+</div><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="quick_start.html">Quick Start Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Prompting Guide</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Demos &amp; Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ui_demo.html">Interactive Demo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo_video.html">Demo Video</a></li>
+<li class="toctree-l1"><a class="reference internal" href="case_studies.html">Case Study</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="datasets.html">Datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="paper.html">Paper</a></li>
+</ul>
+
+</div></div>
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="view-this-page">
+  <a class="muted-link" href="https://github.com/earthspecies/NatureLM-audio" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div>
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <section id="prompting-guide">
+<h1>Prompting Guide<a class="headerlink" href="#prompting-guide" title="Link to this heading">¶</a></h1>
+<p>This guide covers usage of NatureLM-audio for bioacoustic tasks, with a focus on how to prompt the model to receive best results.</p>
+<section id="audio-format">
+<h2>Audio Format<a class="headerlink" href="#audio-format" title="Link to this heading">¶</a></h2>
+<p>The model operates on 16 kHz mono audio, resampled automatically internally. The model is trained to handle clips of up to 10 seconds in length. If you want the model to focus on only a certain section of audio, make sure to clip to that section in advance.</p>
+</section>
+<section id="task-overview">
+<h2>Task Overview<a class="headerlink" href="#task-overview" title="Link to this heading">¶</a></h2>
+<p>Tasks are labeled as either “Core”, producing consistent results in our evaluations, or “Experimental” which show promise but merit further evaluation. NatureLM-audio can be tried on tasks beyond what’s covered in this guide, and on taxa beyond the training data — however these should all be considered “Experimental” and not assumed to work out-of-the-box.</p>
+<table class="task-overview">
+  <thead>
+    <tr><th>Task</th><th>Reliability</th><th>Sample Prompt</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><a href="#species-detection">Species Detection</a></td><td><span class="badge badge-core">Core</span></td><td class="overview-prompt">What are the common names for the species in the audio, if any?</td></tr>
+    <tr><td><a href="#species-identification">Species Identification</a></td><td><span class="badge badge-core">Core</span></td><td class="overview-prompt">What species is vocalizing in this audio recording? Common name?</td></tr>
+    <tr><td><a href="#species-identification-with-context">Species Identification with Context</a></td><td><span class="badge badge-core">Core</span></td><td class="overview-prompt">Given the context: '...', what is the common name for the focal species in the audio?</td></tr>
+    <tr><td><a href="#species-identification-from-option-list">Species Identification from Option List</a></td><td><span class="badge badge-core">Core</span></td><td class="overview-prompt">Which of these is the focal species in the audio? Options: ...</td></tr>
+    <tr><td><a href="#multiple-species-identification">Multiple Species Identification</a></td><td><span class="badge badge-core">Core</span></td><td class="overview-prompt">List the scientific names of all species vocalizing in this audio clip.</td></tr>
+    <tr><td><a href="#taxonomy">Taxonomy</a></td><td><span class="badge badge-core">Core</span></td><td class="overview-prompt">What is the genus of the focal species in the audio?</td></tr>
+    <tr><td><a href="#call-type-behavior">Call Type / Behavior</a></td><td><span class="badge badge-core">Core</span></td><td class="overview-prompt">What type of vocalization or call is this?</td></tr>
+    <tr><td><a href="#life-stage">Life Stage</a></td><td><span class="badge badge-core">Core</span></td><td class="overview-prompt">Is the focal species an adult or juvenile?</td></tr>
+    <tr><td><a href="#captioning">Captioning</a></td><td><span class="badge badge-core">Core</span></td><td class="overview-prompt">Caption the audio, using common names for any animal species.</td></tr>
+    <tr><td><a href="#combined-task-multi-turn">Combined Task / Multi-Turn</a></td><td><span class="badge badge-core">Core</span></td><td class="overview-prompt">What type of vocalization is it, and what is the life stage?</td></tr>
+    <tr><td><a href="#environmental-sound-classification">Environmental Sound Classification</a></td><td><span class="badge badge-core">Core</span></td><td class="overview-prompt">Which of these non-animal sounds are present in the recording? ... or None.</td></tr>
+    <tr><td><a href="#taxon-presence">Taxon Presence</a></td><td><span class="badge badge-core">Core</span></td><td class="overview-prompt">Is there a bird vocalizing in this recording? Answer Yes or No.</td></tr>
+    <tr><td><a href="#call-type-presence">Call Type Presence</a></td><td><span class="badge badge-core">Core</span></td><td class="overview-prompt">Is a [call type] present in this recording? Answer Yes or No.</td></tr>
+    <tr><td><a href="#top-3-species-identification">Top-3 Species Identification</a></td><td><span class="badge badge-exp">Experimental</span></td><td class="overview-prompt">What is the common name of the species vocalizing in this audio recording? Provide your top 3 predictions.</td></tr>
+    <tr><td><a href="#habitat-inference">Habitat Inference</a></td><td><span class="badge badge-exp">Experimental</span></td><td class="overview-prompt">Based on the sounds, what habitat or environment do you think this was recorded in?</td></tr>
+    <tr><td><a href="#geographic-inference">Geographic Inference</a></td><td><span class="badge badge-exp">Experimental</span></td><td class="overview-prompt">Based on the species you hear, what region of the world was this likely recorded in?</td></tr>
+    <tr><td><a href="#structured-json-output">Structured JSON Output</a></td><td><span class="badge badge-exp">Experimental</span></td><td class="overview-prompt">Identify this recording. Respond in JSON format: {"species": "...", "call_type": "..."}</td></tr>
+    <tr><td><a href="#describe-then-identify">Describe-Then-Identify</a></td><td><span class="badge badge-exp">Experimental</span></td><td class="overview-prompt">First describe what you hear, then identify the species.</td></tr>
+    <tr><td><a href="#frequency-range">Frequency Range</a></td><td><span class="badge badge-exp">Experimental</span></td><td class="overview-prompt">What is the overall frequency range of the vocalizations in this audio?</td></tr>
+    <tr><td><a href="#species-count">Species Count</a></td><td><span class="badge badge-exp">Experimental</span></td><td class="overview-prompt">How many different species are vocalizing, and what are they?</td></tr>
+    <tr><td><a href="#call-count">Call Count</a></td><td><span class="badge badge-exp">Experimental</span></td><td class="overview-prompt">How many individual vocalizations can you detect in this audio?</td></tr>
+    <tr><td><a href="#individual-count">Individual Count</a></td><td><span class="badge badge-exp">Experimental</span></td><td class="overview-prompt">How many individuals are vocalizing in the audio? Answer "one" or "more than one".</td></tr>
+    <tr><td><a href="#temporal-order">Temporal Order</a></td><td><span class="badge badge-exp">Experimental</span></td><td class="overview-prompt">List the species in the order they first vocalize, using scientific names.</td></tr>
+  </tbody>
+</table></section>
+<section id="core-tasks">
+<h2>Core Tasks<a class="headerlink" href="#core-tasks" title="Link to this heading">¶</a></h2>
+<p>These tasks produce consistent results across our evaluations and cover the most common bioacoustic research use cases.</p>
+<section id="species-detection">
+<h3>Species Detection<a class="headerlink" href="#species-detection" title="Link to this heading">¶</a></h3>
+<p class="task-description">Detect which species are vocalizing without providing a list to choose from. The model can also answer "None".</p>
+<div class="prompt-example">
+  <p class="prompt-label">Common name</p>
+  <div class="prompt-block">What are the common names for the species in the audio, if any?</div>
+</div>
+<div class="prompt-example">
+  <p class="prompt-label">Scientific name</p>
+  <div class="prompt-block">What are the scientific names for the species in the audio, if any?</div>
+</div></section>
+<section id="species-identification">
+<h3>Species Identification<a class="headerlink" href="#species-identification" title="Link to this heading">¶</a></h3>
+<p class="task-description">Identify the single focal species in a recording.</p>
+<div class="prompt-example">
+  <p class="prompt-label">Common name (recommended)</p>
+  <div class="prompt-block">What species is vocalizing in this audio recording? Common name?</div>
+</div>
+<div class="prompt-example">
+  <p class="prompt-label">Scientific name</p>
+  <div class="prompt-block">What is the scientific name of the focal species in the audio?</div>
+</div><p>The model is very prompt-robust for species ID — terse prompts like <em>Species?</em> and verbose prompts all perform within ~1% of each other. Scientific-name prompts are slightly more accurate than common-name prompts because scientific names are more standardized.</p>
+<div class="tips-card">
+  <p class="tips-card-heading">Tips</p>
+  <ul>
+    <li>With this prompt, the model will default to return a single species. For soundscapes with multiple species, use the multilabel prompts below.</li>
+    <li>The model is strongest on Western European and North American birds. Accuracy drops in species-rich tropical regions (Neotropics, Southeast Asia).</li>
+    <li>Weak taxonomic groups: hummingbirds/swifts, grouse/pheasants, and kingfishers are notably harder.</li>
+  </ul>
+</div></section>
+<section id="species-identification-with-context">
+<h3>Species Identification with Context<a class="headerlink" href="#species-identification-with-context" title="Link to this heading">¶</a></h3>
+<p class="task-description">Provide geographic or temporal metadata or free-text observations to help narrow identification.</p>
+<div class="prompt-example">
+  <p class="prompt-label">Common name (recommended)</p>
+  <div class="prompt-block">Given the context: '&lt;context&gt;', what is the common name for the focal species in the audio?</div>
+</div>
+<div class="prompt-example">
+  <p class="prompt-label">Scientific name</p>
+  <div class="prompt-block">Given the context: '&lt;context&gt;', what is the scientific name for the focal species in the audio?</div>
+</div><p>Replace <code class="docutils literal notranslate"><span class="pre">&lt;context&gt;</span></code> with whatever metadata you have, e.g. <code class="docutils literal notranslate"><span class="pre">country:</span> <span class="pre">BR,</span> <span class="pre">coordinates:</span> <span class="pre">-23.5,</span> <span class="pre">-46.6</span></code> or <code class="docutils literal notranslate"><span class="pre">recorded</span> <span class="pre">in</span> <span class="pre">temperate</span> <span class="pre">forest,</span> <span class="pre">June</span></code>.</p>
+<br>
+<p class="prompt-label">System prompt</p><p>You can also place context in the system prompt:</p>
+<div class="dialog-card">
+  <div class="dialog-row">
+    <span class="dialog-role">System</span>
+    <span class="dialog-text">You are a bioacoustics expert. Recording context: country: BR, coordinates: -23.5, -46.6</span>
+  </div>
+  <div class="dialog-row">
+    <span class="dialog-role dialog-role--user">User</span>
+    <span class="dialog-text dialog-text--prompt">What is the common name of the species in this recording?</span>
+  </div>
+</div><div class="tips-card">
+  <p class="tips-card-heading">Tips</p>
+  <ul>
+    <li>Context provides a small accuracy boost. The model already performs well without it, but it can be helpful especially for ambiguous or acoustically similar calls.</li>
+    <li>System-prompt context and in-prompt context perform similarly.</li>
+  </ul>
+</div></section>
+<section id="species-identification-from-option-list">
+<h3>Species Identification from Option List<a class="headerlink" href="#species-identification-from-option-list" title="Link to this heading">¶</a></h3>
+<p class="task-description">Classify the focal species from a provided option list.</p>
+<div class="prompt-example">
+  <p class="prompt-label">Common name</p>
+  <div class="prompt-block">Which of these is the focal species in the audio? Options: &lt;species_choices&gt;</div>
+</div>
+<div class="prompt-example">
+  <p class="prompt-label">Scientific name</p>
+  <div class="prompt-block">Which of these species (scientific name) is in the audio? Options: &lt;species_choices&gt;</div>
+</div><p>Replace <code class="docutils literal notranslate"><span class="pre">&lt;species_choices&gt;</span></code> with a comma-separated list, e.g. <em>Turdus merula, Erithacus rubecula, Fringilla coelebs, Parus major, Phylloscopus collybita</em>.</p>
+<div class="tips-card">
+  <p class="tips-card-heading">Tips</p>
+  <ul>
+    <li>Multiple-choice accuracy is substantially higher than open-ended ID (~91% vs ~77%).</li>
+    <li>Up to 15 options work well; more are possible but need to be validated.</li>
+    <li>Genus-level and family-level option variants also exist and are even easier.</li>
+    <li>You can add context: <em>Given the context '&lt;context&gt;', which of these is the focal species? &lt;species_choices&gt;</em></li>
+  </ul>
+</div></section>
+<section id="multiple-species-identification">
+<h3>Multiple Species Identification<a class="headerlink" href="#multiple-species-identification" title="Link to this heading">¶</a></h3>
+<p class="task-description">Classify one or more species in a recording. Unlike single-species classification, these prompts can return multiple species and can answer "None" when the correct answer is not present.</p>
+<div class="prompt-example">
+  <p class="prompt-label">Listing prompt (recommended)</p>
+  <div class="prompt-block">List the scientific names of all species vocalizing in this audio clip.</div>
+  <div class="prompt-block">List the common names of all species vocalizing in this audio clip.</div>
+</div>
+<div class="prompt-example">
+  <p class="prompt-label">Option-list prompt</p>
+  <div class="prompt-block">Which of these species, if any, are present in the recording? &lt;species_choices&gt;</div>
+  <div class="prompt-block">Which of these species (scientific name), if any, are present? &lt;species_choices&gt;</div>
+</div><p>Replace <code class="docutils literal notranslate"><span class="pre">&lt;species_choices&gt;</span></code> with a comma-separated list, e.g. <em>Turdus merula, Erithacus rubecula, Fringilla coelebs, Parus major, Phylloscopus collybita</em>.</p>
+<div class="tips-card">
+  <p class="tips-card-heading">Tips</p>
+  <ul>
+    <li>Both prompt styles can return multiple species and can answer "None". The listing prompt tends to work better on multi-species soundscapes.</li>
+    <li>The "if any" phrasing in the option-list variant encourages the model to answer "None" when appropriate.</li>
+  </ul>
+</div></section>
+<section id="taxonomy">
+<h3>Taxonomy<a class="headerlink" href="#taxonomy" title="Link to this heading">¶</a></h3>
+<p class="task-description">Classify at coarser taxonomic levels.</p>
+<div class="prompt-example">
+  <p class="prompt-label">Genus</p>
+  <div class="prompt-block">What is the genus of the focal species in the audio?</div>
+</div>
+<div class="prompt-example">
+  <p class="prompt-label">Family</p>
+  <div class="prompt-block">What is the family of the focal species in the audio?</div>
+</div>
+<div class="prompt-example">
+  <p class="prompt-label">Order</p>
+  <div class="prompt-block">What is the order of the focal species in the audio?</div>
+</div>
+<div class="prompt-example">
+  <p class="prompt-label">Full taxonomic name</p>
+  <div class="prompt-block">What is the taxonomic name of the focal species in the audio?</div>
+</div><div class="tips-card">
+  <p class="tips-card-heading">Tips</p>
+  <ul>
+    <li>Coarser levels (order, family) are more accurate than finer ones (genus, species), as expected.</li>
+    <li>Full taxonomic name returns a semicolon-separated string: <em>Chordata; Aves; Passeriformes; Fringillidae; Fringilla coelebs</em>. This can be an alternative to scientific or common name classification that gives more information, in case the precise species-level classification is incorrect.</li>
+    <li>All taxonomic prompts are highly prompt-robust.</li>
+  </ul>
+</div></section>
+<section id="call-type-behavior">
+<h3>Call Type / Behavior<a class="headerlink" href="#call-type-behavior" title="Link to this heading">¶</a></h3>
+<p class="task-description">Classify the vocalization type. For exploratory purposes, use an open-ended prompt. To classify into a specific set of calls for analysis, binary prompts may be most reliable — e.g. call vs. song, alarm call present or not present.</p><p>Note that this task currently focuses on call types which are established across species — for instance, “call”, “song”, or “alarm call”, but likely not specifically a named call for a specific species.</p>
+<div class="prompt-example">
+  <p class="prompt-label">Open-ended call type</p>
+  <div class="prompt-block">What type of vocalization or call is this?</div>
+</div>
+<div class="prompt-example">
+  <p class="prompt-label">Binary call vs. song</p>
+  <div class="prompt-block">Is this a call or a song?</div>
+</div>
+<div class="prompt-example">
+  <p class="prompt-label">Species-conditioned</p>
+  <div class="prompt-block">What type of call is the &lt;species&gt; making in this recording?</div>
+</div><div class="tips-card">
+  <p class="tips-card-heading">Tips</p>
+  <ul>
+    <li>The binary prompt works well when the true label is strictly "call" or "song". On recordings with labels like "alarm call" or "flight call", the binary prompt is less reliable.</li>
+    <li>Providing a species hint improves call-type accuracy slightly.</li>
+    <li>The trained vocabulary includes: call, song, alarm call, flight call, begging call.</li>
+  </ul>
+</div></section>
+<section id="life-stage">
+<h3>Life Stage<a class="headerlink" href="#life-stage" title="Link to this heading">¶</a></h3>
+<p class="task-description">Determine whether the vocalizing animal is an adult or juvenile.</p>
+<div class="prompt-example">
+  <p class="prompt-label">Open-ended</p>
+  <div class="prompt-block">What life stage is the animal in this recording?</div>
+</div>
+<div class="prompt-example">
+  <p class="prompt-label">Binary (recommended)</p>
+  <div class="prompt-block">Is the focal species an adult or juvenile?</div>
+</div><div class="tips-card">
+  <p class="tips-card-heading">Tips</p>
+  <ul>
+    <li>The model has a strong adult bias: it identifies adults reliably but has low recall of juvenile vocalizations. The binary prompt is slightly more reliable than the open-ended one. Both have high precision for juveniles.</li>
+    <li>Use this as a soft filter rather than a definitive classifier for juveniles.</li>
+  </ul>
+</div></section>
+<section id="captioning">
+<h3>Captioning<a class="headerlink" href="#captioning" title="Link to this heading">¶</a></h3>
+<p class="task-description">Generate a natural-language description of the audio.</p>
+<div class="prompt-example">
+  <p class="prompt-label">Bioacoustic caption (recommended)</p>
+  <div class="prompt-block">Caption the audio, using common names for any animal species.</div>
+</div>
+<div class="prompt-example">
+  <p class="prompt-label">General audio caption</p>
+  <div class="prompt-block">Caption this audio with a rich, detailed description. Avoid specific species names.</div>
+</div><div class="tips-card">
+  <p class="tips-card-heading">Tips</p>
+  <ul>
+    <li>Captions are typically 1–2 sentences at the default <code>merging_alpha</code>. For richer descriptions, lower alpha toward 0.7 (see <a href="#model-behavior">Model Behavior</a> below).</li>
+    <li>The general caption deliberately avoids species names — use it when you want habitat/acoustic descriptions without identification.</li>
+  </ul>
+</div></section>
+<section id="combined-task-multi-turn">
+<h3>Combined Task / Multi-Turn<a class="headerlink" href="#combined-task-multi-turn" title="Link to this heading">¶</a></h3>
+<p class="task-description">Ask the model to identify species first, then follow up with behavior or life-stage questions. The model retains audio context across turns.</p>
+<p class="prompt-label">Species then behavior</p>
+<div class="dialog-card">
+  <div class="dialog-row">
+    <span class="dialog-role dialog-role--user">User</span>
+    <span class="dialog-text dialog-text--prompt">What species is vocalizing in this recording?</span>
+  </div>
+  <div class="dialog-row">
+    <span class="dialog-role">Model</span>
+    <span class="dialog-text dialog-text--muted">[species name]</span>
+  </div>
+  <div class="dialog-row">
+    <span class="dialog-role dialog-role--user">User</span>
+    <span class="dialog-text dialog-text--prompt">What type of vocalization is it producing?</span>
+  </div>
+</div>
+<p class="prompt-label">Species then life stage</p>
+<div class="dialog-card">
+  <div class="dialog-row">
+    <span class="dialog-role dialog-role--user">User</span>
+    <span class="dialog-text dialog-text--prompt">What species is vocalizing in this recording?</span>
+  </div>
+  <div class="dialog-row">
+    <span class="dialog-role">Model</span>
+    <span class="dialog-text dialog-text--muted">[species name]</span>
+  </div>
+  <div class="dialog-row">
+    <span class="dialog-role dialog-role--user">User</span>
+    <span class="dialog-text dialog-text--prompt">What is the life stage of this individual?</span>
+  </div>
+</div>
+<p class="prompt-label">Species then call type and life stage</p>
+<div class="dialog-card">
+  <div class="dialog-row">
+    <span class="dialog-role dialog-role--user">User</span>
+    <span class="dialog-text dialog-text--prompt">What species is vocalizing in this recording?</span>
+  </div>
+  <div class="dialog-row">
+    <span class="dialog-role">Model</span>
+    <span class="dialog-text dialog-text--muted">[species name]</span>
+  </div>
+  <div class="dialog-row">
+    <span class="dialog-role dialog-role--user">User</span>
+    <span class="dialog-text dialog-text--prompt">What type of vocalization is it, and what is the life stage?</span>
+  </div>
+</div><div class="tips-card">
+  <p class="tips-card-heading">Tips</p>
+  <ul>
+    <li>Species accuracy in multi-turn is identical to single-turn prompts.</li>
+    <li>Behavior and life-stage follow-ups carry the same caveats as their standalone counterparts (call/song confusion, adult bias).</li>
+  </ul>
+</div></section>
+<section id="environmental-sound-classification">
+<h3>Environmental Sound Classification<a class="headerlink" href="#environmental-sound-classification" title="Link to this heading">¶</a></h3>
+<p class="task-description">Classify non-animal environmental sounds from a provided option list.</p>
+<div class="prompt-example">
+  <div class="prompt-block">Which of these non-animal sounds are present in the recording? &lt;option_choices&gt;. Answer with a comma-separated list using only the provided options, or None.</div>
+</div><div class="tips-card">
+  <p class="tips-card-heading">Tips</p>
+  <ul>
+    <li>Trained on categories including alarms, engines, weather, household sounds, domestic animals, music, and signals/phones.</li>
+    <li>The model returns a comma-separated list of matches, or "None" if nothing matches.</li>
+  </ul>
+</div></section>
+<section id="taxon-presence">
+<h3>Taxon Presence<a class="headerlink" href="#taxon-presence" title="Link to this heading">¶</a></h3>
+<p class="task-description">Determine whether a broad taxonomic group is present in the recording.</p>
+<div class="prompt-example">
+  <div class="prompt-block">Is there a bird vocalizing in this recording? Answer Yes or No.</div>
+  <div class="prompt-block">Does this recording contain mammal vocalizations? Answer Yes or No.</div>
+  <div class="prompt-block">Are there whale or dolphin sounds in this recording? Answer Yes or No.</div>
+  <div class="prompt-block">Does this recording contain insect sounds? Answer Yes or No.</div>
+  <div class="prompt-block">Is there a frog or amphibian vocalizing in this recording? Answer Yes or No.</div>
+  <div class="prompt-block">Are there any animal vocalizations in this recording? Answer Yes or No.</div>
+</div><div class="tips-card">
+  <p class="tips-card-heading">Tips</p>
+  <ul>
+    <li>Always include "Answer Yes or No" — without it, the model may respond with species names instead of a yes/no answer.</li>
+    <li>Reliable for bird and mammal presence. Less training data for insect and amphibian, so expect lower reliability.</li>
+    <li>The model correctly rejects wrong taxa (e.g. answers "No" to mammal presence on bird-only recordings).</li>
+  </ul>
+</div></section>
+<section id="call-type-presence">
+<h3>Call Type Presence<a class="headerlink" href="#call-type-presence" title="Link to this heading">¶</a></h3>
+<p class="task-description">Determine whether a specific call type is present.</p>
+<div class="prompt-example">
+  <p class="prompt-label">Generic (any call type)</p>
+  <div class="prompt-block">Is a &lt;target_call_type&gt; present in this recording? Answer Yes or No.</div>
+</div><p>Replace <code class="docutils literal notranslate"><span class="pre">&lt;target_call_type&gt;</span></code> with e.g. <em>alarm call</em>, <em>flight call</em>, <em>begging call</em>.</p>
+<div class="prompt-example">
+  <p class="prompt-label">Alarm call</p>
+  <div class="prompt-block">Is an alarm call present in this recording? Answer Yes or No.</div>
+  <div class="prompt-block">Is the &lt;species&gt; making an alarm call in this recording? Answer Yes or No.</div>
+</div>
+<div class="prompt-example">
+  <p class="prompt-label">Flight call</p>
+  <div class="prompt-block">Is a flight call present in this recording? Answer Yes or No.</div>
+  <div class="prompt-block">Is the &lt;species&gt; making a flight call in this recording? Answer Yes or No.</div>
+</div></section>
+</section>
+<hr class="docutils" />
+<section id="experimental-tasks">
+<h2>Experimental Tasks<a class="headerlink" href="#experimental-tasks" title="Link to this heading">¶</a></h2>
+<p>These tasks show promise but require further evaluation. Some are trained on limited data or specific taxa; others emerge from generalization. Treat results as exploratory.</p>
+<section id="top-3-species-identification">
+<h3>Top-3 Species Identification<a class="headerlink" href="#top-3-species-identification" title="Link to this heading">¶</a></h3>
+<div class="prompt-example">
+  <div class="prompt-block">What is the common name of the species vocalizing in this audio recording? Provide your top 3 predictions.</div>
+</div><p>The model will return in ranked order the top 3 candidates for the focal species.</p>
+</section>
+<section id="habitat-inference">
+<h3>Habitat Inference<a class="headerlink" href="#habitat-inference" title="Link to this heading">¶</a></h3>
+<div class="prompt-example">
+  <div class="prompt-block">Based on the sounds, what habitat or environment do you think this was recorded in?</div>
+</div><p>Produces plausible biome labels (e.g. “Forest”, “Grassland”). For richer descriptions, lower <code class="docutils literal notranslate"><span class="pre">merging_alpha</span></code> to ~0.7.</p>
+</section>
+<section id="geographic-inference">
+<h3>Geographic Inference<a class="headerlink" href="#geographic-inference" title="Link to this heading">¶</a></h3>
+<div class="prompt-example">
+  <div class="prompt-block">Based on the species you hear, what region of the world was this likely recorded in?</div>
+</div><p>The model appears to infer geography from species identity, background sounds, or other cues. Lower alpha (0.6–0.7) substantially improves geographic reasoning by leveraging the base LLM’s species-range knowledge.</p>
+</section>
+<section id="structured-json-output">
+<h3>Structured JSON Output<a class="headerlink" href="#structured-json-output" title="Link to this heading">¶</a></h3>
+<div class="prompt-example">
+  <div class="prompt-block">Identify this recording. Respond in JSON format: {"species": "...", "call_type": "..."}</div>
+</div><p>At default alpha (1.0), JSON instructions are ignored and the model outputs a plain label. For valid JSON, you must lower alpha to ~0.7. Including detailed field names in the prompt helps the model honor the structure.</p>
+</section>
+<section id="describe-then-identify">
+<h3>Describe-Then-Identify<a class="headerlink" href="#describe-then-identify" title="Link to this heading">¶</a></h3>
+<div class="prompt-example">
+  <div class="prompt-block">First describe what you hear, then identify the species.</div>
+</div><p>Produces coherent free-form descriptions. For the best chance that the species name appears in the text, use alpha ~0.9.</p>
+</section>
+<section id="frequency-range">
+<h3>Frequency Range<a class="headerlink" href="#frequency-range" title="Link to this heading">¶</a></h3>
+<div class="prompt-example">
+  <div class="prompt-block">What is the overall frequency range of the vocalizations in this audio?</div>
+</div><p>Returns a range like <em>2000–8000 Hz</em>.</p>
+</section>
+<section id="species-count">
+<h3>Species Count<a class="headerlink" href="#species-count" title="Link to this heading">¶</a></h3>
+<div class="prompt-example">
+  <div class="prompt-block">How many different species are vocalizing, and what are they? Give scientific names.</div>
+</div><p>Expected output format: <em>N: species1, species2</em>. Species counting is harder than listing — the model sometimes outputs names instead of a count.</p>
+</section>
+<section id="call-count">
+<h3>Call Count<a class="headerlink" href="#call-count" title="Link to this heading">¶</a></h3>
+<div class="prompt-example">
+  <p class="prompt-label">Per-species</p>
+  <div class="prompt-block">How many calls from each species can you hear? Give scientific names.</div>
+</div>
+<div class="prompt-example">
+  <p class="prompt-label">Total</p>
+  <div class="prompt-block">How many individual vocalizations can you detect in this audio?</div>
+</div><p>Counting is approximate. On single-species clips the model often answers “1”. It rarely hallucinates large numbers.</p>
+</section>
+<section id="individual-count">
+<h3>Individual Count<a class="headerlink" href="#individual-count" title="Link to this heading">¶</a></h3>
+<div class="prompt-example">
+  <div class="prompt-block">How many individuals are vocalizing in the audio? Answer "one" or "more than one".</div>
+</div></section>
+<section id="temporal-order">
+<h3>Temporal Order<a class="headerlink" href="#temporal-order" title="Link to this heading">¶</a></h3>
+<div class="prompt-example">
+  <div class="prompt-block">List the species in the order they first vocalize, using scientific names.</div>
+</div></section>
+</section>
+<hr class="docutils" />
+<section id="model-behavior">
+<h2>Model Behavior<a class="headerlink" href="#model-behavior" title="Link to this heading">¶</a></h2>
+<section id="prompt-robustness">
+<h3>Prompt Robustness<a class="headerlink" href="#prompt-robustness" title="Link to this heading">¶</a></h3>
+<p>The model is highly robust to prompt phrasing for classification tasks. Training prompts, terse prompts, and verbose prompts all perform within ~1–2% of each other. Rephrasing is fine. The only measured vulnerability is mild priming — mentioning a specific species in the prompt slightly biases the model toward that answer.</p>
+</section>
+<section id="system-prompts">
+<h3>System Prompts<a class="headerlink" href="#system-prompts" title="Link to this heading">¶</a></h3>
+<p>System prompts with expert personas (e.g. “You are a bioacoustics expert”) have no measurable effect on classification accuracy. They are supported but not necessary. The one exception is placing geographic context in the system prompt, which works slightly better than inline context. System prompts can also be used to change style and behavior — for instance to make the model more conversational or change the output format — particularly when combined with <code class="docutils literal notranslate"><span class="pre">merging_alpha</span></code> &lt; 1.</p>
+</section>
+<section id="merging-alpha-parameter">
+<h3>merging_alpha Parameter<a class="headerlink" href="#merging-alpha-parameter" title="Link to this heading">¶</a></h3>
+<p>This parameter controls the blend between the fine-tuned bioacoustics adapter and the base LLM.</p>
+<div class="table-wrapper colwidths-auto docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Alpha</p></th>
+<th class="head"><p>Behavior</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1.0 (default)</p></td>
+<td><p>Best for classification and automated pipelines. Terse, label-style output.</p></td>
+</tr>
+<tr class="row-odd"><td><p>0.8</p></td>
+<td><p>Good for interactive/conversational use. Richer answers with minimal accuracy cost.</p></td>
+</tr>
+<tr class="row-even"><td><p>0.7</p></td>
+<td><p>Required for JSON output and structured reports. Good for knowledge-dependent tasks. Good for multi-turn without a large drop in accuracy.</p></td>
+</tr>
+<tr class="row-odd"><td><p>0.6</p></td>
+<td><p>Most conversational. Best for geographic inference and habitat descriptions. Species accuracy drops meaningfully.</p></td>
+</tr>
+<tr class="row-even"><td><p>&lt; 0.5</p></td>
+<td><p>Not recommended — bioacoustic capability degrades sharply below this threshold.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="format-control">
+<h3>Format Control<a class="headerlink" href="#format-control" title="Link to this heading">¶</a></h3>
+<p>Simple format prefixes (e.g. <em>Respond in the format ‘species: <code class="docutils literal notranslate"><span class="pre">&lt;name&gt;</span></code>’</em>) work at alpha=1.0. Complex structured formats (JSON, multi-field reports) require alpha ~0.7.</p>
+</section>
+</section>
+<section id="model-limitations">
+<h2>Model Limitations<a class="headerlink" href="#model-limitations" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><strong>16 kHz encoder:</strong> The model is constrained by an 8 kHz Nyquist frequency. This means it will not give meaningful responses for taxa such as bats when recordings fall primarily above this range.</p></li>
+<li><p><strong>Bird bias:</strong> Accuracy is notably higher for birds than other taxa such as anurans or cetaceans, due to training data. Marine PAM data in particular may be unreliable for multilabel classification without fine-tuning.</p></li>
+<li><p><strong>Refusing wrong-taxon prompts:</strong> If you ask “What whale is this?” on a bird recording, the model will typically identify the bird anyway rather than refuse. If you use the exact classification prompt “What is the common name for the focal species in the audio?” the model will always answer as if a species is present. To allow for an answer of “None”, use a multilabel classification prompt instead.</p></li>
+<li><p><strong>Emotional valence and translation:</strong> The model does not have the ability to tell how an animal is feeling or what it is saying, with the limited exception of call type prediction — this use should currently be considered out of scope.</p></li>
+</ul>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="ui_demo.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Interactive Demo</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="usage.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Usage</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2025, Earth Species Project
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Prompting Guide</a><ul>
+<li><a class="reference internal" href="#audio-format">Audio Format</a></li>
+<li><a class="reference internal" href="#task-overview">Task Overview</a></li>
+<li><a class="reference internal" href="#core-tasks">Core Tasks</a><ul>
+<li><a class="reference internal" href="#species-detection">Species Detection</a></li>
+<li><a class="reference internal" href="#species-identification">Species Identification</a></li>
+<li><a class="reference internal" href="#species-identification-with-context">Species Identification with Context</a></li>
+<li><a class="reference internal" href="#species-identification-from-option-list">Species Identification from Option List</a></li>
+<li><a class="reference internal" href="#multiple-species-identification">Multiple Species Identification</a></li>
+<li><a class="reference internal" href="#taxonomy">Taxonomy</a></li>
+<li><a class="reference internal" href="#call-type-behavior">Call Type / Behavior</a></li>
+<li><a class="reference internal" href="#life-stage">Life Stage</a></li>
+<li><a class="reference internal" href="#captioning">Captioning</a></li>
+<li><a class="reference internal" href="#combined-task-multi-turn">Combined Task / Multi-Turn</a></li>
+<li><a class="reference internal" href="#environmental-sound-classification">Environmental Sound Classification</a></li>
+<li><a class="reference internal" href="#taxon-presence">Taxon Presence</a></li>
+<li><a class="reference internal" href="#call-type-presence">Call Type Presence</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#experimental-tasks">Experimental Tasks</a><ul>
+<li><a class="reference internal" href="#top-3-species-identification">Top-3 Species Identification</a></li>
+<li><a class="reference internal" href="#habitat-inference">Habitat Inference</a></li>
+<li><a class="reference internal" href="#geographic-inference">Geographic Inference</a></li>
+<li><a class="reference internal" href="#structured-json-output">Structured JSON Output</a></li>
+<li><a class="reference internal" href="#describe-then-identify">Describe-Then-Identify</a></li>
+<li><a class="reference internal" href="#frequency-range">Frequency Range</a></li>
+<li><a class="reference internal" href="#species-count">Species Count</a></li>
+<li><a class="reference internal" href="#call-count">Call Count</a></li>
+<li><a class="reference internal" href="#individual-count">Individual Count</a></li>
+<li><a class="reference internal" href="#temporal-order">Temporal Order</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#model-behavior">Model Behavior</a><ul>
+<li><a class="reference internal" href="#prompt-robustness">Prompt Robustness</a></li>
+<li><a class="reference internal" href="#system-prompts">System Prompts</a></li>
+<li><a class="reference internal" href="#merging-alpha-parameter">merging_alpha Parameter</a></li>
+<li><a class="reference internal" href="#format-control">Format Control</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#model-limitations">Model Limitations</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="_static/documentation_options.js?v=8d563738"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/scripts/furo.js?v=46bd48cc"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/custom.js?v=3a8b0f7d"></script>
+    </body>
+</html>
