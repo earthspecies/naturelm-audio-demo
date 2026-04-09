@@ -23,8 +23,8 @@
 :caption: Getting Started
 :hidden:
 
-quick_start
 usage
+quick_start
 prompting_guide
 ```
 
@@ -35,7 +35,6 @@ prompting_guide
 
 ui_demo
 examples
-demo_video
 case_studies
 ```
 
@@ -69,6 +68,10 @@ paper
 ## Updates
 
 ```{raw} html
+<div class="update-box">
+  <span class="update-date">2026-04-09</span>
+  Our <a href="https://huggingface.co/spaces/EarthSpeciesProject/NatureLM-Audio" target="_blank">Interactive Demo</a> has been updated to NatureLM-audio v1.1. See the <a href="quick_start.html">Quick Start Guide</a> and <a href="prompting_guide.html">Prompting Guide</a> to learn what's supported.
+</div>
 <div class="update-box">
   <span class="update-date">2025-05-27</span>
   We've updated NatureLM-audio with a flexible merge between the original Llama 3.1 8B and the LoRA fine-tuned weights. Merging with the original weights improves prompt flexibility but comes at the cost of some bioacoustic task performance. See the <a href="usage.html#model-merging">Usage</a> page and <a href="https://arxiv.org/abs/2511.05171" target="_blank">paper</a> for details.

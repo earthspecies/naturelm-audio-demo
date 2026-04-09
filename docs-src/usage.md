@@ -1,5 +1,11 @@
 # Usage
 
+```{raw} html
+<div class="page-version">
+  <p class="page-version-note">These instructions apply for the open sourced model version NatureLM-audio v1.0.</p>
+</div>
+```
+
 ## Requirements
 
 - Python 3.10+

@@ -508,6 +508,19 @@ code a {
   letter-spacing: 0.03em;
 }
 
+.page-version {
+  margin: -0.5rem 0 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.page-version-note {
+  font-size: 0.82rem;
+  color: var(--color-foreground-muted);
+  margin: 0;
+}
+
 .sidebar-home-link {
   font-family: 'Euclid Circular B', sans-serif;
   font-size: var(--sidebar-item-font-size);

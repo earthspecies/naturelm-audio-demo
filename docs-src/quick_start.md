@@ -1,5 +1,11 @@
 # Quick Start Guide
 
+```{raw} html
+<div class="page-version">
+  <p class="page-version-note">This guide applies to NatureLM-audio v1.1, available through the <a href="https://huggingface.co/spaces/EarthSpeciesProject/NatureLM-Audio" target="_blank">Interactive Demo</a> on Hugging Face Spaces.</p>
+</div>
+```
+
 Below are sample prompts to try with the model and a few practical tips. See the [Prompting Guide](prompting_guide.html#task-overview) for the full task reference, prompt variants, and advanced configuration.
 
 

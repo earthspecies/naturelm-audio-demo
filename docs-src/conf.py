@@ -17,7 +17,7 @@ myst_heading_anchors = 3
 myst_all_links_external = True
 myst_links_external_new_tab = True
 templates_path = ['_templates']
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
+exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', 'demo_video.md', 'installation.md']
 
 source_suffix = {
     '.rst': 'restructuredtext',

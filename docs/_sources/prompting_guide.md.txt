@@ -1,5 +1,11 @@
 # Prompting Guide
 
+```{raw} html
+<div class="page-version">
+  <p class="page-version-note">This guide applies to NatureLM-audio v1.1, available through the <a href="https://huggingface.co/spaces/EarthSpeciesProject/NatureLM-Audio" target="_blank">Interactive Demo</a> on Hugging Face Spaces.</p>
+</div>
+```
+
 This guide covers usage of NatureLM-audio for bioacoustic tasks, with a focus on how to prompt the model to receive best results.
 
 ## Audio Format
