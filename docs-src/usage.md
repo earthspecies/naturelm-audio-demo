@@ -2,7 +2,7 @@
 
 ```{raw} html
 <div class="page-version">
-  <p class="page-version-note">These instructions apply for the open sourced model version NatureLM-audio v1.0.</p>
+  <p class="page-version-note">This guide applies to NatureLM-audio v1.0, open sourced <a href="https://huggingface.co/EarthSpeciesProject/NatureLM-audio" target="_blank">here</a> on Hugging Face.</p>
 </div>
 ```
 
