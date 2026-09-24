@@ -139,7 +139,10 @@ body, .md-typeset {
   background: linear-gradient(to right, #129C7B, #A7ED99);
 }
 
-.md-header__title {
+/* Hide the site-name text, which duplicates the logo — but keep the title
+   container itself visible, since Material nests mike's version selector
+   inside it. Hiding the whole container hides the version dropdown too. */
+.md-header__title .md-ellipsis {
   display: none;
 }
 

@@ -6,7 +6,10 @@ repo_name: earthspecies/NatureLM-audio
 repo_url: https://github.com/earthspecies/NatureLM-audio
 
 docs_dir: docs-src
-site_dir: docs
+# Build to an untracked directory. mike publishes to the gh-pages branch, so
+# nothing needs to be committed; building into the old tracked docs/ swept its
+# stale Sphinx dotfiles (.buildinfo, .DS_Store) into the deploy.
+site_dir: site
 
 # Flat page.html URLs instead of page/ directories. Keeps relative asset paths
 # in raw HTML (audio players, images, video) resolving against the site root,
@@ -106,4 +109,4 @@ extra_javascript:
 extra:
   version:
     provider: mike
-    alias: true
+    alias: false

@@ -2,3 +2,4 @@ docs-src/_build/
 .DS_Store
 docs/.buildinfo
 docs/.buildinfo.bak
+site/
