@@ -1,0 +1,1302 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Audio-language foundation model for bioacoustics">
+      
+      
+      
+        <link rel="canonical" href="https://projects.earthspecies.org/naturelm-audio/1.0/examples.html">
+      
+      
+        <link rel="prev" href="ui_demo.html">
+      
+      
+        <link rel="next" href="case_studies.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/favicon.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Examples - NatureLM-audio</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="stylesheets/extra.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#examples" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="." title="NatureLM-audio" class="md-header__button md-logo" aria-label="NatureLM-audio" data-md-component="logo">
+      
+  <img src="assets/esp-logotype-only-white.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            NatureLM-audio
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Examples
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/earthspecies/NatureLM-audio" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    earthspecies/NatureLM-audio
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="NatureLM-audio" class="md-nav__button md-logo" aria-label="NatureLM-audio" data-md-component="logo">
+      
+  <img src="assets/esp-logotype-only-white.png" alt="logo">
+
+    </a>
+    NatureLM-audio
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/earthspecies/NatureLM-audio" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    earthspecies/NatureLM-audio
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="usage.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Usage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="quick_start.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="prompting_guide.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prompting Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Demos & Examples
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Demos & Examples
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ui_demo.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interactive Demo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Examples
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="examples.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#species-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Species Detection
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#species-identification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Species Identification
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#call-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Call Type
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#life-stage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Life Stage
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#audio-captioning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Audio Captioning
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#general-sound-classification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        General Sound Classification
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#counting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Counting
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="case_studies.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Case Study
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="datasets.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Datasets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="paper.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Paper
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#species-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Species Detection
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#species-identification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Species Identification
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#call-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Call Type
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#life-stage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Life Stage
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#audio-captioning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Audio Captioning
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#general-sound-classification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        General Sound Classification
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#counting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Counting
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="examples">Examples</h1>
+<p>Audio examples across a range of bioacoustics tasks and datasets. Each example shows the input audio, the prompt used, the model's prediction, and the gold label.</p>
+<style>
+.example-table { width: 100%; border-collapse: collapse; font-family: 'Euclid Circular B', sans-serif; font-size: 0.68rem; margin: 0 0 1.2rem; table-layout: fixed; }
+.example-table thead th { font-size: 0.56rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; color: var(--md-default-fg-color--light); padding: 0 0.8rem 0.4rem 0; text-align: left; border-bottom: 1px solid var(--md-default-fg-color--lightest); }
+.example-table thead th:nth-child(1) { width: 222px; }
+.example-table thead th:nth-child(2) { width: 183px; }
+.example-table thead th:nth-child(3) { width: 183px; }
+.example-table thead th:nth-child(4) { width: 108px; }
+.example-table thead th:last-child { padding-right: 0; }
+.example-table tbody td { padding: 0.36rem 0.8rem 0.36rem 0; vertical-align: middle; border-bottom: 1px solid var(--md-default-fg-color--lightest); overflow-wrap: break-word; }
+.example-table tbody tr:last-child td { border-bottom: none; }
+.example-table td.col-dataset { color: var(--md-default-fg-color--light); font-size: 0.6rem; padding-right: 0; }
+.example-table td.col-dataset a { color: var(--md-default-fg-color--light); text-decoration: none; }
+.example-table td.col-dataset a:hover { text-decoration: underline; color: var(--md-typeset-a-color); }
+.example-table td.col-audio { padding-right: 0.8rem; }
+.example-table td.col-text { font-size: 0.656rem; line-height: 1.4; }
+.mini-player { display: inline-flex; align-items: center; gap: 0.36rem; background: var(--md-code-bg-color); border: 1px solid var(--md-default-fg-color--lightest); border-radius: 999px; padding: 0.16rem 0.44rem 0.16rem 0.16rem; }
+.mp-btn { width: 26px; height: 26px; border-radius: 50%; background: var(--md-typeset-a-color); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: background 0.15s ease; }
+.mp-btn:hover { background: var(--md-primary-fg-color); }
+.mp-btn svg { fill: white; display: block; margin-left: 1px; }
+.mp-bar { width: 72px; height: 3px; background: var(--md-default-fg-color--lightest); border-radius: 999px; cursor: pointer; position: relative; overflow: hidden; }
+.mp-fill { height: 100%; width: 0%; background: var(--md-typeset-a-color); border-radius: 999px; pointer-events: none; }
+.mp-time { font-family: 'JetBrains Mono', monospace; font-size: 0.544rem; color: var(--md-default-fg-color--light); white-space: nowrap; }
+</style>
+
+<h2 id="species-detection">Species Detection</h2>
+<div class="prompt-block" data-prompt="What are the common names for the species in the audio, if any?">What are the common names for the species in the audio, if any?</div>
+<table class="example-table">
+  <thead><tr><th>Audio</th><th>Prediction</th><th>Gold Label</th><th>Dataset</th></tr></thead>
+  <tbody>
+    <tr>
+      <td class="col-audio"><div class="mini-player" data-src="assets/audio/dcase_MK2.037_019.wav"><button class="mp-btn"><svg width="9" height="11" viewBox="0 0 9 11"><polygon points="0,0 9,5.5 0,11"/></svg></button><div class="mp-bar"><div class="mp-fill"></div></div><span class="mp-time">0:00</span></div></td>
+      <td>Northern Elephant Seal</td><td>Meerkat close call</td>
+      <td class="col-dataset"><a href="https://dcase.community/" target="_blank">DCASE</a></td>
+    </tr>
+    <tr>
+      <td class="col-audio"><div class="mini-player" data-src="assets/audio/Recording_1_Segment_33.004_026.wav"><button class="mp-btn"><svg width="9" height="11" viewBox="0 0 9 11"><polygon points="0,0 9,5.5 0,11"/></svg></button><div class="mp-bar"><div class="mp-fill"></div></div><span class="mp-time">0:00</span></div></td>
+      <td>Black-throated Green Warbler</td><td>Black-throated Green Warbler, Eastern Towhee</td>
+      <td class="col-dataset">ENABirds</td>
+    </tr>
+    <tr>
+      <td class="col-audio"><div class="mini-player" data-src="assets/audio/Recording_2_Segment_11.004_023.wav"><button class="mp-btn"><svg width="9" height="11" viewBox="0 0 9 11"><polygon points="0,0 9,5.5 0,11"/></svg></button><div class="mp-bar"><div class="mp-fill"></div></div><span class="mp-time">0:00</span></div></td>
+      <td>Kentucky Warbler</td><td>Kirtland's Warbler, American Crow</td>
+      <td class="col-dataset">ENABirds</td>
+    </tr>
+    <tr>
+      <td class="col-audio"><div class="mini-player" data-src="assets/audio/Recording_4_Segment_26.004_034.wav"><button class="mp-btn"><svg width="9" height="11" viewBox="0 0 9 11"><polygon points="0,0 9,5.5 0,11"/></svg></button><div class="mp-bar"><div class="mp-fill"></div></div><span class="mp-time">0:00</span></div></td>
+      <td>Chestnut-capped Brushfinch</td><td>None</td>
+      <td class="col-dataset">ENABirds</td>
+    </tr>
+    <tr>
+      <td class="col-audio"><div class="mini-player" data-src="assets/audio/cb5ddad47_004.wav"><button class="mp-btn"><svg width="9" height="11" viewBox="0 0 9 11"><polygon points="0,0 9,5.5 0,11"/></svg></button><div class="mp-bar"><div class="mp-fill"></div></div><span class="mp-time">0:00</span></div></td>
+      <td>Red-legged Thrush</td><td>Red-legged thrush</td>
+      <td class="col-dataset"><a href="https://rfcx.org/" target="_blank">RFCX</a></td>
+    </tr>
+    <tr>
+      <td class="col-audio"><div class="mini-player" data-src="assets/audio/51319c540_000.wav"><button class="mp-btn"><svg width="9" height="11" viewBox="0 0 9 11"><polygon points="0,0 9,5.5 0,11"/></svg></button><div class="mp-bar"><div class="mp-fill"></div></div><span class="mp-time">0:00</span></div></td>
+      <td>Puerto Rican Bullfinch</td><td>Puerto Rican bullfinch</td>
+      <td class="col-dataset"><a href="https://rfcx.org/" target="_blank">RFCX</a></td>
+    </tr>
+    <tr>
+      <td class="col-audio"><div class="mini-player" data-src="assets/audio/00834f88e_000.wav"><button class="mp-btn"><svg width="9" height="11" viewBox="0 0 9 11"><polygon points="0,0 9,5.5 0,11"/></svg></button><div class="mp-bar"><div class="mp-fill"></div></div><span class="mp-time">0:00</span></div></td>
+      <td>Puerto Rican Coqui</td><td>None</td>
+      <td class="col-dataset"><a href="https://rfcx.org/" target="_blank">RFCX</a></td>
+    </tr>
+    <tr>
+      <td class="col-audio"><div class="mini-player" data-src="assets/audio/1705_20171121_172602_998_002.wav"><button class="mp-btn"><svg width="9" height="11" viewBox="0 0 9 11"><polygon points="0,0 9,5.5 0,11"/></svg></button><div class="mp-bar"><div class="mp-fill"></div></div><span class="mp-time">0:00</span></div></td>
+      <td>Boreal Chorus Frog</td><td>Minke whale</td>
+      <td class="col-dataset"><a href="https://www.fisheries.noaa.gov/inport/item/39189" target="_blank">HICEAS</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="species-identification">Species Identification</h2>
+<div class="prompt-block" data-prompt="What is the common name for the focal species in the audio?">What is the common name for the focal species in the audio?</div>
+<table class="example-table">
+  <thead><tr><th>Audio</th><th>Prediction</th><th>Gold Label</th><th>Dataset</th></tr></thead>
+  <tbody>
+    <tr>
+      <td class="col-audio"><div class="mini-player" data-src="assets/audio/63019012.wav"><button class="mp-btn"><svg width="9" height="11" viewBox="0 0 9 11"><polygon points="0,0 9,5.5 0,11"/></svg></button><div class="mp-bar"><div class="mp-fill"></div></div><span class="mp-time">0:00</span></div></td>
+      <td>Humpback Whale</td><td>Humpback Whale</td>
+      <td class="col-dataset"><a href="https://cis.whoi.edu/science/B/whalesounds/" target="_blank">Watkins</a></td>
+    </tr>
+    <tr>
+      <td class="col-audio"><div class="mini-player" data-src="assets/audio/72002009.wav"><button class="mp-btn"><svg width="9" height="11" viewBox="0 0 9 11"><polygon points="0,0 9,5.5 0,11"/></svg></button><div class="mp-bar"><div class="mp-fill"></div></div><span class="mp-time">0:00</span></div></td>
+      <td>Walrus</td><td>Walrus</td>
+      <td class="col-dataset"><a href="https://cis.whoi.edu/science/B/whalesounds/" target="_blank">Watkins</a></td>
+    </tr>
+    <tr>
+      <td class="col-audio"><div class="mini-player" data-src="assets/audio/XC144957.wav"><button class="mp-btn"><svg width="9" height="11" viewBox="0 0 9 11"><polygon points="0,0 9,5.5 0,11"/></svg></button><div class="mp-bar"><div class="mp-fill"></div></div><span class="mp-time">0:00</span></div></td>
+      <td>Greater Yellowlegs</td><td>Greater Yellowlegs</td>
+      <td class="col-dataset"><a href="https://www.birds.cornell.edu/ccb/cornell-bird-identification/" target="_blank">CBI</a></td>
+    </tr>
+    <tr>
+      <td class="col-audio"><div class="mini-player" data-src="assets/audio/XC28267.wav"><button class="mp-btn"><svg width="9" height="11" viewBox="0 0 9 11"><polygon points="0,0 9,5.5 0,11"/></svg></button><div class="mp-bar"><div class="mp-fill"></div></div><span class="mp-time">0:00</span></div></td>
+      <td>Blue-winged Teal</td><td>Blue-winged Teal</td>
+      <td class="col-dataset"><a href="https://www.birds.cornell.edu/ccb/cornell-bird-identification/" target="_blank">CBI</a></td>
+    </tr>
+    <tr>
+      <td class="col-audio"><div class="mini-player" data-src="assets/audio/220774.wav"><button class="mp-btn"><svg width="9" height="11" viewBox="0 0 9 11"><polygon points="0,0 9,5.5 0,11"/></svg></button><div class="mp-bar"><div class="mp-fill"></div></div><span class="mp-time">0:00</span></div></td>
+      <td>Mexican Free-tailed Bat</td><td>Common Mosquito</td>
+      <td class="col-dataset"><a href="https://github.com/HumBug-Mosquito/HumbugDB" target="_blank">HumbugDB</a></td>
+    </tr>
+    <tr>
+      <td class="col-audio"><div class="mini-player" data-src="assets/audio/XC291731.flac"><button class="mp-btn"><svg width="9" height="11" viewBox="0 0 9 11"><polygon points="0,0 9,5.5 0,11"/></svg></button><div class="mp-bar"><div class="mp-fill"></div></div><span class="mp-time">0:00</span></div></td>
+      <td>Dusky White-eye</td><td>Dusky White-eye</td>
+      <td class="col-dataset">Unseen (zero-shot)</td>
+    </tr>
+    <tr>
+      <td class="col-audio"><div class="mini-player" data-src="assets/audio/XC426371.flac"><button class="mp-btn"><svg width="9" height="11" viewBox="0 0 9 11"><polygon points="0,0 9,5.5 0,11"/></svg></button><div class="mp-bar"><div class="mp-fill"></div></div><span class="mp-time">0:00</span></div></td>
+      <td>Brown-throated Sunbird</td><td>Fire-tailed Sunbird</td>
+      <td class="col-dataset">Unseen (zero-shot)</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="prompt-block" data-prompt="What is the scientific name for the focal species in the audio?">What is the scientific name for the focal species in the audio?</div>
+<table class="example-table">
+  <thead><tr><th>Audio</th><th>Prediction</th><th>Gold Label</th><th>Dataset</th></tr></thead>
+  <tbody>
+    <tr>
+      <td class="col-audio"><div class="mini-player" data-src="assets/audio/XC429913.flac"><button class="mp-btn"><svg width="9" height="11" viewBox="0 0 9 11"><polygon points="0,0 9,5.5 0,11"/></svg></button><div class="mp-bar"><div class="mp-fill"></div></div><span class="mp-time">0:00</span></div></td>
+      <td>Tauraco fischeri</td><td>tauraco fischeri</td>
+      <td class="col-dataset">Unseen (zero-shot)</td>
+    </tr>
+    <tr>
+      <td class="col-audio"><div class="mini-player" data-src="assets/audio/XC321661.flac"><button class="mp-btn"><svg width="9" height="11" viewBox="0 0 9 11"><polygon points="0,0 9,5.5 0,11"/></svg></button><div class="mp-bar"><div class="mp-fill"></div></div><span class="mp-time">0:00</span></div></td>
+      <td>Luscinia cyane</td><td>larvivora cyane</td>
+      <td class="col-dataset">Unseen (zero-shot)</td>
+    </tr>
+    <tr>
+      <td class="col-audio"><div class="mini-player" data-src="assets/audio/99469.flac"><button class="mp-btn"><svg width="9" height="11" viewBox="0 0 9 11"><polygon points="0,0 9,5.5 0,11"/></svg></button><div class="mp-bar"><div class="mp-fill"></div></div><span class="mp-time">0:00</span></div></td>
+      <td>Nisaetus cirrhatus</td><td>Nisaetus philippensis</td>
+      <td class="col-dataset">Unseen (zero-shot)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="call-type">Call Type</h2>
+<div class="prompt-block" data-prompt="Which of these, if any, are present? Single pulse gibbon call, Multiple pulse gibbon call, Gibbon duet, None.">Which of these, if any, are present? Single pulse gibbon call, Multiple pulse gibbon call, Gibbon duet, None.</div>
+<table class="example-table">
+  <thead><tr><th>Audio</th><th>Prediction</th><th>Gold Label</th><th>Dataset</th></tr></thead>
+  <tbody>
+    <tr>
+      <td class="col-audio"><div class="mini-player" data-src="assets/audio/HGSM3D_0+1_20160429_051600.333_026.wav"><button class="mp-btn"><svg width="9" height="11" viewBox="0 0 9 11"><polygon points="0,0 9,5.5 0,11"/></svg></button><div class="mp-bar"><div class="mp-fill"></div></div><span class="mp-time">0:00</span></div></td>
+      <td>Multiple pulse gibbon call</td><td>Multiple pulse gibbon call</td>
+      <td class="col-dataset">Hainan Gibbons</td>
+    </tr>
+    <tr>
+      <td class="col-audio"><div class="mini-player" data-src="assets/audio/HGSM3D_0+1_20160429_051600.123_015.wav"><button class="mp-btn"><svg width="9" height="11" viewBox="0 0 9 11"><polygon points="0,0 9,5.5 0,11"/></svg></button><div class="mp-bar"><div class="mp-fill"></div></div><span class="mp-time">0:00</span></div></td>
+      <td>Multiple pulse gibbon call</td><td>Multiple pulse gibbon call</td>
+      <td class="col-dataset">Hainan Gibbons</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="prompt-block" data-prompt="What type of vocalization is heard from the focal species in the audio? Answer with 'call' or 'song'.">What type of vocalization is heard from the focal species in the audio? Answer with 'call' or 'song'.</div>
+<table class="example-table">
+  <thead><tr><th>Audio</th><th>Prediction</th><th>Gold Label</th><th>Dataset</th></tr></thead>
+  <tbody>
+    <tr>
+      <td class="col-audio"><div class="mini-player" data-src="assets/audio/UNID0697.flac"><button class="mp-btn"><svg width="9" height="11" viewBox="0 0 9 11"><polygon points="0,0 9,5.5 0,11"/></svg></button><div class="mp-bar"><div class="mp-fill"></div></div><span class="mp-time">0:00</span></div></td>
+      <td>call</td><td>call</td>
+      <td class="col-dataset">--</td>
+    </tr>
+    <tr>
+      <td class="col-audio"><div class="mini-player" data-src="assets/audio/Liocichla_phoenicea_Vietnam-97.1b-FRL_VN_13_601.3-658.5_1_S.flac"><button class="mp-btn"><svg width="9" height="11" viewBox="0 0 9 11"><polygon points="0,0 9,5.5 0,11"/></svg></button><div class="mp-bar"><div class="mp-fill"></div></div><span class="mp-time">0:00</span></div></td>
+      <td>song</td><td>song</td>
+      <td class="col-dataset">--</td>
+    </tr>
+    <tr>
+      <td class="col-audio"><div class="mini-player" data-src="assets/audio/XC646657.flac"><button class="mp-btn"><svg width="9" height="11" viewBox="0 0 9 11"><polygon points="0,0 9,5.5 0,11"/></svg></button><div class="mp-bar"><div class="mp-fill"></div></div><span class="mp-time">0:00</span></div></td>
+      <td>song</td><td>song</td>
+      <td class="col-dataset">--</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="life-stage">Life Stage</h2>
+<div class="prompt-block" data-prompt="What is the life stage of the focal species in the audio?">What is the life stage of the focal species in the audio?</div>
+<table class="example-table">
+  <thead><tr><th>Audio</th><th>Prediction</th><th>Gold Label</th><th>Dataset</th></tr></thead>
+  <tbody>
+    <tr>
+      <td class="col-audio"><div class="mini-player" data-src="assets/audio/XC746757.flac"><button class="mp-btn"><svg width="9" height="11" viewBox="0 0 9 11"><polygon points="0,0 9,5.5 0,11"/></svg></button><div class="mp-bar"><div class="mp-fill"></div></div><span class="mp-time">0:00</span></div></td>
+      <td>Adult</td><td>juvenile</td>
+      <td class="col-dataset">--</td>
+    </tr>
+    <tr>
+      <td class="col-audio"><div class="mini-player" data-src="assets/audio/XC530260.flac"><button class="mp-btn"><svg width="9" height="11" viewBox="0 0 9 11"><polygon points="0,0 9,5.5 0,11"/></svg></button><div class="mp-bar"><div class="mp-fill"></div></div><span class="mp-time">0:00</span></div></td>
+      <td>Adult</td><td>adult</td>
+      <td class="col-dataset">--</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="audio-captioning">Audio Captioning</h2>
+<div class="prompt-block" data-prompt="Caption the audio, using the common name for any animal species.">Caption the audio, using the common name for any animal species.</div>
+<table class="example-table">
+  <thead><tr><th>Audio</th><th>Prediction</th><th>Gold Label</th><th>Dataset</th></tr></thead>
+  <tbody>
+    <tr>
+      <td class="col-audio"><div class="mini-player" data-src="assets/audio/154912.flac"><button class="mp-btn"><svg width="9" height="11" viewBox="0 0 9 11"><polygon points="0,0 9,5.5 0,11"/></svg></button><div class="mp-bar"><div class="mp-fill"></div></div><span class="mp-time">0:00</span></div></td>
+      <td class="col-text">New Zealand Bellbird singing.</td>
+      <td class="col-text">The common evening song of a Mainland New Zealand Bellbird.</td>
+      <td class="col-dataset">--</td>
+    </tr>
+    <tr>
+      <td class="col-audio"><div class="mini-player" data-src="assets/audio/7743.flac"><button class="mp-btn"><svg width="9" height="11" viewBox="0 0 9 11"><polygon points="0,0 9,5.5 0,11"/></svg></button><div class="mp-bar"><div class="mp-fill"></div></div><span class="mp-time">0:00</span></div></td>
+      <td class="col-text">The sound of a Squirrel Treefrog.</td>
+      <td class="col-text">The sound of Squirrel Treefrog after a rain.</td>
+      <td class="col-dataset">--</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="general-sound-classification">General Sound Classification</h2>
+<div class="prompt-block" data-prompt="Classify the sound into one of the following categories: dog, rooster, pig, cow, frog, cat, hen, insects, sheep, crow, rain, sea_waves, crackling_fire, crickets, chirping_birds, water_drops, wind, pouring_water, toilet_flush, thunderstorm, crying_baby, sneezing, clapping, breathing, coughing, footsteps, laughing, brushing_teeth, snoring, drinking_sipping, door_wood_knock, mouse_click, keyboard_typing, door_wood_creaks, can_opening, washing_machine, vacuum_cleaner, clock_alarm, clock_tick, glass_breaking, helicopter, chainsaw, siren, car_horn, engine, train, church_bells, airplane, fireworks, hand_saw">Classify the sound into one of the following categories: dog, rooster, pig, cow, frog, cat, hen, insects, sheep, crow, rain, sea_waves, crackling_fire, crickets, chirping_birds, water_drops, wind, pouring_water, toilet_flush, thunderstorm, crying_baby, sneezing, clapping, breathing, coughing, footsteps, laughing, brushing_teeth, snoring, drinking_sipping, door_wood_knock, mouse_click, keyboard_typing, door_wood_creaks, can_opening, washing_machine, vacuum_cleaner, clock_alarm, clock_tick, glass_breaking, helicopter, chainsaw, siren, car_horn, engine, train, church_bells, airplane, fireworks, hand_saw</div>
+<table class="example-table">
+  <thead><tr><th>Audio</th><th>Prediction</th><th>Gold Label</th><th>Dataset</th></tr></thead>
+  <tbody>
+    <tr>
+      <td class="col-audio"><div class="mini-player" data-src="assets/audio/5-9032-A-0.wav"><button class="mp-btn"><svg width="9" height="11" viewBox="0 0 9 11"><polygon points="0,0 9,5.5 0,11"/></svg></button><div class="mp-bar"><div class="mp-fill"></div></div><span class="mp-time">0:00</span></div></td>
+      <td>chirping_birds</td><td>dog</td>
+      <td class="col-dataset"><a href="https://github.com/karolpiczak/ESC-50" target="_blank">ESC-50</a></td>
+    </tr>
+    <tr>
+      <td class="col-audio"><div class="mini-player" data-src="assets/audio/5-214759-B-5.wav"><button class="mp-btn"><svg width="9" height="11" viewBox="0 0 9 11"><polygon points="0,0 9,5.5 0,11"/></svg></button><div class="mp-bar"><div class="mp-fill"></div></div><span class="mp-time">0:00</span></div></td>
+      <td>cat</td><td>cat</td>
+      <td class="col-dataset"><a href="https://github.com/karolpiczak/ESC-50" target="_blank">ESC-50</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="counting">Counting</h2>
+<div class="prompt-block" data-prompt="How many birds are in the audio? Choose between 1, 2, 3 or 4.">How many birds are in the audio? Choose between 1, 2, 3 or 4.</div>
+<table class="example-table">
+  <thead><tr><th>Audio</th><th>Prediction</th><th>Gold Label</th><th>Dataset</th></tr></thead>
+  <tbody>
+    <tr>
+      <td class="col-audio"><div class="mini-player" data-src="assets/audio/contact_YelOra2575_1143.wav"><button class="mp-btn"><svg width="9" height="11" viewBox="0 0 9 11"><polygon points="0,0 9,5.5 0,11"/></svg></button><div class="mp-bar"><div class="mp-fill"></div></div><span class="mp-time">0:00</span></div></td>
+      <td>1</td><td>1</td>
+      <td class="col-dataset">ZF-NBirds</td>
+    </tr>
+    <tr>
+      <td class="col-audio"><div class="mini-player" data-src="assets/audio/contact_WhiBlu4917LblBla4548BlaBla0506_2203.wav"><button class="mp-btn"><svg width="9" height="11" viewBox="0 0 9 11"><polygon points="0,0 9,5.5 0,11"/></svg></button><div class="mp-bar"><div class="mp-fill"></div></div><span class="mp-time">0:00</span></div></td>
+      <td>1</td><td>3</td>
+      <td class="col-dataset">ZF-NBirds</td>
+    </tr>
+  </tbody>
+</table>
+
+<script>
+(function() {
+  var current = null;
+  var PLAY = '<svg width="9" height="11" viewBox="0 0 9 11"><polygon points="0,0 9,5.5 0,11" fill="white"/></svg>';
+  var PAUSE = '<svg width="10" height="11" viewBox="0 0 10 11"><rect x="0" y="0" width="3.5" height="11" fill="white"/><rect x="6.5" y="0" width="3.5" height="11" fill="white"/></svg>';
+  function fmt(s) { s = Math.floor(s); return Math.floor(s/60)+':'+(s%60<10?'0':'')+s%60; }
+  document.querySelectorAll('.mini-player').forEach(function(player) {
+    var src = player.dataset.src;
+    var btn = player.querySelector('.mp-btn');
+    var fill = player.querySelector('.mp-fill');
+    var bar = player.querySelector('.mp-bar');
+    var time = player.querySelector('.mp-time');
+    var audio = new Audio(src);
+    audio.addEventListener('loadedmetadata', function() { time.textContent = '0:00 / '+fmt(audio.duration); });
+    audio.addEventListener('timeupdate', function() {
+      fill.style.width = (audio.currentTime / audio.duration * 100)+'%';
+      time.textContent = fmt(audio.currentTime)+' / '+fmt(audio.duration);
+    });
+    audio.addEventListener('ended', function() { btn.innerHTML = PLAY; fill.style.width = '0%'; current = null; });
+    bar.addEventListener('click', function(e) {
+      var rect = bar.getBoundingClientRect();
+      audio.currentTime = ((e.clientX - rect.left) / rect.width) * audio.duration;
+    });
+    audio.addEventListener('error', function() {
+      player.classList.add('mp-error');
+      time.textContent = 'unavailable';
+      console.error('mini-player: cannot load ' + src, audio.error && audio.error.message);
+    });
+    btn.addEventListener('click', function() {
+      if (current && current !== audio) { current.pause(); current._btn.innerHTML = PLAY; }
+      if (audio.paused) {
+        // Only show the pause icon once playback actually starts — a rejected
+        // play() (codec unsupported, autoplay policy) otherwise leaves the
+        // button looking like it is playing while nothing is audible.
+        audio.play().then(function () {
+          btn.innerHTML = PAUSE; current = audio; audio._btn = btn;
+        }).catch(function (err) {
+          btn.innerHTML = PLAY; current = null;
+          player.classList.add('mp-error');
+          console.error('mini-player: play failed for ' + src, err && err.name, err && err.message);
+        });
+      }
+      else { audio.pause(); btn.innerHTML = PLAY; current = null; }
+    });
+  });
+})();
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["content.code.copy", "navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.sections", "navigation.top"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"alias": false, "provider": "mike"}}</script>
+    
+    
+      <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="javascripts/extra.js"></script>
+      
+    
+  </body>
+</html>

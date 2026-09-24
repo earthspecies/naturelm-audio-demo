@@ -10,7 +10,7 @@
       
       
       
-        <link rel="canonical" href="https://projects.earthspecies.org/naturelm-audio/1.0/demo_video.html">
+        <link rel="canonical" href="https://projects.earthspecies.org/naturelm-audio/1.0/installation.html">
       
       
       
@@ -23,7 +23,7 @@
     
     
       
-        <title>Demo Video - NatureLM-audio</title>
+        <title>Installation - NatureLM-audio</title>
       
     
     
@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#demo-video" class="md-skip">
+        <a href="#installation" class="md-skip">
           Skip to content
         </a>
       
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Demo Video
+              Installation
             
           </span>
         </div>
@@ -698,6 +698,119 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirements
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-uv-recommended" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Using uv (recommended)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#without-uv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Without uv
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#run-inference-on-a-set-of-audio-files-in-a-folder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Run inference on a set of audio files in a folder
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#run-evaluation-on-beans-zero" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Run evaluation on BEANS-Zero
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-the-inference-web-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Running the inference web app
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instantiating-the-model-from-checkpoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Instantiating the model from checkpoint
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#model-merging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Model Merging
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -716,13 +829,92 @@
   
 
 
-<h1 id="demo-video">Demo Video</h1>
+<h1 id="installation">Installation</h1>
+<h2 id="requirements">Requirements</h2>
+<ul>
+<li>Python 3.10+</li>
+<li><code>uv</code> (recommended, but optional)</li>
+<li>Access to <a href="https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct">Meta Llama 3.1 8B Instruct</a></li>
+</ul>
+<p>Make sure you're authenticated to HuggingFace and that you have been granted access to Llama-3.1 on HuggingFace before proceeding.</p>
+<p>You can request access from: <a href="https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct">https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct</a></p>
+<h2 id="installation_1">Installation</h2>
+<h3 id="using-uv-recommended">Using uv (recommended)</h3>
+<p>Clone the repository and install the dependencies:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/earthspecies/NatureLM-audio.git
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">cd</span><span class="w"> </span>NatureLM-audio
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>uv<span class="w"> </span>sync
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># If there&#39;s no gpu available or you are on MacOS then do</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>uv<span class="w"> </span>sync<span class="w"> </span>--no-group<span class="w"> </span>gpu
+</span></code></pre></div>
+<p>Project entrypoints are then available with <code>uv run naturelm</code>.</p>
+<h3 id="without-uv">Without uv</h3>
+<p>If you're not using uv, you can install the package with pip:</p>
+<p>For CPU-only or macOS (without GPU acceleration):</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.
+</span></code></pre></div>
+<p>For Linux with CUDA support:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.<span class="o">[</span>gpu<span class="o">]</span>
+</span></code></pre></div>
+<h2 id="run-inference-on-a-set-of-audio-files-in-a-folder">Run inference on a set of audio files in a folder</h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>uv<span class="w"> </span>run<span class="w"> </span>naturelm<span class="w"> </span>infer<span class="w"> </span>--cfg-path<span class="w"> </span>configs/inference.yml<span class="w"> </span>--audio-path<span class="w"> </span>assets<span class="w"> </span>--query<span class="w"> </span><span class="s2">&quot;Caption the audio&quot;</span><span class="w"> </span>--window-length-seconds<span class="w"> </span><span class="m">10</span>.0<span class="w"> </span>--hop-length-seconds<span class="w"> </span><span class="m">10</span>.0
+</span></code></pre></div>
+<p>This will run inference on all audio files in the <code>assets</code> folder, using a window length of 10 seconds and a hop length of 10 seconds. The results will be saved in <code>inference_output.jsonl</code>. Run <code>python infer.py --help</code> for a description of the arguments.</p>
+<h2 id="run-evaluation-on-beans-zero">Run evaluation on BEANS-Zero</h2>
+<p>BEANS-Zero is a zero-shot audio+text benchmark for bioacoustics. The repository for the benchmark can be found <a href="https://github.com/earthspecies/beans-zero">here</a>, and the dataset is hosted on HuggingFace <a href="https://huggingface.co/datasets/EarthSpeciesProject/BEANS-Zero">here</a>.</p>
+<blockquote>
+<p><strong>Note:</strong> One of the tasks in BEANS-Zero requires a Java 8 runtime environment. If you don't have it installed, that task will be skipped.</p>
+</blockquote>
+<p>To run evaluation on the BEANS-Zero dataset, you can use the following command:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>uv<span class="w"> </span>run<span class="w"> </span>beans<span class="w"> </span>--cfg-path<span class="w"> </span>configs/inference.yml<span class="w"> </span>--data-path<span class="w"> </span><span class="s2">&quot;/some/local/path/to/data&quot;</span><span class="w"> </span>--output-path<span class="w"> </span><span class="s2">&quot;beans_zero_eval.jsonl&quot;</span>
+</span></code></pre></div>
+<blockquote>
+<p><strong>Caution:</strong> The BEANS-Zero dataset is large (~180GB) and will take a long time to run. The predictions will be saved in <code>beans_zero_eval.jsonl</code> and the evaluation metrics will be saved in <code>beans_zero_eval_metrics.jsonl</code>. Run <code>python beans_zero_inference.py --help</code> for a description of the arguments.</p>
+</blockquote>
+<h2 id="running-the-inference-web-app">Running the inference web app</h2>
+<p>You can launch the inference app with:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>uv<span class="w"> </span>run<span class="w"> </span>naturelm<span class="w"> </span>inference-app<span class="w"> </span>--cfg-path<span class="w"> </span>configs/inference.yml<span class="w"> </span>--merging-alpha<span class="w"> </span><span class="m">0</span>.5
+</span></code></pre></div>
+<p>This launches a local web app where you can upload an audio file and prompt the NatureLM-audio model.</p>
+<h2 id="instantiating-the-model-from-checkpoint">Instantiating the model from checkpoint</h2>
+<p>You can load the model directly from the HuggingFace Hub:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">NatureLM.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">NatureLM</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="c1"># Download the model from HuggingFace</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">model</span> <span class="o">=</span> <span class="n">NatureLM</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="s2">&quot;EarthSpeciesProject/NatureLM-audio&quot;</span><span class="p">)</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s2">&quot;cuda&quot;</span><span class="p">)</span>
+</span></code></pre></div>
+<p>Use it within your code for inference with the Pipeline API:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">NatureLM.infer</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pipeline</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="c1"># pass your audios in as file paths or as numpy arrays</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="c1"># NOTE: the Pipeline class will automatically load the audio and convert them to numpy arrays</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="n">audio_paths</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;assets/nri-GreenTreeFrogEvergladesNP.mp3&quot;</span><span class="p">]</span>  <span class="c1"># wav, mp3, ogg, flac are supported.</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="c1"># Create a list of queries. You may also pass a single query as a string for multiple audios.</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="c1"># The same query will be used for all audios.</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="n">queries</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;What is the common name for the focal species in the audio? Answer:&quot;</span><span class="p">]</span>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="n">pipeline</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">)</span>
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="c1"># NOTE: you can also just do pipeline = Pipeline() which will download the model automatically</span>
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="c1"># Run the model over the audio in sliding windows of 10 seconds with a hop length of 10 seconds</span>
+</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="n">results</span> <span class="o">=</span> <span class="n">pipeline</span><span class="p">(</span><span class="n">audio_paths</span><span class="p">,</span> <span class="n">queries</span><span class="p">,</span> <span class="n">window_length_seconds</span><span class="o">=</span><span class="mf">10.0</span><span class="p">,</span> <span class="n">hop_length_seconds</span><span class="o">=</span><span class="mf">10.0</span><span class="p">)</span>
+</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+</span><span id="__span-7-17"><a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a><span class="c1"># [&#39;#0.00s - 10.00s#: Green Treefrog\n&#39;]</span>
+</span></code></pre></div>
+<h2 id="model-merging">Model Merging</h2>
 <p>```{raw} html</p>
-<video controls style="width: 100%; border-radius: 8px;">
-  <source src="assets/images/naturelm-audio-demo-video2.mp4" type="video/mp4">
-  Your browser does not support the video element.
-</video>
-<p>```</p>
+<div class="update-box">
+  <span class="update-date">2025-05-27</span>
+  We've updated the NatureLM-audio Llama model by allowing for a flexible merge operation between the original Llama 3.1 8B and the LoRA fine-tuned one from the NatureLM-audio paper. Merging with the original weights better retains the chat and instruction following abilities of the original Llama model which allows for more variation in prompts as described in <a href="https://arxiv.org/abs/2511.05171" target="_blank">Model Merging Improves Zero-Shot Generalization in Bioacoustic Foundation Models</a>. But this comes at the cost of some performance on bioacoustic tasks.
+</div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>To use the new merging functionality, you can specify a `merging_alpha` parameter when loading the model from the config file:
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>```yaml
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>generate:
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>  merging_alpha: 0.4  # Interpolate 60% toward base model (40% NatureLM-audio fine-tuned llama weights)
+</span></code></pre></div>
+<p>A good range to try is between 0.4 and 0.6, but the exact value is dataset and task dependent. Read the <a href="https://arxiv.org/abs/2511.05171">paper</a> for more details and guidance!</p>
 
 
 
