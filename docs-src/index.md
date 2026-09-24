@@ -1,21 +1,5 @@
 # NatureLM-audio
 
-<script>
-  (function() {
-    var h1 = document.querySelector('.md-content h1');
-    if (h1) {
-      var badge = document.createElement('span');
-      badge.className = 'version-badge';
-      badge.textContent = 'v1.0';
-      badge.style.marginLeft = '0.5rem';
-      badge.style.verticalAlign = 'middle';
-      badge.style.position = 'relative';
-      badge.style.top = '2px';
-      h1.appendChild(badge);
-    }
-  })();
-</script>
-
 <div class="resource-links">
   <a href="https://openreview.net/forum?id=hJVdwBpWjt" target="_blank" class="resource-link">
     <img src="assets/icons/paper.svg" class="resource-link-icon paper-icon" /> Paper

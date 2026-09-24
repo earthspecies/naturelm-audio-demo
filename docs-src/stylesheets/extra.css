@@ -286,22 +286,6 @@ details:not(.mkdocstrings-source),
   margin-bottom: 0.25rem;
 }
 
-/* ── Version badge ───────────────────────────────────────────────────── */
-
-.version-badge {
-  display: inline-block;
-  font-size: 0.6rem;
-  font-weight: 500;
-  font-family: 'Euclid Circular B', sans-serif;
-  background-color: #C3E409;
-  color: #1a1a1a;
-  padding: 0.15em 0.55em;
-  border-radius: 0.3em;
-  vertical-align: middle;
-  margin-left: 0.4rem;
-  letter-spacing: 0.03em;
-}
-
 /* ── Prompt blocks ───────────────────────────────────────────────────── */
 
 .prompt-label {
