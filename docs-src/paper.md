@@ -6,11 +6,9 @@ David Robinson, Marius Miron, Masato Hagiwara, Olivier Pietquin
 
 *Proceedings of the International Conference on Learning Representations (ICLR), 2025*
 
-```{raw} html
 <a href="https://openreview.net/forum?id=hJVdwBpWjt" class="ext-btn" target="_blank" rel="noopener noreferrer">
   Read on OpenReview
 </a>
-```
 
 ## Abstract
 

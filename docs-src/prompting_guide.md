@@ -1,10 +1,8 @@
 # Prompting Guide
 
-```{raw} html
 <div class="page-version">
   <p class="page-version-note">This guide applies to NatureLM-audio v1.1, available through the <a href="https://huggingface.co/spaces/EarthSpeciesProject/NatureLM-Audio" target="_blank">Interactive Demo</a> on Hugging Face Spaces.</p>
 </div>
-```
 
 This guide covers usage of NatureLM-audio for bioacoustic tasks, with a focus on how to prompt the model to receive best results.
 
@@ -16,7 +14,6 @@ The model operates on 16 kHz mono audio, resampled automatically internally. The
 
 Tasks are labeled as either "Core", producing consistent results in our evaluations, or "Experimental" which show promise but merit further evaluation. NatureLM-audio can be tried on tasks beyond what's covered in this guide, and on taxa beyond the training data — however these should all be considered "Experimental" and not assumed to work out-of-the-box.
 
-```{raw} html
 <table class="task-overview">
   <thead>
     <tr><th>Task</th><th>Reliability</th><th>Sample Prompt</th></tr>
@@ -47,7 +44,6 @@ Tasks are labeled as either "Core", producing consistent results in our evaluati
     <tr><td><a href="#temporal-order">Temporal Order</a></td><td><span class="badge badge-exp">Experimental</span></td><td class="overview-prompt">List the species in the order they first vocalize, using scientific names.</td></tr>
   </tbody>
 </table>
-```
 
 ## Core Tasks
 
@@ -55,7 +51,6 @@ These tasks produce consistent results across our evaluations and cover the most
 
 ### Species Detection
 
-```{raw} html
 <p class="task-description">Detect which species are vocalizing without providing a list to choose from. The model can also answer "None".</p>
 <div class="prompt-example">
   <p class="prompt-label">Common name</p>
@@ -65,11 +60,9 @@ These tasks produce consistent results across our evaluations and cover the most
   <p class="prompt-label">Scientific name</p>
   <div class="prompt-block">What are the scientific names for the species in the audio, if any?</div>
 </div>
-```
 
 ### Species Identification
 
-```{raw} html
 <p class="task-description">Identify the single focal species in a recording.</p>
 <div class="prompt-example">
   <p class="prompt-label">Common name (recommended)</p>
@@ -79,11 +72,9 @@ These tasks produce consistent results across our evaluations and cover the most
   <p class="prompt-label">Scientific name</p>
   <div class="prompt-block">What is the scientific name of the focal species in the audio?</div>
 </div>
-```
 
 The model is very prompt-robust for species ID — terse prompts like *Species?* and verbose prompts all perform within ~1% of each other. Scientific-name prompts are slightly more accurate than common-name prompts because scientific names are more standardized.
 
-```{raw} html
 <div class="tips-card">
   <p class="tips-card-heading">Tips</p>
   <ul>
@@ -92,11 +83,9 @@ The model is very prompt-robust for species ID — terse prompts like *Species?*
     <li>Weak taxonomic groups: hummingbirds/swifts, grouse/pheasants, and kingfishers are notably harder.</li>
   </ul>
 </div>
-```
 
 ### Species Identification with Context
 
-```{raw} html
 <p class="task-description">Provide geographic or temporal metadata or free-text observations to help narrow identification.</p>
 <div class="prompt-example">
   <p class="prompt-label">Common name (recommended)</p>
@@ -106,19 +95,15 @@ The model is very prompt-robust for species ID — terse prompts like *Species?*
   <p class="prompt-label">Scientific name</p>
   <div class="prompt-block">Given the context: '&lt;context&gt;', what is the scientific name for the focal species in the audio?</div>
 </div>
-```
 
 Replace `<context>` with whatever metadata you have, e.g. `country: BR, coordinates: -23.5, -46.6` or `recorded in temperate forest, June`.
 
 <br>
 
-```{raw} html
 <p class="prompt-label">System prompt</p>
-```
 
 You can also place context in the system prompt:
 
-```{raw} html
 <div class="dialog-card">
   <div class="dialog-row">
     <span class="dialog-role">System</span>
@@ -129,9 +114,7 @@ You can also place context in the system prompt:
     <span class="dialog-text dialog-text--prompt">What is the common name of the species in this recording?</span>
   </div>
 </div>
-```
 
-```{raw} html
 <div class="tips-card">
   <p class="tips-card-heading">Tips</p>
   <ul>
@@ -139,11 +122,9 @@ You can also place context in the system prompt:
     <li>System-prompt context and in-prompt context perform similarly.</li>
   </ul>
 </div>
-```
 
 ### Species Identification from Option List
 
-```{raw} html
 <p class="task-description">Classify the focal species from a provided option list.</p>
 <div class="prompt-example">
   <p class="prompt-label">Common name</p>
@@ -153,11 +134,9 @@ You can also place context in the system prompt:
   <p class="prompt-label">Scientific name</p>
   <div class="prompt-block">Which of these species (scientific name) is in the audio? Options: &lt;species_choices&gt;</div>
 </div>
-```
 
 Replace `<species_choices>` with a comma-separated list, e.g. *Turdus merula, Erithacus rubecula, Fringilla coelebs, Parus major, Phylloscopus collybita*.
 
-```{raw} html
 <div class="tips-card">
   <p class="tips-card-heading">Tips</p>
   <ul>
@@ -167,11 +146,9 @@ Replace `<species_choices>` with a comma-separated list, e.g. *Turdus merula, Er
     <li>You can add context: <em>Given the context '&lt;context&gt;', which of these is the focal species? &lt;species_choices&gt;</em></li>
   </ul>
 </div>
-```
 
 ### Multiple Species Identification
 
-```{raw} html
 <p class="task-description">Classify one or more species in a recording. Unlike single-species classification, these prompts can return multiple species and can answer "None" when the correct answer is not present.</p>
 <div class="prompt-example">
   <p class="prompt-label">Listing prompt (recommended)</p>
@@ -183,9 +160,7 @@ Replace `<species_choices>` with a comma-separated list, e.g. *Turdus merula, Er
   <div class="prompt-block">Which of these species, if any, are present in the recording? &lt;species_choices&gt;</div>
   <div class="prompt-block">Which of these species (scientific name), if any, are present? &lt;species_choices&gt;</div>
 </div>
-```
 Replace `<species_choices>` with a comma-separated list, e.g. *Turdus merula, Erithacus rubecula, Fringilla coelebs, Parus major, Phylloscopus collybita*.
-```{raw} html
 <div class="tips-card">
   <p class="tips-card-heading">Tips</p>
   <ul>
@@ -193,11 +168,9 @@ Replace `<species_choices>` with a comma-separated list, e.g. *Turdus merula, Er
     <li>The "if any" phrasing in the option-list variant encourages the model to answer "None" when appropriate.</li>
   </ul>
 </div>
-```
 
 ### Taxonomy
 
-```{raw} html
 <p class="task-description">Classify at coarser taxonomic levels.</p>
 <div class="prompt-example">
   <p class="prompt-label">Genus</p>
@@ -215,9 +188,7 @@ Replace `<species_choices>` with a comma-separated list, e.g. *Turdus merula, Er
   <p class="prompt-label">Full taxonomic name</p>
   <div class="prompt-block">What is the taxonomic name of the focal species in the audio?</div>
 </div>
-```
 
-```{raw} html
 <div class="tips-card">
   <p class="tips-card-heading">Tips</p>
   <ul>
@@ -226,17 +197,13 @@ Replace `<species_choices>` with a comma-separated list, e.g. *Turdus merula, Er
     <li>All taxonomic prompts are highly prompt-robust.</li>
   </ul>
 </div>
-```
 
 ### Call Type / Behavior
 
-```{raw} html
 <p class="task-description">Classify the vocalization type. For exploratory purposes, use an open-ended prompt. To classify into a specific set of calls for analysis, binary prompts may be most reliable — e.g. call vs. song, alarm call present or not present.</p>
-```
 
 Note that this task currently focuses on call types which are established across species — for instance, "call", "song", or "alarm call", but likely not specifically a named call for a specific species.
 
-```{raw} html
 <div class="prompt-example">
   <p class="prompt-label">Open-ended call type</p>
   <div class="prompt-block">What type of vocalization or call is this?</div>
@@ -249,9 +216,7 @@ Note that this task currently focuses on call types which are established across
   <p class="prompt-label">Species-conditioned</p>
   <div class="prompt-block">What type of call is the &lt;species&gt; making in this recording?</div>
 </div>
-```
 
-```{raw} html
 <div class="tips-card">
   <p class="tips-card-heading">Tips</p>
   <ul>
@@ -260,11 +225,9 @@ Note that this task currently focuses on call types which are established across
     <li>The trained vocabulary includes: call, song, alarm call, flight call, begging call.</li>
   </ul>
 </div>
-```
 
 ### Life Stage
 
-```{raw} html
 <p class="task-description">Determine whether the vocalizing animal is an adult or juvenile.</p>
 <div class="prompt-example">
   <p class="prompt-label">Open-ended</p>
@@ -274,9 +237,7 @@ Note that this task currently focuses on call types which are established across
   <p class="prompt-label">Binary (recommended)</p>
   <div class="prompt-block">Is the focal species an adult or juvenile?</div>
 </div>
-```
 
-```{raw} html
 <div class="tips-card">
   <p class="tips-card-heading">Tips</p>
   <ul>
@@ -284,11 +245,9 @@ Note that this task currently focuses on call types which are established across
     <li>Use this as a soft filter rather than a definitive classifier for juveniles.</li>
   </ul>
 </div>
-```
 
 ### Captioning
 
-```{raw} html
 <p class="task-description">Generate a natural-language description of the audio.</p>
 <div class="prompt-example">
   <p class="prompt-label">Bioacoustic caption (recommended)</p>
@@ -298,9 +257,7 @@ Note that this task currently focuses on call types which are established across
   <p class="prompt-label">General audio caption</p>
   <div class="prompt-block">Caption this audio with a rich, detailed description. Avoid specific species names.</div>
 </div>
-```
 
-```{raw} html
 <div class="tips-card">
   <p class="tips-card-heading">Tips</p>
   <ul>
@@ -308,11 +265,9 @@ Note that this task currently focuses on call types which are established across
     <li>The general caption deliberately avoids species names — use it when you want habitat/acoustic descriptions without identification.</li>
   </ul>
 </div>
-```
 
 ### Combined Task / Multi-Turn
 
-```{raw} html
 <p class="task-description">Ask the model to identify species first, then follow up with behavior or life-stage questions. The model retains audio context across turns.</p>
 <p class="prompt-label">Species then behavior</p>
 <div class="dialog-card">
@@ -359,9 +314,7 @@ Note that this task currently focuses on call types which are established across
     <span class="dialog-text dialog-text--prompt">What type of vocalization is it, and what is the life stage?</span>
   </div>
 </div>
-```
 
-```{raw} html
 <div class="tips-card">
   <p class="tips-card-heading">Tips</p>
   <ul>
@@ -369,18 +322,14 @@ Note that this task currently focuses on call types which are established across
     <li>Behavior and life-stage follow-ups carry the same caveats as their standalone counterparts (call/song confusion, adult bias).</li>
   </ul>
 </div>
-```
 
 ### Environmental Sound Classification
 
-```{raw} html
 <p class="task-description">Classify non-animal environmental sounds from a provided option list.</p>
 <div class="prompt-example">
   <div class="prompt-block">Which of these non-animal sounds are present in the recording? &lt;option_choices&gt;. Answer with a comma-separated list using only the provided options, or None.</div>
 </div>
-```
 
-```{raw} html
 <div class="tips-card">
   <p class="tips-card-heading">Tips</p>
   <ul>
@@ -388,11 +337,9 @@ Note that this task currently focuses on call types which are established across
     <li>The model returns a comma-separated list of matches, or "None" if nothing matches.</li>
   </ul>
 </div>
-```
 
 ### Taxon Presence
 
-```{raw} html
 <p class="task-description">Determine whether a broad taxonomic group is present in the recording.</p>
 <div class="prompt-example">
   <div class="prompt-block">Is there a bird vocalizing in this recording? Answer Yes or No.</div>
@@ -402,9 +349,7 @@ Note that this task currently focuses on call types which are established across
   <div class="prompt-block">Is there a frog or amphibian vocalizing in this recording? Answer Yes or No.</div>
   <div class="prompt-block">Are there any animal vocalizations in this recording? Answer Yes or No.</div>
 </div>
-```
 
-```{raw} html
 <div class="tips-card">
   <p class="tips-card-heading">Tips</p>
   <ul>
@@ -413,21 +358,17 @@ Note that this task currently focuses on call types which are established across
     <li>The model correctly rejects wrong taxa (e.g. answers "No" to mammal presence on bird-only recordings).</li>
   </ul>
 </div>
-```
 
 ### Call Type Presence
 
-```{raw} html
 <p class="task-description">Determine whether a specific call type is present.</p>
 <div class="prompt-example">
   <p class="prompt-label">Generic (any call type)</p>
   <div class="prompt-block">Is a &lt;target_call_type&gt; present in this recording? Answer Yes or No.</div>
 </div>
-```
 
 Replace `<target_call_type>` with e.g. *alarm call*, *flight call*, *begging call*.
 
-```{raw} html
 <div class="prompt-example">
   <p class="prompt-label">Alarm call</p>
   <div class="prompt-block">Is an alarm call present in this recording? Answer Yes or No.</div>
@@ -438,7 +379,6 @@ Replace `<target_call_type>` with e.g. *alarm call*, *flight call*, *begging cal
   <div class="prompt-block">Is a flight call present in this recording? Answer Yes or No.</div>
   <div class="prompt-block">Is the &lt;species&gt; making a flight call in this recording? Answer Yes or No.</div>
 </div>
-```
 
 ---
 
@@ -448,77 +388,62 @@ These tasks show promise but require further evaluation. Some are trained on lim
 
 ### Top-3 Species Identification
 
-```{raw} html
 <div class="prompt-example">
   <div class="prompt-block">What is the common name of the species vocalizing in this audio recording? Provide your top 3 predictions.</div>
 </div>
-```
 
 The model will return in ranked order the top 3 candidates for the focal species.
 
 ### Habitat Inference
 
-```{raw} html
 <div class="prompt-example">
   <div class="prompt-block">Based on the sounds, what habitat or environment do you think this was recorded in?</div>
 </div>
-```
 
 Produces plausible biome labels (e.g. "Forest", "Grassland"). For richer descriptions, lower `merging_alpha` to ~0.7.
 
 ### Geographic Inference
 
-```{raw} html
 <div class="prompt-example">
   <div class="prompt-block">Based on the species you hear, what region of the world was this likely recorded in?</div>
 </div>
-```
 
 The model appears to infer geography from species identity, background sounds, or other cues. Lower alpha (0.6–0.7) substantially improves geographic reasoning by leveraging the base LLM's species-range knowledge.
 
 ### Structured JSON Output
 
-```{raw} html
 <div class="prompt-example">
   <div class="prompt-block">Identify this recording. Respond in JSON format: {"species": "...", "call_type": "..."}</div>
 </div>
-```
 
 At default alpha (1.0), JSON instructions are ignored and the model outputs a plain label. For valid JSON, you must lower alpha to ~0.7. Including detailed field names in the prompt helps the model honor the structure.
 
 ### Describe-Then-Identify
 
-```{raw} html
 <div class="prompt-example">
   <div class="prompt-block">First describe what you hear, then identify the species.</div>
 </div>
-```
 
 Produces coherent free-form descriptions. For the best chance that the species name appears in the text, use alpha ~0.9.
 
 ### Frequency Range
 
-```{raw} html
 <div class="prompt-example">
   <div class="prompt-block">What is the overall frequency range of the vocalizations in this audio?</div>
 </div>
-```
 
 Returns a range like *2000–8000 Hz*.
 
 ### Species Count
 
-```{raw} html
 <div class="prompt-example">
   <div class="prompt-block">How many different species are vocalizing, and what are they? Give scientific names.</div>
 </div>
-```
 
 Expected output format: *N: species1, species2*. Species counting is harder than listing — the model sometimes outputs names instead of a count.
 
 ### Call Count
 
-```{raw} html
 <div class="prompt-example">
   <p class="prompt-label">Per-species</p>
   <div class="prompt-block">How many calls from each species can you hear? Give scientific names.</div>
@@ -527,25 +452,20 @@ Expected output format: *N: species1, species2*. Species counting is harder than
   <p class="prompt-label">Total</p>
   <div class="prompt-block">How many individual vocalizations can you detect in this audio?</div>
 </div>
-```
 
 Counting is approximate. On single-species clips the model often answers "1". It rarely hallucinates large numbers.
 
 ### Individual Count
 
-```{raw} html
 <div class="prompt-example">
   <div class="prompt-block">How many individuals are vocalizing in the audio? Answer "one" or "more than one".</div>
 </div>
-```
 
 ### Temporal Order
 
-```{raw} html
 <div class="prompt-example">
   <div class="prompt-block">List the species in the order they first vocalize, using scientific names.</div>
 </div>
-```
 
 
 ---

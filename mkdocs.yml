@@ -1,0 +1,98 @@
+site_name: NatureLM-audio
+site_description: Audio-language foundation model for bioacoustics
+site_url: https://projects.earthspecies.org/naturelm-audio/
+
+repo_name: earthspecies/NatureLM-audio
+repo_url: https://github.com/earthspecies/NatureLM-audio
+
+docs_dir: docs-src
+site_dir: docs
+
+# Flat page.html URLs instead of page/ directories. Keeps relative asset paths
+# in raw HTML (audio players, images, video) resolving against the site root,
+# and preserves the URLs the previous Sphinx build published.
+use_directory_urls: false
+
+# MkDocs copies everything under docs_dir into the site, which would otherwise
+# publish the superseded Sphinx tree (~180M of duplicate fonts and old HTML).
+# The trailing !.nojekyll re-includes that dotfile, which MkDocs skips by
+# default, so GitHub Pages keeps bypassing Jekyll on every build.
+exclude_docs: |
+  _build/
+  _static/
+  _templates/
+  conf.py
+  Makefile
+  make.bat
+  .DS_Store
+  !.nojekyll
+
+# Reachable by direct URL only, not linked from anywhere. The video was
+# deliberately unlinked in 8be72c1; installation is superseded by usage.md.
+not_in_nav: |
+  demo_video.md
+  installation.md
+
+nav:
+  - Getting Started:
+      - Overview: index.md
+      - Usage: usage.md
+      - Quick Start: quick_start.md
+      - Prompting Guide: prompting_guide.md
+  - Demos & Examples:
+      - Interactive Demo: ui_demo.md
+      - Examples: examples.md
+      - Case Study: case_studies.md
+  - Reference:
+      - Datasets: datasets.md
+      - Paper: paper.md
+
+theme:
+  name: material
+  favicon: assets/favicon.svg
+  logo: assets/esp-logotype-only-white.png
+  font: false
+  features:
+    - content.code.copy
+    - navigation.instant
+    - navigation.instant.prefetch
+    - navigation.instant.progress
+    - navigation.sections
+    - navigation.top
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/brightness-4
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/brightness-7
+        name: Switch to system preference
+
+plugins:
+  - search
+
+markdown_extensions:
+  - toc:
+      title: On this page
+  - admonition
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+
+extra_css:
+  - stylesheets/extra.css
+
+extra_javascript:
+  - javascripts/extra.js

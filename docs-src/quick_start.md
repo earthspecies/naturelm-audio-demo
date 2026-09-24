@@ -1,15 +1,12 @@
 # Quick Start Guide
 
-```{raw} html
 <div class="page-version">
   <p class="page-version-note">This guide applies to NatureLM-audio v1.1, available through the <a href="https://huggingface.co/spaces/EarthSpeciesProject/NatureLM-Audio" target="_blank">Interactive Demo</a> on Hugging Face Spaces.</p>
 </div>
-```
 
-Below are sample prompts to try with the model and a few practical tips. See the [Prompting Guide](prompting_guide.html#task-overview) for the full task reference, prompt variants, and advanced configuration.
+Below are sample prompts to try with the model and a few practical tips. See the [Prompting Guide](prompting_guide.md#task-overview) for the full task reference, prompt variants, and advanced configuration.
 
 
-```{raw} html
 <div class="tips-card tips-card--green">
   <p class="tips-card-heading">Tips</p>
   <ul>
@@ -18,11 +15,9 @@ Below are sample prompts to try with the model and a few practical tips. See the
     <li><strong>For Yes/No questions, always include "Answer Yes or No."</strong> Without this, the model may respond with species names rather than a yes or no answer.</li>
   </ul>
 </div>
-```
 
 ## Core Tasks
 
-```{raw} html
 <table class="prompt-ref">
   <tr>
     <td class="pref-cat">Species Detection</td>
@@ -101,7 +96,6 @@ Below are sample prompts to try with the model and a few practical tips. See the
     </td>
   </tr>
 </table>
-```
 
 > If you have a candidate list for species ID, use the multiple-choice form — accuracy (~91%) is substantially higher than open-ended identification (~77%).
 
@@ -109,17 +103,17 @@ Below are sample prompts to try with the model and a few practical tips. See the
 
 The following are experimental tasks and results should be taken as exploratory:
 
-- [Top 3 Species Identification](prompting_guide.html#top-3-species-identification)
-- [Habitat Inference](prompting_guide.html#habitat-inference)
-- [Geographic Inference](prompting_guide.html#geographic-inference)
-- [JSON Output](prompting_guide.html#structured-json-output)
-- [Frequency Analysis](prompting_guide.html#frequency-range)
-- [Species Counting](prompting_guide.html#species-count)
-- [Call Counting](prompting_guide.html#call-count)
-- [Individual Counting](prompting_guide.html#individual-count)
-- [Temporal Ordering](prompting_guide.html#temporal-order)
+- [Top 3 Species Identification](prompting_guide.md#top-3-species-identification)
+- [Habitat Inference](prompting_guide.md#habitat-inference)
+- [Geographic Inference](prompting_guide.md#geographic-inference)
+- [JSON Output](prompting_guide.md#structured-json-output)
+- [Frequency Analysis](prompting_guide.md#frequency-range)
+- [Species Counting](prompting_guide.md#species-count)
+- [Call Counting](prompting_guide.md#call-count)
+- [Individual Counting](prompting_guide.md#individual-count)
+- [Temporal Ordering](prompting_guide.md#temporal-order)
 
-For sample prompts and details on experimental tasks, see the [Prompting Guide](prompting_guide.html#experimental-tasks).
+For sample prompts and details on experimental tasks, see the [Prompting Guide](prompting_guide.md#experimental-tasks).
 
 ## Limitations
 

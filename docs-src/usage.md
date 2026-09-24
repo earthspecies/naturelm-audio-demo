@@ -1,10 +1,8 @@
 # Usage
 
-```{raw} html
 <div class="page-version">
   <p class="page-version-note">This guide applies to NatureLM-audio v1.0, open sourced <a href="https://huggingface.co/EarthSpeciesProject/NatureLM-audio" target="_blank">here</a> on Hugging Face.</p>
 </div>
-```
 
 ## Requirements
 
@@ -115,12 +113,10 @@ print(results)
 
 ## Model Merging
 
-```{raw} html
 <div class="update-box">
   <span class="update-date">2025-05-27</span>
   We've updated the NatureLM-audio Llama model by allowing for a flexible merge operation between the original Llama 3.1 8B and the LoRA fine-tuned one from the NatureLM-audio paper. Merging with the original weights better retains the chat and instruction following abilities of the original Llama model which allows for more variation in prompts as described in <a href="https://arxiv.org/abs/2511.05171" target="_blank">Model Merging Improves Zero-Shot Generalization in Bioacoustic Foundation Models</a>. But this comes at the cost of some performance on bioacoustic tasks.
 </div>
-```
 
 To use the new merging functionality, you can specify a `merging_alpha` parameter when loading the model from the config file:
 

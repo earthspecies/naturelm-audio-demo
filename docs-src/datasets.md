@@ -8,11 +8,9 @@ It consists of over 26 million audio-text pairs derived from diverse sources inc
 
 The training dataset is publicly available on Hugging Face:
 
-```{raw} html
 <a href="https://huggingface.co/datasets/EarthSpeciesProject/NatureLM-audio-training" class="ext-btn" target="_blank" rel="noopener noreferrer">
   NatureLM-audio Training Dataset
 </a>
-```
 
 ### Data Sources
 
@@ -123,7 +121,6 @@ NatureLM-audio sets a new state of the art on several BEANS-Zero tasks, includin
 
 Full benchmark data and evaluation code are available on Hugging Face:
 
-```{raw} html
 <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
   <a href="https://huggingface.co/datasets/EarthSpeciesProject/BEANS-Zero" class="ext-btn" target="_blank" rel="noopener noreferrer">
     BEANS-Zero Dataset
@@ -132,4 +129,3 @@ Full benchmark data and evaluation code are available on Hugging Face:
     Evaluation Code
   </a>
 </div>
-```
