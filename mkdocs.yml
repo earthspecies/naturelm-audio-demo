@@ -96,3 +96,14 @@ extra_css:
 
 extra_javascript:
   - javascripts/extra.js
+
+# Versioned deploys via mike. Versions are named
+# after the NatureLM-audio model version they document (1.1, 2.0, ...), not
+# after this repo's own history — this repo holds only the docs, so a release
+# here is a docs release. Tag and deploy by hand when the model ships:
+#   git tag docs-<version>
+#   mike deploy --push --update-aliases <version> latest
+extra:
+  version:
+    provider: mike
+    alias: true
