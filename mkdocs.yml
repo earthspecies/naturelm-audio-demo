@@ -30,10 +30,9 @@ exclude_docs: |
   .DS_Store
   !.nojekyll
 
-# Reachable by direct URL only, not linked from anywhere. The video was
-# deliberately unlinked in 8be72c1; installation is superseded by usage.md.
+# Reachable by direct URL only, not linked from anywhere:
+# installation is superseded by usage.md.
 not_in_nav: |
-  demo_video.md
   installation.md
 
 nav:
